@@ -1,6 +1,8 @@
 import socket
 import traceback
 
+import requests
+
 # socket de UDP
 udp_send_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, proto=socket.IPPROTO_UDP)
 
