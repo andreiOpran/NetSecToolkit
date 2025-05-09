@@ -106,4 +106,7 @@ if __name__ == "__main__":
 2. Capturare raspunsuri ICMP
 3. Oprire la destinatie
 4. Afisare rezultate
+
+Timeout-urile sunt perfect normale,
+nu toate routerele raspund la cererile ICMP
 '''
