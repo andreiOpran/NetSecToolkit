@@ -5,3 +5,15 @@ Locatiile pentru mai multe regiuni de pe ip-ul 5.14.110.255
 39.1422,117.1767, Tianjin, Tianjin, CN
 39.9075,116.3972, Beijing, Beijing, CN
 39.1422,117.1767, Tianjin, Tianjin, CN
+Locatiile pentru mai multe regiuni de pe ip-ul 64.226.94.247
+50.1155,8.6842, Frankfurt am Main, Hesse, DE
+50.1155,8.6842, Frankfurt am Main, Hesse, DE
+50.1155,8.6842, Frankfurt am Main, Hesse, DE
+50.1155,8.6842, Frankfurt am Main, Hesse, DE
+50.1155,8.6842, Frankfurt am Main, Hesse, DE
+50.1155,8.6842, Frankfurt am Main, Hesse, DE
+50.1155,8.6842, Frankfurt am Main, Hesse, DE
+39.1422,117.1767, Tianjin, Tianjin, CN
+39.9075,116.3972, Beijing, Beijing, CN
+39.6438,118.1832, Tangshan, Hebei, CN
+31.2222,121.4581, Shanghai, Shanghai, CN
