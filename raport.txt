@@ -1,0 +1,24 @@
+Locațiile din lume pentru rutele către mai multe site-uri din regiuni diferite: din Asia, Africa și Australia
+50.1155,8.6842, Frankfurt am Main, Hesse, DE
+50.1155,8.6842, Frankfurt am Main, Hesse, DE
+39.9075,116.3972, Beijing, Beijing, CN
+39.9075,116.3972, Beijing, Beijing, CN
+39.9075,116.3972, Beijing, Beijing, CN
+Locațiile din lume pentru rutele către mai multe site-uri din regiuni diferite: din Asia, Africa și Australia
+52.3740,4.8897, Amsterdam, North Holland, NL
+50.1155,8.6842, Frankfurt am Main, Hesse, DE
+50.0494,10.2218, Schweinfurt, Bavaria, DE
+39.9075,116.3972, Beijing, Beijing, CN
+39.9075,116.3972, Beijing, Beijing, CN
+39.1422,117.1767, Tianjin, Tianjin, CN
+Locatiile pentru mai multe regiuni de pe ip-ul 127.0.1.1
+52.3740,4.8897, Amsterdam, North Holland, NL
+50.1155,8.6842, Frankfurt am Main, Hesse, DE
+39.9075,116.3972, Beijing, Beijing, CN
+Locatiile pentru mai multe regiuni de pe ip-ul 127.0.1.1
+51.5085,-0.1257, London, England, GB
+50.1155,8.6842, Frankfurt am Main, Hesse, DE
+50.0494,10.2218, Schweinfurt, Bavaria, DE
+39.9075,116.3972, Beijing, Beijing, CN
+39.9075,116.3972, Beijing, Beijing, CN
+31.2222,121.4581, Shanghai, Shanghai, CN
