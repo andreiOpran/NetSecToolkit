@@ -67,8 +67,11 @@ def traceroute(ip, port):
                 # verificam statusul raspunsului
                 if raspuns.status_code == 200:
                     try:
+                        location = raspuns.json().get('loc')
                         city, region, country = raspuns.json().get('city'), raspuns.json().get('region'), raspuns.json().get('country')
-                        if city and region and country:
+                        if location:
+                            with open("../raport.txt", "a") as file:
+                                file.write(f"{location}\n")
                             print(f"Location: {city}, {region}, {country}")
                         else:
                             print("Private IP or no location data available")
