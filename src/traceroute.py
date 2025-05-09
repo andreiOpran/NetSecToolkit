@@ -1,6 +1,7 @@
 import socket
 import struct
 import time
+import random
 
 import requests
 
@@ -12,6 +13,10 @@ icmp_recv_socket = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.IPPROTO
 
 # setam timout in cazul in care socketul ICMP la apelul recvfrom nu primeste nimic in buffer
 icmp_recv_socket.settimeout(3)
+
+def generate_random_ip():
+    return f"{random.randint(1, 255)}.{random.randint(0, 255)}.{random.randint(0, 255)}.{random.randint(0, 255)}"
+
 
 def traceroute(ip, port):
     # setam TTL in headerul de IP pentru socketul de UDP
@@ -44,9 +49,33 @@ def traceroute(ip, port):
             icmp_header = data[ip_header_length:ip_header_length + 8]
             icmp_type, icmp_code, icmp_checksum = struct.unpack('!BBH', icmp_header[:4]) # !BBH e formatul, icmp_header e buffer
 
+            # fake_HTTP_header e un dictionar care contine antetul HTTP folosit pentru informatii despre cerere
+            fake_HTTP_header = {
+                    'referer': 'https://ipinfo.io/', # pagina de pe care provine cererea
+                    
+                    # informatii despre clientul care face cererea
+                    'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.79 Safari/537.36',
+
+                    'X-Forwarded-For': generate_random_ip()  # adresa IP generata aleator pentru a evita limitarea cererilor
+                   }
+
             # verificam tipul de mesaj ICMP
             if icmp_type == 11:  # Time Exceeded
                 print(f"Hop {hop}: {addr[0]} (Time Exceeded) - {elapsed_time:.2f} ms")
+                # trimitem cererea catre ipinfo.io pentru a obtine informatii despre IP
+                raspuns = requests.get(f'https://ipinfo.io/{addr[0]}/json', headers=fake_HTTP_header)
+                # verificam statusul raspunsului
+                if raspuns.status_code == 200:
+                    try:
+                        city, region, country = raspuns.json().get('city'), raspuns.json().get('region'), raspuns.json().get('country')
+                        if city and region and country:
+                            print(f"Location: {city}, {region}, {country}")
+                        else:
+                            print("Private IP or no location data available")
+                    except requests.exceptions.JSONDecodeError:
+                        print(f"Răspunsul nu este JSON valid: {raspuns.text}")
+                else:
+                    print(f"Eroare la cerere: {raspuns.status_code} - {raspuns.text}")
             elif icmp_type == 3:  # Destination Unreachable
                 print(f"Hop {hop}: {addr[0]} (Destination Unreachable)")
                 if addr[0] == ip:
@@ -95,7 +124,7 @@ def traceroute(ip, port):
 
 # Testare traceroute
 if __name__ == "__main__":
-    dest = "8.8.8.8"
+    dest = "64.226.94.247"  # IP-ul de test
     port = 33434
     traceroute(dest, port)
 
