@@ -2,6 +2,7 @@ import traceroute
 import socket
 import pandas as pd
 import plotly.express as px
+import requests
 
 # domenii de test
 domains = {
@@ -9,6 +10,19 @@ domains = {
     # 'Africa': 'gov.za',
     # 'Australia': 'gov.au'
 }
+
+# functie pentru a obtine IP-ul public
+def get_public_ip():
+    try:
+        response = requests.get("https://api.ipify.org?format=json")
+        if response.status_code == 200:
+            return response.json().get("ip")
+        else:
+            print(f"Eroare la obținerea IP-ului public: {response.status_code}")
+            return None
+    except requests.RequestException as e:
+        print(f"Eroare la conectarea la serviciul de IP public: {e}")
+        return None
 
 # functie pentru a obtine IP-ul unui domeniu
 def get_ip(domain):
@@ -19,10 +33,12 @@ def get_ip(domain):
 
 def get_locations():
     # obtinem IP-ul local al masinii care ruleaza scriptul
-    local_ip = socket.gethostbyname(socket.gethostname())
-    with open("../raport.txt", "a") as file:
-        file.write(f"Locatiile pentru mai multe regiuni de pe ip-ul {local_ip}\n")
-
+    public_ip = get_public_ip()
+    if public_ip:
+        with open("../raport.txt", "a") as file:
+            file.write(f"Locatiile pentru mai multe regiuni de pe ip-ul {public_ip}\n")
+    else:
+        print("Nu s-a putut obtine IP-ul public.")
     # iterare pe domenii
     for region, domain in domains.items():
         ip = get_ip(domain)
