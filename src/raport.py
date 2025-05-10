@@ -79,7 +79,7 @@ def draw_map():
     )
 
     # salvam harta ca fisier HTML
-    fig.write_html("../raport_harta.html")
+    fig.write_html("../raport_harta.html", auto_open=True)
 
 if __name__ == "__main__":
     get_locations()
