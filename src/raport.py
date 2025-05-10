@@ -7,8 +7,8 @@ import requests
 # domenii de test
 domains = {
     'Asia' : 'baidu.com',
-    # 'Africa': 'gov.za',
-    # 'Australia': 'gov.au'
+    'Africa': 'gov.za',
+    'Australia': 'gov.au'
 }
 
 # functie pentru a obtine IP-ul public
@@ -35,7 +35,7 @@ def get_locations():
     # obtinem IP-ul local al masinii care ruleaza scriptul
     public_ip = get_public_ip()
     if public_ip:
-        with open("../raport.txt", "a") as file:
+        with open("../raport.txt", "w") as file:
             file.write(f"Locatiile pentru mai multe regiuni de pe ip-ul {public_ip}\n")
     else:
         print("Nu s-a putut obtine IP-ul public.")

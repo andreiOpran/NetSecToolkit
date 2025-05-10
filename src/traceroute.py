@@ -22,7 +22,7 @@ def traceroute(ip, port):
     # setam TTL in headerul de IP pentru socketul de UDP
     # TTL = Time To Live
     # UDP = User Datagram Protocol
-    TTL = 15 # TODO schimbat TTL la 64
+    TTL = 10 # TODO schimbat TTL la 64
     for hop in range(1, TTL+1):
         # setam TTL-ul in socketul UDP
         udp_send_sock.setsockopt(socket.IPPROTO_IP, socket.IP_TTL, hop)
