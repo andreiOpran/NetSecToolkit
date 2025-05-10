@@ -22,7 +22,7 @@ def traceroute(ip, port):
     # setam TTL in headerul de IP pentru socketul de UDP
     # TTL = Time To Live
     # UDP = User Datagram Protocol
-    TTL = 10 # TODO schimbat TTL la 64
+    TTL = 20 # TODO schimbat TTL la 64
     for hop in range(1, TTL+1):
         # setam TTL-ul in socketul UDP
         udp_send_sock.setsockopt(socket.IPPROTO_IP, socket.IP_TTL, hop)
@@ -71,7 +71,7 @@ def traceroute(ip, port):
                         city, region, country = raspuns.json().get('city'), raspuns.json().get('region'), raspuns.json().get('country')
                         if location:
                             # afisam informatiile despre IP
-                            with open("../raport.txt", "a") as file:
+                            with open("raport.txt", "a") as file:
                                 file.write(f"{location}, {city}, {region}, {country}\n")
                         else:
                             print("Private IP or no location data available")
