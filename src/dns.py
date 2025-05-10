@@ -92,6 +92,24 @@ class DNSServer:
                 qd = request_packet.qd, # Intrebare originala
                 an = dns_answer # Raspunsul nostru DNS
             )
+        
+    def send_upstream_query(self, query):
+        # Trimite cererea DNS catre serverul DNS de upstream (8.8.8.8)
+        sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        sock.settimeout(2)  # Setam timeout de 2 secunde
+        
+        try:
+            # Trimitem cererea catre serverul DNS de upstream
+            sock.sendto(query, (self.upstream_dns, 53))
+            # Asteptam raspunsul de la serverul upstream
+            response, _ = sock.recvfrom(4096) 
+            return response
+        except socket.timeout:
+            print("Timeout la cererea DNS catre serverul upstream.")
+        finally:
+            sock.close()
+        
+        return None
             
     def handle_request(self, data, client_address):
         # Gestioneaza cererea DNS
@@ -100,6 +118,7 @@ class DNSServer:
             packet = DNS(data)
             dns = packet.getlayer(DNS)
             
+            # opcope 0 = cerere standard
             if dns is None or dns.opcode != 0: # Verificam daca este o cerere DNS
                 return None
             
@@ -119,13 +138,43 @@ class DNSServer:
             if rdata is not None:
                 return self.create_response(packet, query_name, query_type, rdata)
             
+            # Daca nu gasim inregistrarea, trimitem cererea catre serverul DNS de upstream
+            upstream_response = self.send_upstream_query(bytes(packet))
+            if upstream_response:
+                # Daca primim un raspuns de la serverul upstream, il trimitem inapoi clientului
+                upstream_packet = DNS(upstream_response)
+                if upstream_packet and upstream_packet[DNS].qr == 1: # Raspuns
+                    # Extragem IP-ul din raspuns
+                    ip_address = self.extract_ip_from_response(upstream_packet)
+                    # Salvam in JSON
+                    self.save_record(query_name, query_type, ip_address)
+                    return upstream_packet
+
             # Caz default daca nu gasim, raspundem cu adresa default 1.1.1.1
-            # TODO: putem sa facem o cerere catre un server DNS de upstream
             return self.create_response(packet, query_name, query_type, "1.1.1.1")
         
         except Exception as e:
             print(f"Error handling DNS request: {e}")
             return None
+        
+    def save_record(self, domain, record_type, ip_address):
+        # Salveaza inregistrarile DNS in baza de date locala (JSON)
+        if record_type not in self.records:
+            self.records[record_type] = {}
+        
+        # Adaugam inregistrarea in baza de date
+        self.records[record_type][domain] = ip_address
+        
+        # Salvam inregistrarile in fisier
+        with open(self.records_file, "w") as file:
+            json.dump(self.records, file, indent=4)
+
+    def extract_ip_from_response(self, response):
+        # Extrage IP-ul din raspunsul DNS
+        for answer in response[DNS].an:
+            if answer.type == 1:  # Tip A (IPv4)
+                return answer.rdata
+        return None
     
     def _get_query_type_name(self, qtype):
         # Convertim tipul numeric in nume
@@ -169,4 +218,4 @@ class DNSServer:
 if __name__ == "__main__":
     print("Pornire server DNS...")
     server = DNSServer()
-    server.start()
+    server.start(listen_port = 8080)
