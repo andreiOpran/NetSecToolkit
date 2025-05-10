@@ -15,3 +15,18 @@ Locatiile pentru mai multe regiuni de pe ip-ul 5.14.130.241
 51.5085,-0.1257, London, England, GB
 -33.9258,18.4232, Cape Town, Western Cape, ZA
 -33.9258,18.4232, Cape Town, Western Cape, ZA
+Locatiile pentru mai multe regiuni de pe ip-ul 64.226.94.247
+50.1155,8.6842, Frankfurt am Main, Hesse, DE
+50.1155,8.6842, Frankfurt am Main, Hesse, DE
+50.1155,8.6842, Frankfurt am Main, Hesse, DE
+50.1155,8.6842, Frankfurt am Main, Hesse, DE
+50.1155,8.6842, Frankfurt am Main, Hesse, DE
+50.1155,8.6842, Frankfurt am Main, Hesse, DE
+50.1155,8.6842, Frankfurt am Main, Hesse, DE
+50.1155,8.6842, Frankfurt am Main, Hesse, DE
+50.1155,8.6842, Frankfurt am Main, Hesse, DE
+50.1155,8.6842, Frankfurt am Main, Hesse, DE
+50.1155,8.6842, Frankfurt am Main, Hesse, DE
+50.1155,8.6842, Frankfurt am Main, Hesse, DE
+51.5085,-0.1257, London, England, GB
+51.5085,-0.1257, London, England, GB
