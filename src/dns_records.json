@@ -1,0 +1,8 @@
+{
+    "A": {
+        "example.com.": "192.168.1.1",
+        "www.example.com.": "192.168.1.1",
+        "myserver.local.": "192.168.1.10",
+        "router.local.": "192.168.1.254"
+    }
+}

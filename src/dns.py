@@ -87,7 +87,7 @@ class DNSServer:
             return DNS(
                 id = request_packet[DNS].id, # ID-ul cererii originale
                 qr = 1, # Raspuns
-                aa = 0, # Non-Authoritative Answer
+                aa = 1, # Authoritative Answer
                 rcode = 0, # Raspuns OK, fara erori
                 qd = request_packet.qd, # Intrebare originala
                 an = dns_answer # Raspunsul nostru DNS
@@ -110,7 +110,7 @@ class DNSServer:
             
             # Extragem numele domeniului si tipul de inregistrare
             query_name = query.qname.decode() if hasattr(query.qname, 'decode') else str(query.qname)
-            query_type = self._get_query_type(query.qtype)
+            query_type = self._get_query_type_name(query.qtype)
             
             # Cautam inregistrarea in baza de date locala
             rdata = self.get_record(query_name, query_type)
@@ -146,9 +146,12 @@ class DNSServer:
             
             while True:
                 try:
+                    # Ascultam cereri DNS
                     data, client_address = self.socket.recvfrom(4096) # Primim cererea
                     
+                    # Procesam cererea
                     response = self.handle_request(data, client_address) # Procesam cererea
+                    # Daca avem un raspuns, il trimitem inapoi clientului
                     if response:
                         self.socket.sendto(bytes(response), client_address)
                         
