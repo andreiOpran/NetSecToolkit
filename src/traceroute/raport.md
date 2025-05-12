@@ -71,3 +71,77 @@
 50.0880,14.4208, Prague, Prague, CZ  
 50.0880,14.4208, Prague, Prague, CZ  
 34.6841,33.0379, Limassol, Limassol, CY  
+
+
+
+# From machine with IP: 5.14.110.255 (Constanţa, RO)
+
+#### Running traceroute from 5.14.110.255 (Constanţa, RO) to 202.232.2.191 (Kobe, JP)
+44.1807,28.6343, Constanţa, Constanța County, RO  
+50.1155,8.6842, Frankfurt am Main, Hesse, DE  
+34.0522,-118.2437, Los Angeles, California, US  
+34.6938,135.5011, Osaka, Osaka, JP  
+34.6938,135.5011, Osaka, Osaka, JP  
+34.6913,135.1830, Kobe, Hyōgo, JP  
+
+#### Running traceroute from 5.14.110.255 (Constanţa, RO) to 193.57.128.103 (Paris, FR)
+44.1807,28.6343, Constanţa, Constanța County, RO  
+44.4323,26.1063, Bucharest, București, RO  
+48.8534,2.3488, Paris, Île-de-France, FR  
+48.8534,2.3488, Paris, Île-de-France, FR  
+48.8534,2.3488, Paris, Île-de-France, FR  
+48.8534,2.3488, Paris, Île-de-France, FR  
+
+#### Running traceroute from 5.14.110.255 (Constanţa, RO) to 104.16.132.229 (San Francisco, US)
+44.1807,28.6343, Constanţa, Constanța County, RO  
+44.4323,26.1063, Bucharest, București, RO  
+44.4323,26.1063, Bucharest, București, RO  
+37.7621,-122.3971, San Francisco, California, US  
+
+#### Running traceroute from 5.14.110.255 (Constanţa, RO) to 203.43.40.2 (Melbourne, AU)
+44.1807,28.6343, Constanţa, Constanța County, RO  
+51.5085,-0.1257, London, England, GB  
+51.5085,-0.1257, London, England, GB  
+37.3394,-121.8950, San Jose, California, US  
+-33.8678,151.2073, Sydney, New South Wales, AU  
+-33.8678,151.2073, Sydney, New South Wales, AU  
+-33.8678,151.2073, Sydney, New South Wales, AU  
+-37.8140,144.9633, Melbourne, Victoria, AU  
+-37.8140,144.9633, Melbourne, Victoria, AU  
+-37.8140,144.9633, Melbourne, Victoria, AU  
+-37.8140,144.9633, Melbourne, Victoria, AU  
+
+#### Running traceroute from 5.14.110.255 (Constanţa, RO) to 20.248.131.216 (Sydney, AU)
+44.1807,28.6343, Constanţa, Constanța County, RO  
+44.4323,26.1063, Bucharest, București, RO  
+48.2085,16.3721, Vienna, Vienna, AT  
+48.2085,16.3721, Vienna, Vienna, AT  
+47.4984,19.0404, Budapest, Budapest, HU  
+47.6740,-122.1215, Redmond, Washington, US  
+47.3667,8.5500, Zürich, Zurich, CH  
+47.6740,-122.1215, Redmond, Washington, US  
+47.6740,-122.1215, Redmond, Washington, US  
+1.2897,103.8501, Singapore, Singapore, SG  
+1.2897,103.8501, Singapore, Singapore, SG  
+-33.8678,151.2073, Sydney, New South Wales, AU  
+
+#### Running traceroute from 5.14.110.255 (Constanţa, RO) to 105.16.115.20 (Mombasa, KE)
+44.1807,28.6343, Constanţa, Constanța County, RO  
+51.5085,-0.1257, London, England, GB  
+51.5085,-0.1257, London, England, GB  
+-4.0547,39.6636, Mombasa, Mombasa County, KE  
+-4.0547,39.6636, Mombasa, Mombasa County, KE  
+
+#### Running traceroute from 5.14.110.255 (Constanţa, RO) to 142.251.39.78 (Budapest, HU)
+44.1807,28.6343, Constanţa, Constanța County, RO  
+47.4984,19.0404, Budapest, Budapest, HU  
+47.4984,19.0404, Budapest, Budapest, HU  
+47.4984,19.0404, Budapest, Budapest, HU  
+47.4984,19.0404, Budapest, Budapest, HU  
+
+#### Running traceroute from 5.14.110.255 (Constanţa, RO) to 94.140.14.14 (Limassol, CY)
+44.1807,28.6343, Constanţa, Constanța County, RO  
+50.1155,8.6842, Frankfurt am Main, Hesse, DE  
+50.0880,14.4208, Prague, Prague, CZ  
+50.0880,14.4208, Prague, Prague, CZ  
+34.6841,33.0379, Limassol, Limassol, CY  
