@@ -111,17 +111,28 @@ def draw_map_folium():
         for i, route in enumerate(routes):
             color = colors[i % len(colors)]
 
+            line_offset = i * 0.0005  # offset for line to avoid overlap
+            adjusted_points = []
+            for location in route:
+                adjusted_points.append({
+                    "Latitude": location["Latitude"] + line_offset,
+                    "Longitude": location["Longitude"] + line_offset,
+                    "City": location["City"],
+                    "Region": location["Region"],
+                    "Country": location["Country"]
+                })
+
             # markers for each location
-            for j, location in enumerate(route):
+            for j, location in enumerate(adjusted_points):
                 if j == 0:  # starting point
                     folium.Marker(
-                        location=[location["Latitude"] + 0.001, location["Longitude"] + 0.001],
+                        location=[location["Latitude"] + 0.000020, location["Longitude"] + 0.000020],
                         tooltip=f"{location['City']}, {location['Country']} (Starting Point)",
                         icon=folium.Icon(color='green', icon='play', prefix='fa')
                     ).add_to(m)
-                elif j == len(route) - 1:  # destination
+                elif j == len(adjusted_points) - 1:  # destination
                     folium.Marker(
-                        location=[location["Latitude"] + 0.001, location["Longitude"] + 0.001],
+                        location=[location["Latitude"] + 0.000020, location["Longitude"] + 0.000020],
                         tooltip=f"{location['City']}, {location['Country']} (Destination)",
                         icon=folium.Icon(color='black', icon='star', prefix='fa')
                     ).add_to(m)
@@ -132,7 +143,7 @@ def draw_map_folium():
                     ).add_to(m)
 
             # lines
-            points = [(location["Latitude"], location["Longitude"]) for location in route]
+            points = [(location["Latitude"], location["Longitude"]) for location in adjusted_points]
             if len(points) >= 2:
                 AntPath(
                     locations=points,
@@ -149,7 +160,7 @@ def draw_map_folium():
 
 
 if __name__ == "__main__":
-    get_locations()
+    # get_locations()
     draw_map_folium()
 
 # de rulat din mai multe locatii, VPS, facultate, acasa, etc.
