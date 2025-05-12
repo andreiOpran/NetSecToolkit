@@ -1,7 +1,8 @@
 import traceroute
 import socket
 import pandas as pd
-import plotly.express as px
+import plotly.graph_objects as go
+
 import requests
 
 # domenii de test
@@ -81,14 +82,36 @@ def draw_map():
     # cream un dataframe din datele colectate
     df = pd.DataFrame(locations)
 
-    # generam harta
-    fig = px.scatter_geo(
-        df,
-        lat="Latitude",
-        lon="Longitude",
-        text="City",
-        hover_name="Country",
-        title="Rutele prin diverse tari"
+    fig = go.Figure()
+    
+    fig.add_trace(go.Scattergeo(
+    lat=df['Latitude'],
+    lon=df['Longitude'],
+    mode='lines+markers+text',  # afisare linii, puncte si text
+    text=df['City'],
+    textposition='top center',  # pozitionare text
+    line=dict(width=1, color='black'), # grosime si culoare linie
+    marker=dict(
+        size=15,                # marimea punctelor
+        color='red',            # culoarea punctelor
+        symbol='circle',
+        line=dict(
+            width=1.5,            # grosimea conturului
+            color='black'       # culoarea conturului
+        )
+    ),
+    hoverinfo='text'
+))
+    
+    fig.update_layout(
+        title="Rutele prin diverse tari",
+        geo=dict(   
+            scope='world', # harta globala
+            projection_type='equirectangular', # tipul proiectiei
+            showland=True, # afisare teren
+            landcolor="rgb(229, 229, 229)", # culoarea terenului
+            countrycolor="rgb(255, 255, 255)" # culoarea tarii
+        )
     )
 
     # salvam harta ca fisier HTML
