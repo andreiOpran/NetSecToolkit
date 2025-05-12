@@ -149,7 +149,7 @@ def draw_map_folium():
 
 
 if __name__ == "__main__":
-    # get_locations()
+    get_locations()
     draw_map_folium()
 
 # de rulat din mai multe locatii, VPS, facultate, acasa, etc.

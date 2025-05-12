@@ -1,0 +1,1365 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_5805bd7897793efbe3881fa095b671d4 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+    <script src="https://cdn.jsdelivr.net/npm/leaflet-ant-path@1.1.2/dist/leaflet-ant-path.min.js"></script>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_5805bd7897793efbe3881fa095b671d4" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_5805bd7897793efbe3881fa095b671d4 = L.map(
+                "map_5805bd7897793efbe3881fa095b671d4",
+                {
+                    center: [36.8969, 30.7133],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 3,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_efd33f5d6911541e159d5ebcdd121d16 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_efd33f5d6911541e159d5ebcdd121d16.addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            var marker_57a6c6d09cc3038c4ae7efef3e3c7706 = L.marker(
+                [50.116499999999995, 8.6852],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            var icon_5c675a768c049574ae2ee490d6616bc0 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "play", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_57a6c6d09cc3038c4ae7efef3e3c7706.setIcon(icon_5c675a768c049574ae2ee490d6616bc0);
+        
+    
+            marker_57a6c6d09cc3038c4ae7efef3e3c7706.bindTooltip(
+                `<div>
+                     Frankfurt am Main, DE (Starting Point)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_be7af07b4a0c2bac116902de7b7d157e = L.marker(
+                [50.1155, 8.6842],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            marker_be7af07b4a0c2bac116902de7b7d157e.bindTooltip(
+                `<div>
+                     Frankfurt am Main, DE
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_3d0df1e867375446a94787ddbedf3356 = L.marker(
+                [50.1155, 8.6842],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            marker_3d0df1e867375446a94787ddbedf3356.bindTooltip(
+                `<div>
+                     Frankfurt am Main, DE
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_a4a30580d9610eaed7b26459588a57c2 = L.marker(
+                [50.1155, 8.6842],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            marker_a4a30580d9610eaed7b26459588a57c2.bindTooltip(
+                `<div>
+                     Frankfurt am Main, DE
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_6c2e9e9b0fae5c8f9f96c7465bb600d6 = L.marker(
+                [50.1155, 8.6842],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            marker_6c2e9e9b0fae5c8f9f96c7465bb600d6.bindTooltip(
+                `<div>
+                     Frankfurt am Main, DE
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_552aa77c7d77a8d26d8be67b847c7a2c = L.marker(
+                [59.3294, 18.0687],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            marker_552aa77c7d77a8d26d8be67b847c7a2c.bindTooltip(
+                `<div>
+                     Stockholm, SE
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_9ecdb2b38a02e6330134394ff6914534 = L.marker(
+                [48.4937, 3.5026],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            marker_9ecdb2b38a02e6330134394ff6914534.bindTooltip(
+                `<div>
+                     Nogent-sur-Seine, FR
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_fcec9dac1627854c6c8055279d6dfe91 = L.marker(
+                [51.5085, -0.1257],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            marker_fcec9dac1627854c6c8055279d6dfe91.bindTooltip(
+                `<div>
+                     London, GB
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_30b2c2871a23a6e3357f3cbfca8249a5 = L.marker(
+                [51.5085, -0.1257],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            marker_30b2c2871a23a6e3357f3cbfca8249a5.bindTooltip(
+                `<div>
+                     London, GB
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_ca48c5833b98a6ea986cdbbbe93dfd3f = L.marker(
+                [51.5085, -0.1257],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            marker_ca48c5833b98a6ea986cdbbbe93dfd3f.bindTooltip(
+                `<div>
+                     London, GB
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_86d50122a75f788b39b19ff32f42e2d5 = L.marker(
+                [34.0522, -118.2437],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            marker_86d50122a75f788b39b19ff32f42e2d5.bindTooltip(
+                `<div>
+                     Los Angeles, US
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_c9858760bef6686d0fba1da94ba84f72 = L.marker(
+                [34.6938, 135.5011],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            marker_c9858760bef6686d0fba1da94ba84f72.bindTooltip(
+                `<div>
+                     Osaka, JP
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_0e6174a8a62a1be146675204138ae3cd = L.marker(
+                [34.6938, 135.5011],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            marker_0e6174a8a62a1be146675204138ae3cd.bindTooltip(
+                `<div>
+                     Osaka, JP
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_664b6a997a5a18887f442003ef00db97 = L.marker(
+                [34.692299999999996, 135.184],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            var icon_fabe4af43a3cddf5b3eef3eb7af104dc = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "black", "prefix": "fa"}
+            );
+            marker_664b6a997a5a18887f442003ef00db97.setIcon(icon_fabe4af43a3cddf5b3eef3eb7af104dc);
+        
+    
+            marker_664b6a997a5a18887f442003ef00db97.bindTooltip(
+                `<div>
+                     Kobe, JP (Destination)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            ant_path_194ad240d1073674c2f42fc09ab1e2ab = L.polyline.antPath(
+              [[50.1155, 8.6842], [50.1155, 8.6842], [50.1155, 8.6842], [50.1155, 8.6842], [50.1155, 8.6842], [59.3294, 18.0687], [48.4937, 3.5026], [51.5085, -0.1257], [51.5085, -0.1257], [51.5085, -0.1257], [34.0522, -118.2437], [34.6938, 135.5011], [34.6938, 135.5011], [34.6913, 135.183]],
+              {"bubblingMouseEvents": true, "color": "#39FF14", "dashArray": [5, 15], "dashOffset": null, "delay": 2000, "fill": false, "fillColor": "#39FF14", "fillOpacity": 0.2, "fillRule": "evenodd", "hardwareAcceleration": false, "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "paused": false, "pulseColor": "white", "reverse": false, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+        ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            var marker_a0c795ec9f1acadff4f210ccf1958f1c = L.marker(
+                [50.116499999999995, 8.6852],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            var icon_05912959010686dab04f87cff9d77913 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "play", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_a0c795ec9f1acadff4f210ccf1958f1c.setIcon(icon_05912959010686dab04f87cff9d77913);
+        
+    
+            marker_a0c795ec9f1acadff4f210ccf1958f1c.bindTooltip(
+                `<div>
+                     Frankfurt am Main, DE (Starting Point)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_08f5d6fa3d8a19e7062bab8ba2ad926a = L.marker(
+                [50.1155, 8.6842],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            marker_08f5d6fa3d8a19e7062bab8ba2ad926a.bindTooltip(
+                `<div>
+                     Frankfurt am Main, DE
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_735187e9b6c8c0ea9d90fa7deb9332a8 = L.marker(
+                [50.1155, 8.6842],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            marker_735187e9b6c8c0ea9d90fa7deb9332a8.bindTooltip(
+                `<div>
+                     Frankfurt am Main, DE
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_9efa71de545fd5704321eef3e538047d = L.marker(
+                [50.1155, 8.6842],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            marker_9efa71de545fd5704321eef3e538047d.bindTooltip(
+                `<div>
+                     Frankfurt am Main, DE
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_dff92cb7b0b0778afc9438efdf47179b = L.marker(
+                [50.1155, 8.6842],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            marker_dff92cb7b0b0778afc9438efdf47179b.bindTooltip(
+                `<div>
+                     Frankfurt am Main, DE
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_35bfd21572e77dd84015ee062d4f7b12 = L.marker(
+                [50.1155, 8.6842],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            marker_35bfd21572e77dd84015ee062d4f7b12.bindTooltip(
+                `<div>
+                     Frankfurt am Main, DE
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_dab80d86e680b698261ec078d24572e8 = L.marker(
+                [48.8534, 2.3488],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            marker_dab80d86e680b698261ec078d24572e8.bindTooltip(
+                `<div>
+                     Paris, FR
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_11b830023fac4c609e3bf4a917a84a02 = L.marker(
+                [48.8534, 2.3488],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            marker_11b830023fac4c609e3bf4a917a84a02.bindTooltip(
+                `<div>
+                     Paris, FR
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_624f3f9e9eaa623fba988040f7372558 = L.marker(
+                [48.8534, 2.3488],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            marker_624f3f9e9eaa623fba988040f7372558.bindTooltip(
+                `<div>
+                     Paris, FR
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_326ab3e9c0b1a11b1c4be763e00736f8 = L.marker(
+                [48.8534, 2.3488],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            marker_326ab3e9c0b1a11b1c4be763e00736f8.bindTooltip(
+                `<div>
+                     Paris, FR
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_e902655b1ede76eb032e66e6e20977c0 = L.marker(
+                [48.8544, 2.3498],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            var icon_1e1ccd148dea8f3442617b7f6ad799a9 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "black", "prefix": "fa"}
+            );
+            marker_e902655b1ede76eb032e66e6e20977c0.setIcon(icon_1e1ccd148dea8f3442617b7f6ad799a9);
+        
+    
+            marker_e902655b1ede76eb032e66e6e20977c0.bindTooltip(
+                `<div>
+                     Paris, FR (Destination)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            ant_path_6729c1ddf821f4f4e4a80c6e1a61cecd = L.polyline.antPath(
+              [[50.1155, 8.6842], [50.1155, 8.6842], [50.1155, 8.6842], [50.1155, 8.6842], [50.1155, 8.6842], [50.1155, 8.6842], [48.8534, 2.3488], [48.8534, 2.3488], [48.8534, 2.3488], [48.8534, 2.3488], [48.8534, 2.3488]],
+              {"bubblingMouseEvents": true, "color": "#FF1493", "dashArray": [5, 15], "dashOffset": null, "delay": 2000, "fill": false, "fillColor": "#FF1493", "fillOpacity": 0.2, "fillRule": "evenodd", "hardwareAcceleration": false, "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "paused": false, "pulseColor": "white", "reverse": false, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+        ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            var marker_65f7669958e6ed444c519b18e4a3b821 = L.marker(
+                [50.116499999999995, 8.6852],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            var icon_91b5f73b0b8febddc5b969098eb4e2d8 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "play", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_65f7669958e6ed444c519b18e4a3b821.setIcon(icon_91b5f73b0b8febddc5b969098eb4e2d8);
+        
+    
+            marker_65f7669958e6ed444c519b18e4a3b821.bindTooltip(
+                `<div>
+                     Frankfurt am Main, DE (Starting Point)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_73765ff66fc7009dcfbe15978e0c1d6d = L.marker(
+                [50.1155, 8.6842],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            marker_73765ff66fc7009dcfbe15978e0c1d6d.bindTooltip(
+                `<div>
+                     Frankfurt am Main, DE
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_d1334640056bb13664a32b18d42b6dee = L.marker(
+                [50.1155, 8.6842],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            marker_d1334640056bb13664a32b18d42b6dee.bindTooltip(
+                `<div>
+                     Frankfurt am Main, DE
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_070fea72935199472291671b902675db = L.marker(
+                [50.1155, 8.6842],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            marker_070fea72935199472291671b902675db.bindTooltip(
+                `<div>
+                     Frankfurt am Main, DE
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_7b59cca625d541bd15f596ce700319b8 = L.marker(
+                [50.1155, 8.6842],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            marker_7b59cca625d541bd15f596ce700319b8.bindTooltip(
+                `<div>
+                     Frankfurt am Main, DE
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_217d60188b851f66084e8a9cbbc71c7e = L.marker(
+                [50.1112, 8.6831],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            marker_217d60188b851f66084e8a9cbbc71c7e.bindTooltip(
+                `<div>
+                     Frankfurt am Main, DE
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_c715eb4fec0369ea915f2497cd8a7c1a = L.marker(
+                [37.763099999999994, -122.39609999999999],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            var icon_f07795c149cc98b99180a76cb442e2da = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "black", "prefix": "fa"}
+            );
+            marker_c715eb4fec0369ea915f2497cd8a7c1a.setIcon(icon_f07795c149cc98b99180a76cb442e2da);
+        
+    
+            marker_c715eb4fec0369ea915f2497cd8a7c1a.bindTooltip(
+                `<div>
+                     San Francisco, US (Destination)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            ant_path_cae2a63ec6f4dfc4bf92142e81e75309 = L.polyline.antPath(
+              [[50.1155, 8.6842], [50.1155, 8.6842], [50.1155, 8.6842], [50.1155, 8.6842], [50.1155, 8.6842], [50.1112, 8.6831], [37.7621, -122.3971]],
+              {"bubblingMouseEvents": true, "color": "#00FFFF", "dashArray": [5, 15], "dashOffset": null, "delay": 2000, "fill": false, "fillColor": "#00FFFF", "fillOpacity": 0.2, "fillRule": "evenodd", "hardwareAcceleration": false, "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "paused": false, "pulseColor": "white", "reverse": false, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+        ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            var marker_70ed152f50391cd255ec90a00dcca786 = L.marker(
+                [50.116499999999995, 8.6852],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            var icon_be8556bc97dbc18308f3303aabcbbd65 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "play", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_70ed152f50391cd255ec90a00dcca786.setIcon(icon_be8556bc97dbc18308f3303aabcbbd65);
+        
+    
+            marker_70ed152f50391cd255ec90a00dcca786.bindTooltip(
+                `<div>
+                     Frankfurt am Main, DE (Starting Point)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_9fb666d3b1c5d56e9ce17b3c251c84a1 = L.marker(
+                [50.1155, 8.6842],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            marker_9fb666d3b1c5d56e9ce17b3c251c84a1.bindTooltip(
+                `<div>
+                     Frankfurt am Main, DE
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_563dd9d53ab5647e54638d405058ddd0 = L.marker(
+                [50.1155, 8.6842],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            marker_563dd9d53ab5647e54638d405058ddd0.bindTooltip(
+                `<div>
+                     Frankfurt am Main, DE
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_fa0153b19cf0c78781c8d49b7c0bb990 = L.marker(
+                [50.1155, 8.6842],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            marker_fa0153b19cf0c78781c8d49b7c0bb990.bindTooltip(
+                `<div>
+                     Frankfurt am Main, DE
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_c334a2d348015e948bc49cc76b2e186d = L.marker(
+                [50.1155, 8.6842],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            marker_c334a2d348015e948bc49cc76b2e186d.bindTooltip(
+                `<div>
+                     Frankfurt am Main, DE
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_259108cf9020e11b13f6ef0d9bbbf5c8 = L.marker(
+                [51.5085, -0.1257],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            marker_259108cf9020e11b13f6ef0d9bbbf5c8.bindTooltip(
+                `<div>
+                     London, GB
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_35ec6a50cf85674b28c5a46bc75f7913 = L.marker(
+                [37.3394, -121.895],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            marker_35ec6a50cf85674b28c5a46bc75f7913.bindTooltip(
+                `<div>
+                     San Jose, US
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_4ee3633f1ea58d6a7ad8a9316eda4e13 = L.marker(
+                [-33.8678, 151.2073],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            marker_4ee3633f1ea58d6a7ad8a9316eda4e13.bindTooltip(
+                `<div>
+                     Sydney, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_103eb3bd4b5829501c37adf10259ed27 = L.marker(
+                [-33.8678, 151.2073],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            marker_103eb3bd4b5829501c37adf10259ed27.bindTooltip(
+                `<div>
+                     Sydney, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_dde0233b215b93615a0f1e433dfa4646 = L.marker(
+                [-33.8678, 151.2073],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            marker_dde0233b215b93615a0f1e433dfa4646.bindTooltip(
+                `<div>
+                     Sydney, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_fbb82f52306c6bfc8c330fb8739f1865 = L.marker(
+                [-37.814, 144.9633],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            marker_fbb82f52306c6bfc8c330fb8739f1865.bindTooltip(
+                `<div>
+                     Melbourne, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_330d400bc2d0197e7905ae1bd2280243 = L.marker(
+                [-37.814, 144.9633],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            marker_330d400bc2d0197e7905ae1bd2280243.bindTooltip(
+                `<div>
+                     Melbourne, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_171665fa1c0a11a5d36ad3fce9b3ca3c = L.marker(
+                [-37.813, 144.9643],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            var icon_a3dfda5d5157c5b8f00c21d1f6863c05 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "black", "prefix": "fa"}
+            );
+            marker_171665fa1c0a11a5d36ad3fce9b3ca3c.setIcon(icon_a3dfda5d5157c5b8f00c21d1f6863c05);
+        
+    
+            marker_171665fa1c0a11a5d36ad3fce9b3ca3c.bindTooltip(
+                `<div>
+                     Melbourne, AU (Destination)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            ant_path_28c0fede4f7ecaea91f3ad7f4dc07b58 = L.polyline.antPath(
+              [[50.1155, 8.6842], [50.1155, 8.6842], [50.1155, 8.6842], [50.1155, 8.6842], [50.1155, 8.6842], [51.5085, -0.1257], [37.3394, -121.895], [-33.8678, 151.2073], [-33.8678, 151.2073], [-33.8678, 151.2073], [-37.814, 144.9633], [-37.814, 144.9633], [-37.814, 144.9633]],
+              {"bubblingMouseEvents": true, "color": "#FF6600", "dashArray": [5, 15], "dashOffset": null, "delay": 2000, "fill": false, "fillColor": "#FF6600", "fillOpacity": 0.2, "fillRule": "evenodd", "hardwareAcceleration": false, "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "paused": false, "pulseColor": "white", "reverse": false, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+        ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            var marker_4de3c2cdb9667237832a2d2d13d20281 = L.marker(
+                [50.116499999999995, 8.6852],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            var icon_3ea8e0198c7edf77da3e47df3f4b3f57 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "play", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_4de3c2cdb9667237832a2d2d13d20281.setIcon(icon_3ea8e0198c7edf77da3e47df3f4b3f57);
+        
+    
+            marker_4de3c2cdb9667237832a2d2d13d20281.bindTooltip(
+                `<div>
+                     Frankfurt am Main, DE (Starting Point)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_c438b22f97e5fbced26fb7af040ab681 = L.marker(
+                [50.1155, 8.6842],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            marker_c438b22f97e5fbced26fb7af040ab681.bindTooltip(
+                `<div>
+                     Frankfurt am Main, DE
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_49f82dae00ca825628e8dbd110967dc1 = L.marker(
+                [50.1155, 8.6842],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            marker_49f82dae00ca825628e8dbd110967dc1.bindTooltip(
+                `<div>
+                     Frankfurt am Main, DE
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_6f8dab32baf3d0d48373838ba23dbb2a = L.marker(
+                [50.1155, 8.6842],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            marker_6f8dab32baf3d0d48373838ba23dbb2a.bindTooltip(
+                `<div>
+                     Frankfurt am Main, DE
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_19b54e8098c367cb8ca2cdb0e88a2b2c = L.marker(
+                [50.1155, 8.6842],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            marker_19b54e8098c367cb8ca2cdb0e88a2b2c.bindTooltip(
+                `<div>
+                     Frankfurt am Main, DE
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_740d0a05b5e04f38497f7f125b2034a6 = L.marker(
+                [50.1155, 8.6842],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            marker_740d0a05b5e04f38497f7f125b2034a6.bindTooltip(
+                `<div>
+                     Frankfurt am Main, DE
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_8e3ec2b82e95507a7e1294d0aeaa04c3 = L.marker(
+                [48.2085, 16.3721],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            marker_8e3ec2b82e95507a7e1294d0aeaa04c3.bindTooltip(
+                `<div>
+                     Vienna, AT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_ad7080e9ad7bb9f3c607e8cb7f14428f = L.marker(
+                [48.1374, 11.5755],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            marker_ad7080e9ad7bb9f3c607e8cb7f14428f.bindTooltip(
+                `<div>
+                     Munich, DE
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_69e8fba1bf78a08dd6b40206406b2b52 = L.marker(
+                [47.674, -122.1215],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            marker_69e8fba1bf78a08dd6b40206406b2b52.bindTooltip(
+                `<div>
+                     Redmond, US
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_6c9969b11c0f389af4c8e498ef72e050 = L.marker(
+                [47.674, -122.1215],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            marker_6c9969b11c0f389af4c8e498ef72e050.bindTooltip(
+                `<div>
+                     Redmond, US
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_fb4c53da62311d5ff3096bc38e3df68b = L.marker(
+                [1.2897, 103.8501],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            marker_fb4c53da62311d5ff3096bc38e3df68b.bindTooltip(
+                `<div>
+                     Singapore, SG
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_161008bcea51d29380e2a7b59c2acd57 = L.marker(
+                [47.674, -122.1215],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            marker_161008bcea51d29380e2a7b59c2acd57.bindTooltip(
+                `<div>
+                     Redmond, US
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_0e372a8149141d488db9b57cc02111d4 = L.marker(
+                [-33.8678, 151.2073],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            marker_0e372a8149141d488db9b57cc02111d4.bindTooltip(
+                `<div>
+                     Sydney, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_e3f9fe2356a741e305816b5da288e91b = L.marker(
+                [-33.866800000000005, 151.2083],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            var icon_d658749c80b018b689ab02ab9bee4492 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "black", "prefix": "fa"}
+            );
+            marker_e3f9fe2356a741e305816b5da288e91b.setIcon(icon_d658749c80b018b689ab02ab9bee4492);
+        
+    
+            marker_e3f9fe2356a741e305816b5da288e91b.bindTooltip(
+                `<div>
+                     Sydney, AU (Destination)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            ant_path_8a234aff92fa57f2973c15b1aad1199a = L.polyline.antPath(
+              [[50.1155, 8.6842], [50.1155, 8.6842], [50.1155, 8.6842], [50.1155, 8.6842], [50.1155, 8.6842], [50.1155, 8.6842], [48.2085, 16.3721], [48.1374, 11.5755], [47.674, -122.1215], [47.674, -122.1215], [1.2897, 103.8501], [47.674, -122.1215], [-33.8678, 151.2073], [-33.8678, 151.2073]],
+              {"bubblingMouseEvents": true, "color": "#FFFF00", "dashArray": [5, 15], "dashOffset": null, "delay": 2000, "fill": false, "fillColor": "#FFFF00", "fillOpacity": 0.2, "fillRule": "evenodd", "hardwareAcceleration": false, "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "paused": false, "pulseColor": "white", "reverse": false, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+        ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            var marker_427b33b0394da9e0497f6d12d7c57dae = L.marker(
+                [50.116499999999995, 8.6852],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            var icon_48635b123bb2f3ce9c2a74c12ee967eb = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "play", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_427b33b0394da9e0497f6d12d7c57dae.setIcon(icon_48635b123bb2f3ce9c2a74c12ee967eb);
+        
+    
+            marker_427b33b0394da9e0497f6d12d7c57dae.bindTooltip(
+                `<div>
+                     Frankfurt am Main, DE (Starting Point)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_5f78a1bd4b5f2a9d11a130e4678737c0 = L.marker(
+                [50.1155, 8.6842],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            marker_5f78a1bd4b5f2a9d11a130e4678737c0.bindTooltip(
+                `<div>
+                     Frankfurt am Main, DE
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_6fd1a16de0292037cb1084cfa6bce9ec = L.marker(
+                [50.1155, 8.6842],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            marker_6fd1a16de0292037cb1084cfa6bce9ec.bindTooltip(
+                `<div>
+                     Frankfurt am Main, DE
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_084173871e06010e6a91084437f4697a = L.marker(
+                [50.1155, 8.6842],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            marker_084173871e06010e6a91084437f4697a.bindTooltip(
+                `<div>
+                     Frankfurt am Main, DE
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_b8f0762b313cec5a4949e7242ed64c41 = L.marker(
+                [50.1155, 8.6842],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            marker_b8f0762b313cec5a4949e7242ed64c41.bindTooltip(
+                `<div>
+                     Frankfurt am Main, DE
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_4609193d2028ed5ceb0a5cc13e284c32 = L.marker(
+                [50.1155, 8.6842],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            marker_4609193d2028ed5ceb0a5cc13e284c32.bindTooltip(
+                `<div>
+                     Frankfurt am Main, DE
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_aa09a02a3a3f3964b2635b68d6ccdfd1 = L.marker(
+                [-4.0547, 39.6636],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            marker_aa09a02a3a3f3964b2635b68d6ccdfd1.bindTooltip(
+                `<div>
+                     Mombasa, KE
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_32a2e1cfc6c669b1359a5bee106988c6 = L.marker(
+                [-4.0537, 39.6646],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            var icon_1463fff78c9ad05711261b71c62a38fa = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "black", "prefix": "fa"}
+            );
+            marker_32a2e1cfc6c669b1359a5bee106988c6.setIcon(icon_1463fff78c9ad05711261b71c62a38fa);
+        
+    
+            marker_32a2e1cfc6c669b1359a5bee106988c6.bindTooltip(
+                `<div>
+                     Mombasa, KE (Destination)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            ant_path_9407e7d1fc9e003d3bb0ca213515f3ff = L.polyline.antPath(
+              [[50.1155, 8.6842], [50.1155, 8.6842], [50.1155, 8.6842], [50.1155, 8.6842], [50.1155, 8.6842], [50.1155, 8.6842], [-4.0547, 39.6636], [-4.0547, 39.6636]],
+              {"bubblingMouseEvents": true, "color": "#FF0000", "dashArray": [5, 15], "dashOffset": null, "delay": 2000, "fill": false, "fillColor": "#FF0000", "fillOpacity": 0.2, "fillRule": "evenodd", "hardwareAcceleration": false, "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "paused": false, "pulseColor": "white", "reverse": false, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+        ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            var marker_aa34236822115fe0eb43779f1417d3bb = L.marker(
+                [50.116499999999995, 8.6852],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            var icon_0f033bc1be3802fd5ac397a6747727c9 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "play", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_aa34236822115fe0eb43779f1417d3bb.setIcon(icon_0f033bc1be3802fd5ac397a6747727c9);
+        
+    
+            marker_aa34236822115fe0eb43779f1417d3bb.bindTooltip(
+                `<div>
+                     Frankfurt am Main, DE (Starting Point)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_6e96ff37e766c8d682db959bb84903a3 = L.marker(
+                [50.1155, 8.6842],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            marker_6e96ff37e766c8d682db959bb84903a3.bindTooltip(
+                `<div>
+                     Frankfurt am Main, DE
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_48fcfdb2fba90206eea6302a47e656c7 = L.marker(
+                [50.1155, 8.6842],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            marker_48fcfdb2fba90206eea6302a47e656c7.bindTooltip(
+                `<div>
+                     Frankfurt am Main, DE
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_5cebff691c6ca1ed619c2dc1ab5c7270 = L.marker(
+                [50.1155, 8.6842],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            marker_5cebff691c6ca1ed619c2dc1ab5c7270.bindTooltip(
+                `<div>
+                     Frankfurt am Main, DE
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_2a1a14303976f66907bcc24297067cc1 = L.marker(
+                [50.1155, 8.6842],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            marker_2a1a14303976f66907bcc24297067cc1.bindTooltip(
+                `<div>
+                     Frankfurt am Main, DE
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_0dada21636ef539b8ad27bbfc80f710b = L.marker(
+                [50.1155, 8.6842],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            marker_0dada21636ef539b8ad27bbfc80f710b.bindTooltip(
+                `<div>
+                     Frankfurt am Main, DE
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_46a85857ca28c2cb4b54663a1dbae58b = L.marker(
+                [50.116499999999995, 8.6852],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            var icon_c5726eaddc9fde7e02db36222a17ddd9 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "black", "prefix": "fa"}
+            );
+            marker_46a85857ca28c2cb4b54663a1dbae58b.setIcon(icon_c5726eaddc9fde7e02db36222a17ddd9);
+        
+    
+            marker_46a85857ca28c2cb4b54663a1dbae58b.bindTooltip(
+                `<div>
+                     Frankfurt am Main, DE (Destination)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            ant_path_31b8c97e14733dab598dd3dc8a16d15e = L.polyline.antPath(
+              [[50.1155, 8.6842], [50.1155, 8.6842], [50.1155, 8.6842], [50.1155, 8.6842], [50.1155, 8.6842], [50.1155, 8.6842], [50.1155, 8.6842]],
+              {"bubblingMouseEvents": true, "color": "#14F0FF", "dashArray": [5, 15], "dashOffset": null, "delay": 2000, "fill": false, "fillColor": "#14F0FF", "fillOpacity": 0.2, "fillRule": "evenodd", "hardwareAcceleration": false, "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "paused": false, "pulseColor": "white", "reverse": false, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+        ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            var marker_d351dd7a91367aadd9e6d3e5666586bb = L.marker(
+                [50.116499999999995, 8.6852],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            var icon_a1da91c742400ecf5430f73cd7ed7137 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "play", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_d351dd7a91367aadd9e6d3e5666586bb.setIcon(icon_a1da91c742400ecf5430f73cd7ed7137);
+        
+    
+            marker_d351dd7a91367aadd9e6d3e5666586bb.bindTooltip(
+                `<div>
+                     Frankfurt am Main, DE (Starting Point)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_41ca1f4154996e9095f674797edeb827 = L.marker(
+                [50.1155, 8.6842],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            marker_41ca1f4154996e9095f674797edeb827.bindTooltip(
+                `<div>
+                     Frankfurt am Main, DE
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_dd4f92052eb4d046278e2fd8b207d85a = L.marker(
+                [50.1155, 8.6842],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            marker_dd4f92052eb4d046278e2fd8b207d85a.bindTooltip(
+                `<div>
+                     Frankfurt am Main, DE
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_f4624be2032a8d99c92276b982f93b43 = L.marker(
+                [52.374, 4.8897],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            marker_f4624be2032a8d99c92276b982f93b43.bindTooltip(
+                `<div>
+                     Amsterdam, NL
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_bd99a630a1693843b5918a8571f028de = L.marker(
+                [52.374, 4.8897],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            marker_bd99a630a1693843b5918a8571f028de.bindTooltip(
+                `<div>
+                     Amsterdam, NL
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_2f2e334a96a03e7e89a196351231d8a8 = L.marker(
+                [50.088, 14.4208],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            marker_2f2e334a96a03e7e89a196351231d8a8.bindTooltip(
+                `<div>
+                     Prague, CZ
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_5250ed15744f766e26323a6260bfa1ad = L.marker(
+                [50.088, 14.4208],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            marker_5250ed15744f766e26323a6260bfa1ad.bindTooltip(
+                `<div>
+                     Prague, CZ
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_bc1f0c43e7ef6b142b68a7e78049cc37 = L.marker(
+                [34.6851, 33.0389],
+                {}
+            ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+    
+            var icon_e9b5bd4ffbad75c866868bbbc0390e23 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "black", "prefix": "fa"}
+            );
+            marker_bc1f0c43e7ef6b142b68a7e78049cc37.setIcon(icon_e9b5bd4ffbad75c866868bbbc0390e23);
+        
+    
+            marker_bc1f0c43e7ef6b142b68a7e78049cc37.bindTooltip(
+                `<div>
+                     Limassol, CY (Destination)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            ant_path_fb5076ff6a4fbe5504c8d8a5e99f4410 = L.polyline.antPath(
+              [[50.1155, 8.6842], [50.1155, 8.6842], [50.1155, 8.6842], [52.374, 4.8897], [52.374, 4.8897], [50.088, 14.4208], [50.088, 14.4208], [34.6841, 33.0379]],
+              {"bubblingMouseEvents": true, "color": "#FF00FF", "dashArray": [5, 15], "dashOffset": null, "delay": 2000, "fill": false, "fillColor": "#FF00FF", "fillOpacity": 0.2, "fillRule": "evenodd", "hardwareAcceleration": false, "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "paused": false, "pulseColor": "white", "reverse": false, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+        ).addTo(map_5805bd7897793efbe3881fa095b671d4);
+        
+</script>
+</html>
