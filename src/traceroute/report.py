@@ -1,9 +1,8 @@
 import traceroute
 import socket
-import pandas as pd
-import plotly.graph_objects as go
 import requests
 import folium
+from folium.plugins import AntPath
 import os
 
 # domenii de test
@@ -61,18 +60,34 @@ def get_locations():
 
 def draw_map_folium():
     for filename in os.listdir('reports/'):
-        locations = []
         file_path = os.path.join('reports', filename)
 
+        # read by section
+        routes = []
+        current_route = []
+
+        # create a map centered around Antalya
+        antalya_lat = 36.8969
+        antalya_lon = 30.7133
+        m = folium.Map(location=[antalya_lat, antalya_lon], zoom_start=3)
+
         with open(file_path, 'r', encoding='UTF-8') as file:
+            in_traceroute_section = False
+
             for line in file:
-                if '#' not in line:
+                if '#### Running traceroute from' in line:  # new traceroute section
+                    if current_route:
+                        routes.append(current_route)
+                    current_route = []  # start new route
+                    in_traceroute_section = True
+
+                elif in_traceroute_section and '#' not in line and line.strip():
                     data = line.strip().split(",")
                     data = [item.strip() for item in data]
                     if len(data) == 5:
                         lat, lon, city, region, country = data
                         try:
-                            locations.append({
+                            current_route.append({
                                 "Latitude": float(lat),
                                 "Longitude": float(lon),
                                 "City": city,
@@ -82,21 +97,53 @@ def draw_map_folium():
                         except ValueError:
                             continue
 
-        # create a map centered around Antalya
-        antalya_lat = 36.8969
-        antalya_lon = 30.7133
-        m = folium.Map(location=[antalya_lat, antalya_lon], zoom_start=3)
+        # add last route
+        if current_route:
+            routes.append(current_route)
 
-        # markers for each location
-        for location in locations:
-            folium.Marker(
-                location=[location["Latitude"], location["Longitude"]],
-                tooltip=f"{location['City']}, {location['Country']}"
-            ).add_to(m)
+        colors = [
+            '#39FF14', '#FF1493', '#00FFFF', '#FF6600', '#FFFF00',
+            '#FF0000', '#14F0FF', '#FF00FF', '#7FFF00', '#FFA500',
+            '#1E90FF', '#32CD32', '#FF69B4', '#00FF7F', '#FFD700',
+            '#8A2BE2', '#00BFFF', '#FF4500', '#F0FF14', '#FF3131'
+        ]
 
-        # lines
-        points = [(location["Latitude"], location["Longitude"]) for location in locations]
-        folium.PolyLine(points, color="red", weight=2.5, opacity=0.8).add_to(m)
+        for i, route in enumerate(routes):
+            color = colors[i % len(colors)]
+
+            # markers for each location
+            for j, location in enumerate(route):
+                if j == 0:  # starting point
+                    folium.Marker(
+                        location=[location["Latitude"] + 0.001, location["Longitude"] + 0.001],
+                        tooltip=f"{location['City']}, {location['Country']} (Starting Point)",
+                        icon=folium.Icon(color='green', icon='play', prefix='fa')
+                    ).add_to(m)
+                elif j == len(route) - 1:  # destination
+                    folium.Marker(
+                        location=[location["Latitude"] + 0.001, location["Longitude"] + 0.001],
+                        tooltip=f"{location['City']}, {location['Country']} (Destination)",
+                        icon=folium.Icon(color='black', icon='star', prefix='fa')
+                    ).add_to(m)
+                else:  # intermediate hops
+                    folium.Marker(
+                        location=[location["Latitude"], location["Longitude"]],
+                        tooltip=f"{location['City']}, {location['Country']}"
+                    ).add_to(m)
+
+            # lines
+            points = [(location["Latitude"], location["Longitude"]) for location in route]
+            if len(points) >= 2:
+                AntPath(
+                    locations=points,
+                    color=color,
+                    weight=3.5,
+                    opacity=1.0,
+                    delay=2000,
+                    dash_array=[5, 15],
+                    pulse_color='white',
+                    hardwareAcceleration=True
+                ).add_to(m)
 
         m.save(f"report_maps/map_{os.path.splitext(filename)[0]}.html")
 
