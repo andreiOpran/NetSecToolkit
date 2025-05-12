@@ -1,0 +1,1281 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_aff1c56d4d2d6f3dae7baa26259f5cec {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+    <script src="https://cdn.jsdelivr.net/npm/leaflet-ant-path@1.1.2/dist/leaflet-ant-path.min.js"></script>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_aff1c56d4d2d6f3dae7baa26259f5cec" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_aff1c56d4d2d6f3dae7baa26259f5cec = L.map(
+                "map_aff1c56d4d2d6f3dae7baa26259f5cec",
+                {
+                    center: [36.8969, 30.7133],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 3,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_85b7f1d3750ba512bbd6a574f0b5872b = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_85b7f1d3750ba512bbd6a574f0b5872b.addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            var marker_feebb1d96149b73d70f4774affc3aae2 = L.marker(
+                [37.3934, -121.9613],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            var icon_ba04287af8a792086e316edf87c65e12 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "play", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_feebb1d96149b73d70f4774affc3aae2.setIcon(icon_ba04287af8a792086e316edf87c65e12);
+        
+    
+            marker_feebb1d96149b73d70f4774affc3aae2.bindTooltip(
+                `<div>
+                     Santa Clara, US (Starting Point)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_2cdac0f0af37e27cd973755e3af2accd = L.marker(
+                [37.3394, -121.895],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            marker_2cdac0f0af37e27cd973755e3af2accd.bindTooltip(
+                `<div>
+                     San Jose, US
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_1b7300b26e932df2bee101f2ab1b49a1 = L.marker(
+                [37.3394, -121.895],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            marker_1b7300b26e932df2bee101f2ab1b49a1.bindTooltip(
+                `<div>
+                     San Jose, US
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_d0d45071a2de056bbf8177bae9ab94db = L.marker(
+                [37.3394, -121.895],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            marker_d0d45071a2de056bbf8177bae9ab94db.bindTooltip(
+                `<div>
+                     San Jose, US
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_c8cedb3352691e1d12f3d2f18f9a74c9 = L.marker(
+                [37.3394, -121.895],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            marker_c8cedb3352691e1d12f3d2f18f9a74c9.bindTooltip(
+                `<div>
+                     San Jose, US
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_74066d5c7378893f9efcde376c76e8c5 = L.marker(
+                [37.3394, -121.895],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            marker_74066d5c7378893f9efcde376c76e8c5.bindTooltip(
+                `<div>
+                     San Jose, US
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_9a30b5e2492ace4d63d6c25f6636aa21 = L.marker(
+                [34.6938, 135.5011],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            marker_9a30b5e2492ace4d63d6c25f6636aa21.bindTooltip(
+                `<div>
+                     Osaka, JP
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_de37459bd9d06038ef32b2699fb8b4c6 = L.marker(
+                [34.6938, 135.5011],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            marker_de37459bd9d06038ef32b2699fb8b4c6.bindTooltip(
+                `<div>
+                     Osaka, JP
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_d4e4ddc9c5bacad5a20485f0c8e0f9b1 = L.marker(
+                [34.692299999999996, 135.184],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            var icon_899fb9d6c1c563d9ad693a0dbe9ce40f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "black", "prefix": "fa"}
+            );
+            marker_d4e4ddc9c5bacad5a20485f0c8e0f9b1.setIcon(icon_899fb9d6c1c563d9ad693a0dbe9ce40f);
+        
+    
+            marker_d4e4ddc9c5bacad5a20485f0c8e0f9b1.bindTooltip(
+                `<div>
+                     Kobe, JP (Destination)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            ant_path_cf13740aab37e858fc8d131d0ed9b6e9 = L.polyline.antPath(
+              [[37.3924, -121.9623], [37.3394, -121.895], [37.3394, -121.895], [37.3394, -121.895], [37.3394, -121.895], [37.3394, -121.895], [34.6938, 135.5011], [34.6938, 135.5011], [34.6913, 135.183]],
+              {"bubblingMouseEvents": true, "color": "#39FF14", "dashArray": [5, 15], "dashOffset": null, "delay": 2000, "fill": false, "fillColor": "#39FF14", "fillOpacity": 0.2, "fillRule": "evenodd", "hardwareAcceleration": false, "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "paused": false, "pulseColor": "white", "reverse": false, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+        ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            var marker_3be57255bfcf791c1424471b187012af = L.marker(
+                [37.3934, -121.9613],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            var icon_0b8565ea57eb6709abbd9f9840c1d4ba = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "play", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_3be57255bfcf791c1424471b187012af.setIcon(icon_0b8565ea57eb6709abbd9f9840c1d4ba);
+        
+    
+            marker_3be57255bfcf791c1424471b187012af.bindTooltip(
+                `<div>
+                     Santa Clara, US (Starting Point)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_afe9354cde98987c65e269bf70ac4aa0 = L.marker(
+                [37.3394, -121.895],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            marker_afe9354cde98987c65e269bf70ac4aa0.bindTooltip(
+                `<div>
+                     San Jose, US
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_0a140667221bde8c977cb2fb1324a2e7 = L.marker(
+                [37.3394, -121.895],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            marker_0a140667221bde8c977cb2fb1324a2e7.bindTooltip(
+                `<div>
+                     San Jose, US
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_57d31e79b61658d11f943aec68de6384 = L.marker(
+                [37.3394, -121.895],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            marker_57d31e79b61658d11f943aec68de6384.bindTooltip(
+                `<div>
+                     San Jose, US
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_3b6a24985e9868eace4a54f949f6d0c9 = L.marker(
+                [37.3394, -121.895],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            marker_3b6a24985e9868eace4a54f949f6d0c9.bindTooltip(
+                `<div>
+                     San Jose, US
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_b4b7fe68873ab5c2093b31c429a9915d = L.marker(
+                [48.8534, 2.3488],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            marker_b4b7fe68873ab5c2093b31c429a9915d.bindTooltip(
+                `<div>
+                     Paris, FR
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_f7882c495b3862935e260368a9bb05cd = L.marker(
+                [48.8534, 2.3488],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            marker_f7882c495b3862935e260368a9bb05cd.bindTooltip(
+                `<div>
+                     Paris, FR
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_c9fc685c711c56e68d76d89e52cfffd4 = L.marker(
+                [48.8534, 2.3488],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            marker_c9fc685c711c56e68d76d89e52cfffd4.bindTooltip(
+                `<div>
+                     Paris, FR
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_29d402a09dead2f1bc18fec7cac2f3ef = L.marker(
+                [48.8544, 2.3498],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            var icon_1e4fe2c727f81f5eb84beafb5f6c2d58 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "black", "prefix": "fa"}
+            );
+            marker_29d402a09dead2f1bc18fec7cac2f3ef.setIcon(icon_1e4fe2c727f81f5eb84beafb5f6c2d58);
+        
+    
+            marker_29d402a09dead2f1bc18fec7cac2f3ef.bindTooltip(
+                `<div>
+                     Paris, FR (Destination)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            ant_path_a1e12f4bd23b56228418801637c28e03 = L.polyline.antPath(
+              [[37.3924, -121.9623], [37.3394, -121.895], [37.3394, -121.895], [37.3394, -121.895], [37.3394, -121.895], [48.8534, 2.3488], [48.8534, 2.3488], [48.8534, 2.3488], [48.8534, 2.3488]],
+              {"bubblingMouseEvents": true, "color": "#FF1493", "dashArray": [5, 15], "dashOffset": null, "delay": 2000, "fill": false, "fillColor": "#FF1493", "fillOpacity": 0.2, "fillRule": "evenodd", "hardwareAcceleration": false, "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "paused": false, "pulseColor": "white", "reverse": false, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+        ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            var marker_6df49c563b432509bf9a280aff8ccf9c = L.marker(
+                [37.3934, -121.9613],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            var icon_f1f6f64ca43e03f3954e3c3de8e1e548 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "play", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_6df49c563b432509bf9a280aff8ccf9c.setIcon(icon_f1f6f64ca43e03f3954e3c3de8e1e548);
+        
+    
+            marker_6df49c563b432509bf9a280aff8ccf9c.bindTooltip(
+                `<div>
+                     Santa Clara, US (Starting Point)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_5094249bbb4e3d5d2adf5823c2892406 = L.marker(
+                [37.3394, -121.895],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            marker_5094249bbb4e3d5d2adf5823c2892406.bindTooltip(
+                `<div>
+                     San Jose, US
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_7fcf8938cf4baa582dc7de08ba8e7373 = L.marker(
+                [37.3394, -121.895],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            marker_7fcf8938cf4baa582dc7de08ba8e7373.bindTooltip(
+                `<div>
+                     San Jose, US
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_8c4c5352ed21094cfedcdb3c982b6c1e = L.marker(
+                [37.3394, -121.895],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            marker_8c4c5352ed21094cfedcdb3c982b6c1e.bindTooltip(
+                `<div>
+                     San Jose, US
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_d8d05efc41c9deca5ba225fe2927568d = L.marker(
+                [37.3394, -121.895],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            marker_d8d05efc41c9deca5ba225fe2927568d.bindTooltip(
+                `<div>
+                     San Jose, US
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_79447cd59e2bbac8af4d9ea1ff66f0ff = L.marker(
+                [37.3394, -121.895],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            marker_79447cd59e2bbac8af4d9ea1ff66f0ff.bindTooltip(
+                `<div>
+                     San Jose, US
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_17aca3d63f92c31cc84fcf1f83baa355 = L.marker(
+                [37.763099999999994, -122.39609999999999],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            var icon_7a4c934924ce1f553161b1bc9e7bf1ac = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "black", "prefix": "fa"}
+            );
+            marker_17aca3d63f92c31cc84fcf1f83baa355.setIcon(icon_7a4c934924ce1f553161b1bc9e7bf1ac);
+        
+    
+            marker_17aca3d63f92c31cc84fcf1f83baa355.bindTooltip(
+                `<div>
+                     San Francisco, US (Destination)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            ant_path_2a5f6bb420a558a27f7bf44ecd203f7b = L.polyline.antPath(
+              [[37.3924, -121.9623], [37.3394, -121.895], [37.3394, -121.895], [37.3394, -121.895], [37.3394, -121.895], [37.3394, -121.895], [37.7621, -122.3971]],
+              {"bubblingMouseEvents": true, "color": "#00FFFF", "dashArray": [5, 15], "dashOffset": null, "delay": 2000, "fill": false, "fillColor": "#00FFFF", "fillOpacity": 0.2, "fillRule": "evenodd", "hardwareAcceleration": false, "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "paused": false, "pulseColor": "white", "reverse": false, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+        ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            var marker_2a315d2a886a14e09c7ab510e074e2b5 = L.marker(
+                [37.3934, -121.9613],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            var icon_f1607633bd29b920799f89c61a6a9ba5 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "play", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_2a315d2a886a14e09c7ab510e074e2b5.setIcon(icon_f1607633bd29b920799f89c61a6a9ba5);
+        
+    
+            marker_2a315d2a886a14e09c7ab510e074e2b5.bindTooltip(
+                `<div>
+                     Santa Clara, US (Starting Point)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_ced73a6d27eace95296ddd2071b07124 = L.marker(
+                [37.3394, -121.895],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            marker_ced73a6d27eace95296ddd2071b07124.bindTooltip(
+                `<div>
+                     San Jose, US
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_1936f61d3175a3bf0cac4abb62eee704 = L.marker(
+                [37.3394, -121.895],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            marker_1936f61d3175a3bf0cac4abb62eee704.bindTooltip(
+                `<div>
+                     San Jose, US
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_15f1c8fb9ed6965cbdca769c659bbee5 = L.marker(
+                [37.3394, -121.895],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            marker_15f1c8fb9ed6965cbdca769c659bbee5.bindTooltip(
+                `<div>
+                     San Jose, US
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_a59462a5627063466e558457ca25cf18 = L.marker(
+                [37.3394, -121.895],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            marker_a59462a5627063466e558457ca25cf18.bindTooltip(
+                `<div>
+                     San Jose, US
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_0c48a80b13cf84b52b9f8d578834d0d2 = L.marker(
+                [37.3394, -121.895],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            marker_0c48a80b13cf84b52b9f8d578834d0d2.bindTooltip(
+                `<div>
+                     San Jose, US
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_7d7fe390428da0b467f2779f4b8a234f = L.marker(
+                [-33.8678, 151.2073],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            marker_7d7fe390428da0b467f2779f4b8a234f.bindTooltip(
+                `<div>
+                     Sydney, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_17443068fca343b5b24c1503c52ade51 = L.marker(
+                [-33.8678, 151.2073],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            marker_17443068fca343b5b24c1503c52ade51.bindTooltip(
+                `<div>
+                     Sydney, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_724b00c34ffd5d11d84e26142824a0bb = L.marker(
+                [-37.814, 144.9633],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            marker_724b00c34ffd5d11d84e26142824a0bb.bindTooltip(
+                `<div>
+                     Melbourne, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_ece8f4737bdfb605f4714ade5bd6dc93 = L.marker(
+                [-37.814, 144.9633],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            marker_ece8f4737bdfb605f4714ade5bd6dc93.bindTooltip(
+                `<div>
+                     Melbourne, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_a025df44f2b99abc07be04559bb991d1 = L.marker(
+                [-37.813, 144.9643],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            var icon_6abd4640fd62d76e9925f702af2fdba3 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "black", "prefix": "fa"}
+            );
+            marker_a025df44f2b99abc07be04559bb991d1.setIcon(icon_6abd4640fd62d76e9925f702af2fdba3);
+        
+    
+            marker_a025df44f2b99abc07be04559bb991d1.bindTooltip(
+                `<div>
+                     Melbourne, AU (Destination)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            ant_path_952a95fdea49b4f2200d6f8e97ffccc2 = L.polyline.antPath(
+              [[37.3924, -121.9623], [37.3394, -121.895], [37.3394, -121.895], [37.3394, -121.895], [37.3394, -121.895], [37.3394, -121.895], [-33.8678, 151.2073], [-33.8678, 151.2073], [-37.814, 144.9633], [-37.814, 144.9633], [-37.814, 144.9633]],
+              {"bubblingMouseEvents": true, "color": "#FF6600", "dashArray": [5, 15], "dashOffset": null, "delay": 2000, "fill": false, "fillColor": "#FF6600", "fillOpacity": 0.2, "fillRule": "evenodd", "hardwareAcceleration": false, "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "paused": false, "pulseColor": "white", "reverse": false, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+        ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            var marker_33e38c7519d0ef96b6f8162646046bcf = L.marker(
+                [37.3934, -121.9613],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            var icon_a4a65778fe961521d573773973036834 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "play", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_33e38c7519d0ef96b6f8162646046bcf.setIcon(icon_a4a65778fe961521d573773973036834);
+        
+    
+            marker_33e38c7519d0ef96b6f8162646046bcf.bindTooltip(
+                `<div>
+                     Santa Clara, US (Starting Point)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_9ffe272b9e73c78cb3a78183623b813d = L.marker(
+                [37.3394, -121.895],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            marker_9ffe272b9e73c78cb3a78183623b813d.bindTooltip(
+                `<div>
+                     San Jose, US
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_b228f2b5ab9832e2284bc6dd1a1b5f92 = L.marker(
+                [37.3394, -121.895],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            marker_b228f2b5ab9832e2284bc6dd1a1b5f92.bindTooltip(
+                `<div>
+                     San Jose, US
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_4e4e78bd69fbcbaef45df9c39399b5c2 = L.marker(
+                [37.3394, -121.895],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            marker_4e4e78bd69fbcbaef45df9c39399b5c2.bindTooltip(
+                `<div>
+                     San Jose, US
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_c26af23053d38f54f7372244031ea9a4 = L.marker(
+                [37.3394, -121.895],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            marker_c26af23053d38f54f7372244031ea9a4.bindTooltip(
+                `<div>
+                     San Jose, US
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_974ba1e476f005776fb069a7202ef54c = L.marker(
+                [37.3394, -121.895],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            marker_974ba1e476f005776fb069a7202ef54c.bindTooltip(
+                `<div>
+                     San Jose, US
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_4bdfd3613ed540d02f2c5f042433caa7 = L.marker(
+                [37.3394, -121.895],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            marker_4bdfd3613ed540d02f2c5f042433caa7.bindTooltip(
+                `<div>
+                     San Jose, US
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_84d092b12cd8da43e5e10a11dc093db3 = L.marker(
+                [-33.8678, 151.2073],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            marker_84d092b12cd8da43e5e10a11dc093db3.bindTooltip(
+                `<div>
+                     Sydney, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_c5ef2c77704f201737e6df67ced2e3f0 = L.marker(
+                [-33.8678, 151.2073],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            marker_c5ef2c77704f201737e6df67ced2e3f0.bindTooltip(
+                `<div>
+                     Sydney, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_5e0333ae3b3e2fa0637b3d75d4e31e2b = L.marker(
+                [-33.866800000000005, 151.2083],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            var icon_5f7693bd54dc72f154de677454a36583 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "black", "prefix": "fa"}
+            );
+            marker_5e0333ae3b3e2fa0637b3d75d4e31e2b.setIcon(icon_5f7693bd54dc72f154de677454a36583);
+        
+    
+            marker_5e0333ae3b3e2fa0637b3d75d4e31e2b.bindTooltip(
+                `<div>
+                     Sydney, AU (Destination)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            ant_path_8e824c1dd582aac2cbb895538deee24b = L.polyline.antPath(
+              [[37.3924, -121.9623], [37.3394, -121.895], [37.3394, -121.895], [37.3394, -121.895], [37.3394, -121.895], [37.3394, -121.895], [37.3394, -121.895], [-33.8678, 151.2073], [-33.8678, 151.2073], [-33.8678, 151.2073]],
+              {"bubblingMouseEvents": true, "color": "#FFFF00", "dashArray": [5, 15], "dashOffset": null, "delay": 2000, "fill": false, "fillColor": "#FFFF00", "fillOpacity": 0.2, "fillRule": "evenodd", "hardwareAcceleration": false, "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "paused": false, "pulseColor": "white", "reverse": false, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+        ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            var marker_751482ebf5e8c847507e6030deb077a4 = L.marker(
+                [37.3934, -121.9613],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            var icon_f7ab63be37165ecc1cdfef8508564d22 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "play", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_751482ebf5e8c847507e6030deb077a4.setIcon(icon_f7ab63be37165ecc1cdfef8508564d22);
+        
+    
+            marker_751482ebf5e8c847507e6030deb077a4.bindTooltip(
+                `<div>
+                     Santa Clara, US (Starting Point)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_b3f3eda1fab0358b6b065db5c56b015c = L.marker(
+                [37.3394, -121.895],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            marker_b3f3eda1fab0358b6b065db5c56b015c.bindTooltip(
+                `<div>
+                     San Jose, US
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_773811bc0dc9652fdef5aecad90b3e70 = L.marker(
+                [37.3394, -121.895],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            marker_773811bc0dc9652fdef5aecad90b3e70.bindTooltip(
+                `<div>
+                     San Jose, US
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_a1b6a1d385592f2969808342979441a9 = L.marker(
+                [37.3394, -121.895],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            marker_a1b6a1d385592f2969808342979441a9.bindTooltip(
+                `<div>
+                     San Jose, US
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_de59af5fb9ba73f21f8de906427f10eb = L.marker(
+                [37.3394, -121.895],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            marker_de59af5fb9ba73f21f8de906427f10eb.bindTooltip(
+                `<div>
+                     San Jose, US
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_56d38ff295922bfa7bae60f455abe22b = L.marker(
+                [37.3394, -121.895],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            marker_56d38ff295922bfa7bae60f455abe22b.bindTooltip(
+                `<div>
+                     San Jose, US
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_74073a043eb3daabbaa2c786247b9009 = L.marker(
+                [51.5085, -0.1257],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            marker_74073a043eb3daabbaa2c786247b9009.bindTooltip(
+                `<div>
+                     London, GB
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_a321a1319c56971691f0451fa6cfbeda = L.marker(
+                [51.5085, -0.1257],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            marker_a321a1319c56971691f0451fa6cfbeda.bindTooltip(
+                `<div>
+                     London, GB
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_7d70c2716defb32febe3f6b9def4ef8f = L.marker(
+                [51.5085, -0.1257],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            marker_7d70c2716defb32febe3f6b9def4ef8f.bindTooltip(
+                `<div>
+                     London, GB
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_d526e469255b88a84c65f72ab987eb9d = L.marker(
+                [-4.0547, 39.6636],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            marker_d526e469255b88a84c65f72ab987eb9d.bindTooltip(
+                `<div>
+                     Mombasa, KE
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_1ca70b96414f78f6d587d19a7bdfb3ae = L.marker(
+                [-4.0537, 39.6646],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            var icon_a56373398d8547257af6a2db18e66dda = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "black", "prefix": "fa"}
+            );
+            marker_1ca70b96414f78f6d587d19a7bdfb3ae.setIcon(icon_a56373398d8547257af6a2db18e66dda);
+        
+    
+            marker_1ca70b96414f78f6d587d19a7bdfb3ae.bindTooltip(
+                `<div>
+                     Mombasa, KE (Destination)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            ant_path_83415fe4a8b908c6d146a28f9beb44ab = L.polyline.antPath(
+              [[37.3924, -121.9623], [37.3394, -121.895], [37.3394, -121.895], [37.3394, -121.895], [37.3394, -121.895], [37.3394, -121.895], [51.5085, -0.1257], [51.5085, -0.1257], [51.5085, -0.1257], [-4.0547, 39.6636], [-4.0547, 39.6636]],
+              {"bubblingMouseEvents": true, "color": "#FF0000", "dashArray": [5, 15], "dashOffset": null, "delay": 2000, "fill": false, "fillColor": "#FF0000", "fillOpacity": 0.2, "fillRule": "evenodd", "hardwareAcceleration": false, "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "paused": false, "pulseColor": "white", "reverse": false, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+        ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            var marker_1bcc1a1302078fa635ca4489810e1fd5 = L.marker(
+                [37.3934, -121.9613],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            var icon_20beec40aaf459b01fcf50cfed1e9877 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "play", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_1bcc1a1302078fa635ca4489810e1fd5.setIcon(icon_20beec40aaf459b01fcf50cfed1e9877);
+        
+    
+            marker_1bcc1a1302078fa635ca4489810e1fd5.bindTooltip(
+                `<div>
+                     Santa Clara, US (Starting Point)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_1b6eb721d053cae359b559fb798dd01e = L.marker(
+                [37.3394, -121.895],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            marker_1b6eb721d053cae359b559fb798dd01e.bindTooltip(
+                `<div>
+                     San Jose, US
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_1620a901b51a593472f2275e57e880e1 = L.marker(
+                [37.3394, -121.895],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            marker_1620a901b51a593472f2275e57e880e1.bindTooltip(
+                `<div>
+                     San Jose, US
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_c55a7090bb5acfee41e1d365fe37b95b = L.marker(
+                [37.3394, -121.895],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            marker_c55a7090bb5acfee41e1d365fe37b95b.bindTooltip(
+                `<div>
+                     San Jose, US
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_4ce1a3e3f51219434c35831bb1d4dc9a = L.marker(
+                [37.3394, -121.895],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            marker_4ce1a3e3f51219434c35831bb1d4dc9a.bindTooltip(
+                `<div>
+                     San Jose, US
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_7c6bd169521fa0969ffc4a485fd8eeb2 = L.marker(
+                [37.3394, -121.895],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            marker_7c6bd169521fa0969ffc4a485fd8eeb2.bindTooltip(
+                `<div>
+                     San Jose, US
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_03645756220920442602b921186ba92f = L.marker(
+                [37.3394, -121.895],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            marker_03645756220920442602b921186ba92f.bindTooltip(
+                `<div>
+                     San Jose, US
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_44f6c22745bbfa87ccd5a476d22920a2 = L.marker(
+                [37.340399999999995, -121.89399999999999],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            var icon_01b8086aaca08f7b2efe6cb5e848bd35 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "black", "prefix": "fa"}
+            );
+            marker_44f6c22745bbfa87ccd5a476d22920a2.setIcon(icon_01b8086aaca08f7b2efe6cb5e848bd35);
+        
+    
+            marker_44f6c22745bbfa87ccd5a476d22920a2.bindTooltip(
+                `<div>
+                     San Jose, US (Destination)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            ant_path_663fbd910e7accd6c4341ebd105eb7b1 = L.polyline.antPath(
+              [[37.3924, -121.9623], [37.3394, -121.895], [37.3394, -121.895], [37.3394, -121.895], [37.3394, -121.895], [37.3394, -121.895], [37.3394, -121.895], [37.3394, -121.895]],
+              {"bubblingMouseEvents": true, "color": "#14F0FF", "dashArray": [5, 15], "dashOffset": null, "delay": 2000, "fill": false, "fillColor": "#14F0FF", "fillOpacity": 0.2, "fillRule": "evenodd", "hardwareAcceleration": false, "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "paused": false, "pulseColor": "white", "reverse": false, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+        ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            var marker_39a4e5afafd1a7bdcf6c6668280ac206 = L.marker(
+                [37.3934, -121.9613],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            var icon_cbc89815479de1a53cce19090747455d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "play", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_39a4e5afafd1a7bdcf6c6668280ac206.setIcon(icon_cbc89815479de1a53cce19090747455d);
+        
+    
+            marker_39a4e5afafd1a7bdcf6c6668280ac206.bindTooltip(
+                `<div>
+                     Santa Clara, US (Starting Point)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_535af0f3a46c70517d08722345517c05 = L.marker(
+                [37.3394, -121.895],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            marker_535af0f3a46c70517d08722345517c05.bindTooltip(
+                `<div>
+                     San Jose, US
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_2142b45bf32c2e1a5c20a33f7bc140f7 = L.marker(
+                [37.3394, -121.895],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            marker_2142b45bf32c2e1a5c20a33f7bc140f7.bindTooltip(
+                `<div>
+                     San Jose, US
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_3a1ac3459c675cdd3afb925b6f42c3bc = L.marker(
+                [37.3394, -121.895],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            marker_3a1ac3459c675cdd3afb925b6f42c3bc.bindTooltip(
+                `<div>
+                     San Jose, US
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_032dc1dfd90a286d14113d990e15f4b1 = L.marker(
+                [37.3394, -121.895],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            marker_032dc1dfd90a286d14113d990e15f4b1.bindTooltip(
+                `<div>
+                     San Jose, US
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_1c6fd6fa715fb83dca55af7e23a88075 = L.marker(
+                [37.3394, -121.895],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            marker_1c6fd6fa715fb83dca55af7e23a88075.bindTooltip(
+                `<div>
+                     San Jose, US
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_46dc751e1d6fdd73bbce8be7613c4451 = L.marker(
+                [34.0522, -118.2437],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            marker_46dc751e1d6fdd73bbce8be7613c4451.bindTooltip(
+                `<div>
+                     Los Angeles, US
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_859b72949f1ab59895e8762e23e53b34 = L.marker(
+                [34.0522, -118.2437],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            marker_859b72949f1ab59895e8762e23e53b34.bindTooltip(
+                `<div>
+                     Los Angeles, US
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_423bd33673b910731197a0366056807a = L.marker(
+                [34.0522, -118.2437],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            marker_423bd33673b910731197a0366056807a.bindTooltip(
+                `<div>
+                     Los Angeles, US
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_ba672da7ef541fc12afa8846f42444b6 = L.marker(
+                [50.088, 14.4208],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            marker_ba672da7ef541fc12afa8846f42444b6.bindTooltip(
+                `<div>
+                     Prague, CZ
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_709931da2f4d8da50ffcdb42cf3c9f22 = L.marker(
+                [34.6851, 33.0389],
+                {}
+            ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+    
+            var icon_33851e410b808608368ffc66a993381b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "black", "prefix": "fa"}
+            );
+            marker_709931da2f4d8da50ffcdb42cf3c9f22.setIcon(icon_33851e410b808608368ffc66a993381b);
+        
+    
+            marker_709931da2f4d8da50ffcdb42cf3c9f22.bindTooltip(
+                `<div>
+                     Limassol, CY (Destination)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            ant_path_6c8f5310338383324932d6eb69f2020c = L.polyline.antPath(
+              [[37.3924, -121.9623], [37.3394, -121.895], [37.3394, -121.895], [37.3394, -121.895], [37.3394, -121.895], [37.3394, -121.895], [34.0522, -118.2437], [34.0522, -118.2437], [34.0522, -118.2437], [50.088, 14.4208], [34.6841, 33.0379]],
+              {"bubblingMouseEvents": true, "color": "#FF00FF", "dashArray": [5, 15], "dashOffset": null, "delay": 2000, "fill": false, "fillColor": "#FF00FF", "fillOpacity": 0.2, "fillRule": "evenodd", "hardwareAcceleration": false, "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "paused": false, "pulseColor": "white", "reverse": false, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+        ).addTo(map_aff1c56d4d2d6f3dae7baa26259f5cec);
+        
+</script>
+</html>
