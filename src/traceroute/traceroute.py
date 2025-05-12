@@ -45,7 +45,7 @@ def get_ip_info(ip):
         return None
 
 
-def print_ip_info(ip):
+def print_ip_info(ip, file_output):
     # fake_HTTP_header e un dictionar care contine antetul HTTP folosit pentru informatii despre cerere
     fake_HTTP_header = {
         'referer': 'https://ipinfo.io/',  # pagina de pe care provine cererea
@@ -66,7 +66,7 @@ def print_ip_info(ip):
         if location:
             # afisam informatiile despre IP
             print(f"Location: {location}, City: {city}, Region: {region}, Country: {country}")
-            with open("raport.md", "a") as file:
+            with open(file_output, "a") as file:
                 file.write(f"{location}, {city}, {region}, {country}  \n")
         else:
             print("Private IP or no location data available")
@@ -74,7 +74,7 @@ def print_ip_info(ip):
         print(f"Request error: {response.status_code} - {response.text}")
 
 
-def traceroute(ip, port):
+def traceroute(ip, port, file_output):
     print(f"\nTraceroute to {ip} on port {port}:")
     # setam TTL in headerul de IP pentru socketul de UDP
     # TTL = Time To Live
@@ -111,10 +111,10 @@ def traceroute(ip, port):
             # verificam tipul de mesaj ICMP
             if icmp_type == 11:  # Time Exceeded
                 print(f"Hop {hop}: {addr[0]} (Time Exceeded) - {elapsed_time:.2f} ms")
-                print_ip_info(addr[0])
+                print_ip_info(addr[0], file_output)
             elif icmp_type == 3:  # Destination Unreachable
                 print(f"Hop {hop}: {addr[0]} (Destination Unreachable)")
-                print_ip_info(addr[0])
+                print_ip_info(addr[0], file_output)
                 if addr[0] == ip:
                     print(f"\nDestination {ip} has been reached at hop {hop}")
                     destination_reached = True
@@ -141,7 +141,7 @@ def traceroute(ip, port):
 if __name__ == "__main__":
     dest = "64.226.94.247"  # IP-ul de test
     port = 33434
-    traceroute(dest, port)
+    traceroute(dest, port, 'reports/report.md')
 
 
 '''

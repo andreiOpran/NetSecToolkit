@@ -41,26 +41,26 @@ def get_locations():
     local_machine_ip = get_local_machine_ip()
     if local_machine_ip:
         local_machine_ip_location, local_machine_ip_city, local_machine_ip_region, local_machine_ip_country = traceroute.get_ip_info(local_machine_ip)
-        with open("raport.md", "a") as file:
-            file.write(f"\n\n\n# From machine with IP: {local_machine_ip} ({local_machine_ip_city}, {local_machine_ip_country})\n")
+        with open(f"reports/{local_machine_ip}_{local_machine_ip_city}_{local_machine_ip_country}.md", "a") as file:
+            file.write(f"# From machine with IP: {local_machine_ip} ({local_machine_ip_city}, {local_machine_ip_country})\n")
     else:
         print("Nu s-a putut obtine IP-ul public.")
     # iterare pe domenii
     for region, domain in domains.items():
         destination_ip = get_ip(domain)
         _, destination_ip_city, _, destination_ip_country = traceroute.get_ip_info(destination_ip)
-        with open("raport.md", "a") as file:
+        with open(f"reports/{local_machine_ip}_{local_machine_ip_city}_{local_machine_ip_country}.md", "a") as file:
             file.write(f"\n#### Running traceroute from {local_machine_ip} ({local_machine_ip_city}, {local_machine_ip_country}) "
                        f"to {destination_ip} ({destination_ip_city}, {destination_ip_country})\n")
             # write the starting location info to the file
             file.write(f'{local_machine_ip_location}, {local_machine_ip_city}, {local_machine_ip_region}, {local_machine_ip_country}  \n')
         if destination_ip:
-            traceroute.traceroute(destination_ip, 33434)
+            traceroute.traceroute(destination_ip, 33434, file_output=f"reports/{local_machine_ip}_{local_machine_ip_city}_{local_machine_ip_country}.md")
 
 
 def draw_map_plotly():
     locations = []
-    with open("raport.md", "r", encoding="UTF-8") as file:
+    with open("reports/report.md", "r", encoding="UTF-8") as file:
         for line in file:
             if '#' not in line:  # verificam daca linia contine datele necesare
                 data = line.strip().split(",")
@@ -117,7 +117,7 @@ def draw_map_plotly():
 
 def draw_map_folium():
     locations = []
-    with open("raport.md", "r", encoding="UTF-8") as file:
+    with open("reports/report.md", "r", encoding="UTF-8") as file:
         for line in file:
             if '#' not in line:
                 data = line.strip().split(",")
