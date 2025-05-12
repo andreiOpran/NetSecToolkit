@@ -62,13 +62,14 @@ def get_locations():
 
 def draw_map():
     locations = []
-    with open("raport.txt", "r") as file:
+    with open("raport.md", "r") as file:
         for line in file:
-            if ',' in line: # verificam daca linia contine datele necesare
+            if '#' not in line:  # verificam daca linia contine datele necesare
                 data = line.strip().split(",")
                 data = [item.strip() for item in data]  # eliminam spatiile albe
                 if len(data) == 5:  # consideram formatul lat, lon, city, region, country
                     lat, lon, city, region, country = data
+                    print(lat, lon, city, region, country)
                     locations.append({
                         "Latitude": float(lat),
                         "Longitude": float(lon),
@@ -95,7 +96,7 @@ def draw_map():
 
 
 if __name__ == "__main__":
-    get_locations()
-
+    # get_locations()
+    draw_map()
 
 # de rulat din mai multe locatii, VPS, facultate, acasa, etc.
