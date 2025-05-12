@@ -6,23 +6,26 @@ import requests
 
 # domenii de test
 domains = {
-    'Asia' : 'baidu.com',
-    'Africa': 'gov.za',
-    'Australia': 'gov.au'
+    'Asia': 'iij.ad.jp',
+    'Europe': 'francetelevisions.fr',
+    'NorthAmerica': 'cloudflare.com',
+    'Australia1': 'telstra.com.au',
+    'Australia2': 'sydney.edu.au',
+    'SouthAfrica': 'seacom.mu',
+    'Google': 'google.com',
+    'DNS1': 'dns.adguard-dns.com'
 }
 
+
 # functie pentru a obtine IP-ul public
-def get_public_ip():
-    try:
-        response = requests.get("https://api.ipify.org?format=json")
-        if response.status_code == 200:
-            return response.json().get("ip")
-        else:
-            print(f"Eroare la obținerea IP-ului public: {response.status_code}")
-            return None
-    except requests.RequestException as e:
-        print(f"Eroare la conectarea la serviciul de IP public: {e}")
+def get_local_machine_ip():
+    response = requests.get("https://api.ipify.org?format=json")
+    if response.status_code == 200:
+        return response.json().get("ip")
+    else:
+        print(f"Error retrieving public IP: {response.status_code}")
         return None
+
 
 # functie pentru a obtine IP-ul unui domeniu
 def get_ip(domain):
@@ -31,22 +34,31 @@ def get_ip(domain):
     except socket.gaierror:
         return None
 
+
 def get_locations():
     # obtinem IP-ul local al masinii care ruleaza scriptul
-    public_ip = get_public_ip()
-    if public_ip:
-        with open("raport.txt", "a") as file:
-            file.write(f"Locatiile pentru mai multe regiuni de pe ip-ul {public_ip}\n")
+    local_machine_ip = get_local_machine_ip()
+    if local_machine_ip:
+        local_machine_ip_location, local_machine_ip_city, local_machine_ip_region, local_machine_ip_country = traceroute.get_ip_info(local_machine_ip)
+        with open("raport.md", "a") as file:
+            file.write(f"\n\n\n# From machine with IP: {local_machine_ip} ({local_machine_ip_city}, {local_machine_ip_country})\n")
     else:
         print("Nu s-a putut obtine IP-ul public.")
     # iterare pe domenii
     for region, domain in domains.items():
-        ip = get_ip(domain)
-        if ip:
-            traceroute.traceroute(ip, 33434)
-    
+        destination_ip = get_ip(domain)
+        _, destination_ip_city, _, destination_ip_country = traceroute.get_ip_info(destination_ip)
+        with open("raport.md", "a") as file:
+            file.write(f"\n#### Running traceroute from {local_machine_ip} ({local_machine_ip_city}, {local_machine_ip_country}) "
+                       f"to {destination_ip} ({destination_ip_city}, {destination_ip_country})\n")
+            # write the starting location info to the file
+            file.write(f'{local_machine_ip_location}, {local_machine_ip_city}, {local_machine_ip_region}, {local_machine_ip_country}  \n')
+        if destination_ip:
+            traceroute.traceroute(destination_ip, 33434)
+
     # desenam harta
     draw_map()
+
 
 def draw_map():
     locations = []
@@ -81,7 +93,9 @@ def draw_map():
     # salvam harta ca fisier HTML
     fig.write_html("raport_harta.html", auto_open=True)
 
+
 if __name__ == "__main__":
     get_locations()
+
 
 # de rulat din mai multe locatii, VPS, facultate, acasa, etc.

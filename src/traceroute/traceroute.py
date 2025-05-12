@@ -18,6 +18,33 @@ def generate_random_ip():
     return f"{random.randint(1, 255)}.{random.randint(0, 255)}.{random.randint(0, 255)}.{random.randint(0, 255)}"
 
 
+def get_ip_info(ip):
+    # fake_HTTP_header e un dictionar care contine antetul HTTP folosit pentru informatii despre cerere
+    fake_HTTP_header = {
+        'referer': 'https://ipinfo.io/',  # pagina de pe care provine cererea
+
+        # informatii despre clientul care face cererea
+        'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.79 Safari/537.36',
+
+        'X-Forwarded-For': generate_random_ip()  # adresa IP generata aleator pentru a evita limitarea cererilor
+    }
+
+    # trimitem cererea catre ipinfo.io pentru a obtine informatii despre IP
+    response = requests.get(f'https://ipinfo.io/{ip}/json', headers=fake_HTTP_header)
+    # verificam statusul raspunsului
+    if response.status_code == 200:
+        location = response.json().get('loc')
+        city, region, country = response.json().get('city'), response.json().get('region'), response.json().get(
+            'country')
+        if location:
+            return location, city, region, country
+        else:
+            return None
+    else:
+        print(f"(get_ip_info() from traceroute.py) - Request error: {response.status_code} - {response.text}")
+        return None
+
+
 def print_ip_info(ip):
     # fake_HTTP_header e un dictionar care contine antetul HTTP folosit pentru informatii despre cerere
     fake_HTTP_header = {
@@ -39,8 +66,8 @@ def print_ip_info(ip):
         if location:
             # afisam informatiile despre IP
             print(f"Location: {location}, City: {city}, Region: {region}, Country: {country}")
-            with open("raport.txt", "a") as file:
-                file.write(f"{location}, {city}, {region}, {country}\n")
+            with open("raport.md", "a") as file:
+                file.write(f"{location}, {city}, {region}, {country}  \n")
         else:
             print("Private IP or no location data available")
     else:
@@ -48,10 +75,11 @@ def print_ip_info(ip):
 
 
 def traceroute(ip, port):
+    print(f"\nTraceroute to {ip} on port {port}:")
     # setam TTL in headerul de IP pentru socketul de UDP
     # TTL = Time To Live
     # UDP = User Datagram Protocol
-    TTL = 64
+    TTL = 32
     destination_reached = False  # variabila folosita pentru output
     for hop in range(1, TTL+1):
         # setam TTL-ul in socketul UDP
