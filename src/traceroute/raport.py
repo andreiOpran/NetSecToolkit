@@ -2,8 +2,8 @@ import traceroute
 import socket
 import pandas as pd
 import plotly.graph_objects as go
-
 import requests
+import folium
 
 # domenii de test
 domains = {
@@ -57,11 +57,8 @@ def get_locations():
         if destination_ip:
             traceroute.traceroute(destination_ip, 33434)
 
-    # desenam harta
-    draw_map()
 
-
-def draw_map():
+def draw_map_plotly():
     locations = []
     with open("raport.md", "r", encoding="UTF-8") as file:
         for line in file:
@@ -85,41 +82,80 @@ def draw_map():
     fig = go.Figure()
     
     fig.add_trace(go.Scattergeo(
-    lat=df['Latitude'],
-    lon=df['Longitude'],
-    mode='lines+markers+text',  # afisare linii, puncte si text
-    text=df['City'],
-    textposition='top center',  # pozitionare text
-    line=dict(width=1, color='black'), # grosime si culoare linie
-    marker=dict(
-        size=15,                # marimea punctelor
-        color='red',            # culoarea punctelor
-        symbol='circle',
-        line=dict(
-            width=1.5,            # grosimea conturului
-            color='black'       # culoarea conturului
-        )
-    ),
-    hoverinfo='text'
-))
+        lat=df['Latitude'],
+        lon=df['Longitude'],
+        mode='lines+markers+text',  # afisare linii, puncte si text
+        text=df['City'],
+        textposition='top center',  # pozitionare text
+        line=dict(width=1, color='black'),  # grosime si culoare linie
+        marker=dict(
+            size=15,                # marimea punctelor
+            color='red',            # culoarea punctelor
+            symbol='circle',
+            line=dict(
+                width=1.5,            # grosimea conturului
+                color='black'       # culoarea conturului
+            )
+        ),
+        hoverinfo='text'
+    ))
     
     fig.update_layout(
         title="Rutele prin diverse tari",
         geo=dict(   
-            scope='world', # harta globala
-            projection_type='equirectangular', # tipul proiectiei
-            showland=True, # afisare teren
-            landcolor="rgb(229, 229, 229)", # culoarea terenului
-            countrycolor="rgb(255, 255, 255)" # culoarea tarii
+            scope='world',  # harta globala
+            projection_type='equirectangular',  # tipul proiectiei
+            showland=True,  # afisare teren
+            landcolor="rgb(229, 229, 229)",  # culoarea terenului
+            countrycolor="rgb(255, 255, 255)"  # culoarea tarii
         )
     )
 
     # salvam harta ca fisier HTML
-    fig.write_html("raport_harta.html")
+    fig.write_html("raport_harta_plotly.html")
+
+
+def draw_map_folium():
+    locations = []
+    with open("raport.md", "r", encoding="UTF-8") as file:
+        for line in file:
+            if '#' not in line:
+                data = line.strip().split(",")
+                data = [item.strip() for item in data]
+                if len(data) == 5:
+                    lat, lon, city, region, country = data
+                    try:
+                        locations.append({
+                            "Latitude": float(lat),
+                            "Longitude": float(lon),
+                            "City": city,
+                            "Region": region,
+                            "Country": country
+                        })
+                    except ValueError:
+                        continue
+
+    # Create a map centered around Antalya
+    antalya_lat = 36.8969
+    antalya_lon = 30.7133
+    m = folium.Map(location=[antalya_lat, antalya_lon], zoom_start=3)
+
+    # Add markers for each location
+    for location in locations:
+        folium.Marker(
+            location=[location["Latitude"], location["Longitude"]],
+            tooltip=f"{location['City']}, {location['Country']}"
+        ).add_to(m)
+
+    # Add lines connecting points
+    points = [(location["Latitude"], location["Longitude"]) for location in locations]
+    folium.PolyLine(points, color="red", weight=2.5, opacity=0.8).add_to(m)
+
+    m.save("raport_harta_folium.html")
 
 
 if __name__ == "__main__":
     # get_locations()
-    draw_map()
+    draw_map_folium()
 
 # de rulat din mai multe locatii, VPS, facultate, acasa, etc.
