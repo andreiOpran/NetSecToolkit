@@ -1,0 +1,1407 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_5267884084497f71fb9ca292a742b8db {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+    <script src="https://cdn.jsdelivr.net/npm/leaflet-ant-path@1.1.2/dist/leaflet-ant-path.min.js"></script>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_5267884084497f71fb9ca292a742b8db" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_5267884084497f71fb9ca292a742b8db = L.map(
+                "map_5267884084497f71fb9ca292a742b8db",
+                {
+                    center: [36.8969, 30.7133],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 3,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_7fe68d69351e334ab195b399c72d72bf = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_7fe68d69351e334ab195b399c72d72bf.addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            var marker_5e34168cf39476f5567062600eb33398 = L.marker(
+                [-33.9013, 151.1984],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            var icon_24d1b67cd83bf9f2c2c68768d9488973 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "play", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_5e34168cf39476f5567062600eb33398.setIcon(icon_24d1b67cd83bf9f2c2c68768d9488973);
+        
+    
+            marker_5e34168cf39476f5567062600eb33398.bindTooltip(
+                `<div>
+                     Sydney, AU (Starting Point)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_f06f1004f61c2a4ff19217a21911f84e = L.marker(
+                [-33.8678, 151.2073],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            marker_f06f1004f61c2a4ff19217a21911f84e.bindTooltip(
+                `<div>
+                     Sydney, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_19b8b3becac3de4c44b7989102fcb054 = L.marker(
+                [-33.8678, 151.2073],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            marker_19b8b3becac3de4c44b7989102fcb054.bindTooltip(
+                `<div>
+                     Sydney, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_ea50a61d6c4c2f38139f00ef953a3af3 = L.marker(
+                [-33.8678, 151.2073],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            marker_ea50a61d6c4c2f38139f00ef953a3af3.bindTooltip(
+                `<div>
+                     Sydney, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_be95dddb27e900b9d68da97b9a642276 = L.marker(
+                [-33.8678, 151.2073],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            marker_be95dddb27e900b9d68da97b9a642276.bindTooltip(
+                `<div>
+                     Sydney, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_06066dbb7d84c39c6683e0a07dfb2a92 = L.marker(
+                [-33.8678, 151.2073],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            marker_06066dbb7d84c39c6683e0a07dfb2a92.bindTooltip(
+                `<div>
+                     Sydney, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_1df429c2e6c46f7de6ce9ab62e5e3549 = L.marker(
+                [-33.8678, 151.2073],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            marker_1df429c2e6c46f7de6ce9ab62e5e3549.bindTooltip(
+                `<div>
+                     Sydney, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_4a6ef7b2c4f5f0980eb7f45a07145bfc = L.marker(
+                [-33.8678, 151.2073],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            marker_4a6ef7b2c4f5f0980eb7f45a07145bfc.bindTooltip(
+                `<div>
+                     Sydney, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_9ff46bd930a18be4a24c93f916a737bc = L.marker(
+                [1.2897, 103.8501],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            marker_9ff46bd930a18be4a24c93f916a737bc.bindTooltip(
+                `<div>
+                     Singapore, SG
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_e6e50781c60c89725f395a4f3b5174af = L.marker(
+                [34.6938, 135.5011],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            marker_e6e50781c60c89725f395a4f3b5174af.bindTooltip(
+                `<div>
+                     Osaka, JP
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_b0fe5cf888867d5f250da4c0c18171c3 = L.marker(
+                [34.6938, 135.5011],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            marker_b0fe5cf888867d5f250da4c0c18171c3.bindTooltip(
+                `<div>
+                     Osaka, JP
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_b74b34f1685a8017698488dc04dac038 = L.marker(
+                [34.692299999999996, 135.184],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            var icon_139f76020a9af5d6b28dd584ba208ab6 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "black", "prefix": "fa"}
+            );
+            marker_b74b34f1685a8017698488dc04dac038.setIcon(icon_139f76020a9af5d6b28dd584ba208ab6);
+        
+    
+            marker_b74b34f1685a8017698488dc04dac038.bindTooltip(
+                `<div>
+                     Kobe, JP (Destination)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            ant_path_7616df97381a5396daef3b4b01a2d595 = L.polyline.antPath(
+              [[-33.9023, 151.1974], [-33.8678, 151.2073], [-33.8678, 151.2073], [-33.8678, 151.2073], [-33.8678, 151.2073], [-33.8678, 151.2073], [-33.8678, 151.2073], [-33.8678, 151.2073], [1.2897, 103.8501], [34.6938, 135.5011], [34.6938, 135.5011], [34.6913, 135.183]],
+              {"bubblingMouseEvents": true, "color": "#39FF14", "dashArray": [5, 15], "dashOffset": null, "delay": 2000, "fill": false, "fillColor": "#39FF14", "fillOpacity": 0.2, "fillRule": "evenodd", "hardwareAcceleration": false, "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "paused": false, "pulseColor": "white", "reverse": false, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+        ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            var marker_f8e2bfff3a38b259d0fdf0f8f90f0608 = L.marker(
+                [-33.9013, 151.1984],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            var icon_adc2a26b6f817b3e68abbf1a6cd0f1cb = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "play", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_f8e2bfff3a38b259d0fdf0f8f90f0608.setIcon(icon_adc2a26b6f817b3e68abbf1a6cd0f1cb);
+        
+    
+            marker_f8e2bfff3a38b259d0fdf0f8f90f0608.bindTooltip(
+                `<div>
+                     Sydney, AU (Starting Point)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_7fbb31174a28a5a798f0d3655984af1b = L.marker(
+                [-33.8678, 151.2073],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            marker_7fbb31174a28a5a798f0d3655984af1b.bindTooltip(
+                `<div>
+                     Sydney, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_e02aa9919fa8f44c2057cc7a34fabcbb = L.marker(
+                [-33.8678, 151.2073],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            marker_e02aa9919fa8f44c2057cc7a34fabcbb.bindTooltip(
+                `<div>
+                     Sydney, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_0ba72703ac981927730bdc0d73c122e0 = L.marker(
+                [-33.8678, 151.2073],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            marker_0ba72703ac981927730bdc0d73c122e0.bindTooltip(
+                `<div>
+                     Sydney, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_6370f68d746150603b3741780f9cf7d6 = L.marker(
+                [-33.8678, 151.2073],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            marker_6370f68d746150603b3741780f9cf7d6.bindTooltip(
+                `<div>
+                     Sydney, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_27d8413e7a8f6963890755128d9cd9d5 = L.marker(
+                [37.3394, -121.895],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            marker_27d8413e7a8f6963890755128d9cd9d5.bindTooltip(
+                `<div>
+                     San Jose, US
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_3942df01d794c26fe89d6ebbd395e158 = L.marker(
+                [37.3394, -121.895],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            marker_3942df01d794c26fe89d6ebbd395e158.bindTooltip(
+                `<div>
+                     San Jose, US
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_603d7dd6fd9632d75fadd84e1c1957f0 = L.marker(
+                [48.8534, 2.3488],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            marker_603d7dd6fd9632d75fadd84e1c1957f0.bindTooltip(
+                `<div>
+                     Paris, FR
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_74ecf6e348813a471b18b832ee78b51c = L.marker(
+                [48.8534, 2.3488],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            marker_74ecf6e348813a471b18b832ee78b51c.bindTooltip(
+                `<div>
+                     Paris, FR
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_e169bb56d6ad8e77331a26dbae9b7f5d = L.marker(
+                [48.8534, 2.3488],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            marker_e169bb56d6ad8e77331a26dbae9b7f5d.bindTooltip(
+                `<div>
+                     Paris, FR
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_8320cbb42b05c79a973eba24780ff714 = L.marker(
+                [48.8544, 2.3498],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            var icon_5949fb2782c68d4ffde07c4def29c550 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "black", "prefix": "fa"}
+            );
+            marker_8320cbb42b05c79a973eba24780ff714.setIcon(icon_5949fb2782c68d4ffde07c4def29c550);
+        
+    
+            marker_8320cbb42b05c79a973eba24780ff714.bindTooltip(
+                `<div>
+                     Paris, FR (Destination)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            ant_path_0a53c295fd9a91e4584a842d3d43e944 = L.polyline.antPath(
+              [[-33.9023, 151.1974], [-33.8678, 151.2073], [-33.8678, 151.2073], [-33.8678, 151.2073], [-33.8678, 151.2073], [37.3394, -121.895], [37.3394, -121.895], [48.8534, 2.3488], [48.8534, 2.3488], [48.8534, 2.3488], [48.8534, 2.3488]],
+              {"bubblingMouseEvents": true, "color": "#FF1493", "dashArray": [5, 15], "dashOffset": null, "delay": 2000, "fill": false, "fillColor": "#FF1493", "fillOpacity": 0.2, "fillRule": "evenodd", "hardwareAcceleration": false, "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "paused": false, "pulseColor": "white", "reverse": false, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+        ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            var marker_bbea10823d71616bde04984cf3c6c8b5 = L.marker(
+                [-33.9013, 151.1984],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            var icon_f9ec0e1ee4349f63e06d76f4e6d98e43 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "play", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_bbea10823d71616bde04984cf3c6c8b5.setIcon(icon_f9ec0e1ee4349f63e06d76f4e6d98e43);
+        
+    
+            marker_bbea10823d71616bde04984cf3c6c8b5.bindTooltip(
+                `<div>
+                     Sydney, AU (Starting Point)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_ccdda99e05c53197d8ce2a1d76fbdbfd = L.marker(
+                [-33.8678, 151.2073],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            marker_ccdda99e05c53197d8ce2a1d76fbdbfd.bindTooltip(
+                `<div>
+                     Sydney, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_be12b33e8f061adb1d2c9b1d62db1d51 = L.marker(
+                [-33.8678, 151.2073],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            marker_be12b33e8f061adb1d2c9b1d62db1d51.bindTooltip(
+                `<div>
+                     Sydney, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_bc47900b176a7ff98ceca382038597c5 = L.marker(
+                [-33.8678, 151.2073],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            marker_bc47900b176a7ff98ceca382038597c5.bindTooltip(
+                `<div>
+                     Sydney, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_77d14a3f710905d10de55e3c1281f17f = L.marker(
+                [-33.8678, 151.2073],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            marker_77d14a3f710905d10de55e3c1281f17f.bindTooltip(
+                `<div>
+                     Sydney, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_77cd9b7e6f8de348be1694758a02362c = L.marker(
+                [-33.8678, 151.2073],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            marker_77cd9b7e6f8de348be1694758a02362c.bindTooltip(
+                `<div>
+                     Sydney, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_9b3fe61cbf559040dc023941b9b9380b = L.marker(
+                [-33.8678, 151.2073],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            marker_9b3fe61cbf559040dc023941b9b9380b.bindTooltip(
+                `<div>
+                     Sydney, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_ea95bc8c41770b96cf7895bfebccd014 = L.marker(
+                [37.763099999999994, -122.39609999999999],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            var icon_04942267957a10d66b07ed9e340c5d35 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "black", "prefix": "fa"}
+            );
+            marker_ea95bc8c41770b96cf7895bfebccd014.setIcon(icon_04942267957a10d66b07ed9e340c5d35);
+        
+    
+            marker_ea95bc8c41770b96cf7895bfebccd014.bindTooltip(
+                `<div>
+                     San Francisco, US (Destination)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            ant_path_e58eb267be6e30f50c083ba4c8e5de3c = L.polyline.antPath(
+              [[-33.9023, 151.1974], [-33.8678, 151.2073], [-33.8678, 151.2073], [-33.8678, 151.2073], [-33.8678, 151.2073], [-33.8678, 151.2073], [-33.8678, 151.2073], [37.7621, -122.3971]],
+              {"bubblingMouseEvents": true, "color": "#00FFFF", "dashArray": [5, 15], "dashOffset": null, "delay": 2000, "fill": false, "fillColor": "#00FFFF", "fillOpacity": 0.2, "fillRule": "evenodd", "hardwareAcceleration": false, "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "paused": false, "pulseColor": "white", "reverse": false, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+        ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            var marker_d3606b84143d1339a5f837de71b576f9 = L.marker(
+                [-33.9013, 151.1984],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            var icon_6b254d5b21b209bdbd1ffad9c10a5bd3 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "play", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_d3606b84143d1339a5f837de71b576f9.setIcon(icon_6b254d5b21b209bdbd1ffad9c10a5bd3);
+        
+    
+            marker_d3606b84143d1339a5f837de71b576f9.bindTooltip(
+                `<div>
+                     Sydney, AU (Starting Point)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_627db3f4fd75ec04571420aee5958b2b = L.marker(
+                [-33.8678, 151.2073],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            marker_627db3f4fd75ec04571420aee5958b2b.bindTooltip(
+                `<div>
+                     Sydney, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_5b630d140c36553ef44fe70025079cb3 = L.marker(
+                [-33.8678, 151.2073],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            marker_5b630d140c36553ef44fe70025079cb3.bindTooltip(
+                `<div>
+                     Sydney, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_0235b21e0dea586bb1fef0cc89026576 = L.marker(
+                [-33.8678, 151.2073],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            marker_0235b21e0dea586bb1fef0cc89026576.bindTooltip(
+                `<div>
+                     Sydney, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_0ae3f1df823353f8da029602c6b0d485 = L.marker(
+                [-33.8678, 151.2073],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            marker_0ae3f1df823353f8da029602c6b0d485.bindTooltip(
+                `<div>
+                     Sydney, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_482730f7af4b704d5182d6bfb6aa2d0f = L.marker(
+                [-33.8678, 151.2073],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            marker_482730f7af4b704d5182d6bfb6aa2d0f.bindTooltip(
+                `<div>
+                     Sydney, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_feb072d2597a7a7b2cc6252bb76e9422 = L.marker(
+                [-37.814, 144.9633],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            marker_feb072d2597a7a7b2cc6252bb76e9422.bindTooltip(
+                `<div>
+                     Melbourne, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_15a87c88945debc0c28daefd305d63ba = L.marker(
+                [-37.814, 144.9633],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            marker_15a87c88945debc0c28daefd305d63ba.bindTooltip(
+                `<div>
+                     Melbourne, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_0c7c6a812cc0ce7925ca634d7b5c4817 = L.marker(
+                [-37.814, 144.9633],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            marker_0c7c6a812cc0ce7925ca634d7b5c4817.bindTooltip(
+                `<div>
+                     Melbourne, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_7c08c39f115d485b95ada90e2448af5d = L.marker(
+                [-37.813, 144.9643],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            var icon_629b7c0198dcd8fcd3abfac881296be9 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "black", "prefix": "fa"}
+            );
+            marker_7c08c39f115d485b95ada90e2448af5d.setIcon(icon_629b7c0198dcd8fcd3abfac881296be9);
+        
+    
+            marker_7c08c39f115d485b95ada90e2448af5d.bindTooltip(
+                `<div>
+                     Melbourne, AU (Destination)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            ant_path_d925bbeb7a91d5a0df01978623bb3f96 = L.polyline.antPath(
+              [[-33.9023, 151.1974], [-33.8678, 151.2073], [-33.8678, 151.2073], [-33.8678, 151.2073], [-33.8678, 151.2073], [-33.8678, 151.2073], [-37.814, 144.9633], [-37.814, 144.9633], [-37.814, 144.9633], [-37.814, 144.9633]],
+              {"bubblingMouseEvents": true, "color": "#FF6600", "dashArray": [5, 15], "dashOffset": null, "delay": 2000, "fill": false, "fillColor": "#FF6600", "fillOpacity": 0.2, "fillRule": "evenodd", "hardwareAcceleration": false, "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "paused": false, "pulseColor": "white", "reverse": false, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+        ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            var marker_1b82c642fb5878e340ad327cdab9ec5d = L.marker(
+                [-33.9013, 151.1984],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            var icon_822b5154c1b75ea95818c0024cd864e4 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "play", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_1b82c642fb5878e340ad327cdab9ec5d.setIcon(icon_822b5154c1b75ea95818c0024cd864e4);
+        
+    
+            marker_1b82c642fb5878e340ad327cdab9ec5d.bindTooltip(
+                `<div>
+                     Sydney, AU (Starting Point)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_4ad65739f81a0b443673109e05dc52eb = L.marker(
+                [-33.8678, 151.2073],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            marker_4ad65739f81a0b443673109e05dc52eb.bindTooltip(
+                `<div>
+                     Sydney, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_144afa893919a68ccbec82fb586bf14e = L.marker(
+                [-33.8678, 151.2073],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            marker_144afa893919a68ccbec82fb586bf14e.bindTooltip(
+                `<div>
+                     Sydney, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_758aa12d2949c9056b8b374fa1e22f91 = L.marker(
+                [-33.8678, 151.2073],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            marker_758aa12d2949c9056b8b374fa1e22f91.bindTooltip(
+                `<div>
+                     Sydney, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_8d1dca9baaaedeaa55378cdea2dfcb2d = L.marker(
+                [-33.8678, 151.2073],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            marker_8d1dca9baaaedeaa55378cdea2dfcb2d.bindTooltip(
+                `<div>
+                     Sydney, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_856be5d40e788b8e5d2cbd812f2f69ec = L.marker(
+                [-33.8678, 151.2073],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            marker_856be5d40e788b8e5d2cbd812f2f69ec.bindTooltip(
+                `<div>
+                     Sydney, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_74fa046f67db6335f58a0349a8f54cdd = L.marker(
+                [-33.8678, 151.2073],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            marker_74fa046f67db6335f58a0349a8f54cdd.bindTooltip(
+                `<div>
+                     Sydney, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_c96e26ee37b1d5a7e572ead174353ba0 = L.marker(
+                [-33.8678, 151.2073],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            marker_c96e26ee37b1d5a7e572ead174353ba0.bindTooltip(
+                `<div>
+                     Sydney, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_5e4db242aaf8acfcb102910bc1da1201 = L.marker(
+                [-33.8678, 151.2073],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            marker_5e4db242aaf8acfcb102910bc1da1201.bindTooltip(
+                `<div>
+                     Sydney, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_5865df64de2b56226ec6666ab7c92e92 = L.marker(
+                [-33.8678, 151.2073],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            marker_5865df64de2b56226ec6666ab7c92e92.bindTooltip(
+                `<div>
+                     Sydney, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_1b05738c65d170f777d419251dee5d33 = L.marker(
+                [-33.8678, 151.2073],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            marker_1b05738c65d170f777d419251dee5d33.bindTooltip(
+                `<div>
+                     Sydney, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_deda166f3b313b5c45b2170ac1ed6cdc = L.marker(
+                [-33.866800000000005, 151.2083],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            var icon_9a665a1740197bdb0e2067024d3122f2 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "black", "prefix": "fa"}
+            );
+            marker_deda166f3b313b5c45b2170ac1ed6cdc.setIcon(icon_9a665a1740197bdb0e2067024d3122f2);
+        
+    
+            marker_deda166f3b313b5c45b2170ac1ed6cdc.bindTooltip(
+                `<div>
+                     Sydney, AU (Destination)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            ant_path_a22589870afc04e08d698ffeb01531f9 = L.polyline.antPath(
+              [[-33.9023, 151.1974], [-33.8678, 151.2073], [-33.8678, 151.2073], [-33.8678, 151.2073], [-33.8678, 151.2073], [-33.8678, 151.2073], [-33.8678, 151.2073], [-33.8678, 151.2073], [-33.8678, 151.2073], [-33.8678, 151.2073], [-33.8678, 151.2073], [-33.8678, 151.2073]],
+              {"bubblingMouseEvents": true, "color": "#FFFF00", "dashArray": [5, 15], "dashOffset": null, "delay": 2000, "fill": false, "fillColor": "#FFFF00", "fillOpacity": 0.2, "fillRule": "evenodd", "hardwareAcceleration": false, "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "paused": false, "pulseColor": "white", "reverse": false, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+        ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            var marker_9e2ac9a2259f69bbe9bb88c0bae0b456 = L.marker(
+                [-33.9013, 151.1984],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            var icon_502fddf3560996f1d446e65a0cef1bd9 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "play", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_9e2ac9a2259f69bbe9bb88c0bae0b456.setIcon(icon_502fddf3560996f1d446e65a0cef1bd9);
+        
+    
+            marker_9e2ac9a2259f69bbe9bb88c0bae0b456.bindTooltip(
+                `<div>
+                     Sydney, AU (Starting Point)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_b000a943f16761a46b13136affa39584 = L.marker(
+                [-33.8678, 151.2073],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            marker_b000a943f16761a46b13136affa39584.bindTooltip(
+                `<div>
+                     Sydney, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_a3d123546748d8f0f579acc2db7cee67 = L.marker(
+                [-33.8678, 151.2073],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            marker_a3d123546748d8f0f579acc2db7cee67.bindTooltip(
+                `<div>
+                     Sydney, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_044e82180ffa91c1967742bbb921f65b = L.marker(
+                [-33.8678, 151.2073],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            marker_044e82180ffa91c1967742bbb921f65b.bindTooltip(
+                `<div>
+                     Sydney, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_48a745e2780202f6ebdc5a64137169e7 = L.marker(
+                [-33.8678, 151.2073],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            marker_48a745e2780202f6ebdc5a64137169e7.bindTooltip(
+                `<div>
+                     Sydney, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_f2f7e1f33340712b58af9f4b606042b8 = L.marker(
+                [-33.8678, 151.2073],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            marker_f2f7e1f33340712b58af9f4b606042b8.bindTooltip(
+                `<div>
+                     Sydney, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_033108d0b6657b1104e814c97b0788f7 = L.marker(
+                [-33.8678, 151.2073],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            marker_033108d0b6657b1104e814c97b0788f7.bindTooltip(
+                `<div>
+                     Sydney, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_bc8a7af8a4891e747622bcb4760f6ec9 = L.marker(
+                [-21.6461, -41.7469],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            marker_bc8a7af8a4891e747622bcb4760f6ec9.bindTooltip(
+                `<div>
+                     São Fidélis, BR
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_fccaca20e94dd2186a8baba220fa6873 = L.marker(
+                [-31.9522, 115.8614],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            marker_fccaca20e94dd2186a8baba220fa6873.bindTooltip(
+                `<div>
+                     Perth, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_affa08c77e252cf13422c59d30207797 = L.marker(
+                [1.2897, 103.8501],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            marker_affa08c77e252cf13422c59d30207797.bindTooltip(
+                `<div>
+                     Singapore, SG
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_c2d796dce7b659942ad85cde665b3aca = L.marker(
+                [1.2897, 103.8501],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            marker_c2d796dce7b659942ad85cde665b3aca.bindTooltip(
+                `<div>
+                     Singapore, SG
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_9b2b770e5420895e02485e0bd22b6b91 = L.marker(
+                [1.2897, 103.8501],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            marker_9b2b770e5420895e02485e0bd22b6b91.bindTooltip(
+                `<div>
+                     Singapore, SG
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_7b2f3b809232ac196776d287a2bad68b = L.marker(
+                [1.2897, 103.8501],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            marker_7b2f3b809232ac196776d287a2bad68b.bindTooltip(
+                `<div>
+                     Singapore, SG
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_02db27bec16f5941aa21f1d6fc8ccfe2 = L.marker(
+                [1.2897, 103.8501],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            marker_02db27bec16f5941aa21f1d6fc8ccfe2.bindTooltip(
+                `<div>
+                     Singapore, SG
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_69bf1b336323dfa37dbe9d0af80b4ceb = L.marker(
+                [43.297, 5.3811],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            marker_69bf1b336323dfa37dbe9d0af80b4ceb.bindTooltip(
+                `<div>
+                     Marseille, FR
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_7d706705065ad2041d44eb966f424201 = L.marker(
+                [-4.0547, 39.6636],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            marker_7d706705065ad2041d44eb966f424201.bindTooltip(
+                `<div>
+                     Mombasa, KE
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_ca0e979c5751f30a863845454a8da2f9 = L.marker(
+                [-4.0537, 39.6646],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            var icon_fbe6e05bd242d633e922a0fbdc8aa865 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "black", "prefix": "fa"}
+            );
+            marker_ca0e979c5751f30a863845454a8da2f9.setIcon(icon_fbe6e05bd242d633e922a0fbdc8aa865);
+        
+    
+            marker_ca0e979c5751f30a863845454a8da2f9.bindTooltip(
+                `<div>
+                     Mombasa, KE (Destination)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            ant_path_2b00749607d95dfccfd5645bae4517f7 = L.polyline.antPath(
+              [[-33.9023, 151.1974], [-33.8678, 151.2073], [-33.8678, 151.2073], [-33.8678, 151.2073], [-33.8678, 151.2073], [-33.8678, 151.2073], [-33.8678, 151.2073], [-21.6461, -41.7469], [-31.9522, 115.8614], [1.2897, 103.8501], [1.2897, 103.8501], [1.2897, 103.8501], [1.2897, 103.8501], [1.2897, 103.8501], [43.297, 5.3811], [-4.0547, 39.6636], [-4.0547, 39.6636]],
+              {"bubblingMouseEvents": true, "color": "#FF0000", "dashArray": [5, 15], "dashOffset": null, "delay": 2000, "fill": false, "fillColor": "#FF0000", "fillOpacity": 0.2, "fillRule": "evenodd", "hardwareAcceleration": false, "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "paused": false, "pulseColor": "white", "reverse": false, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+        ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            var marker_972e58f09f6e472439987922b28fbab7 = L.marker(
+                [-33.9013, 151.1984],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            var icon_bb7ea8c50ebd17d804a157ea5a4595c2 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "play", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_972e58f09f6e472439987922b28fbab7.setIcon(icon_bb7ea8c50ebd17d804a157ea5a4595c2);
+        
+    
+            marker_972e58f09f6e472439987922b28fbab7.bindTooltip(
+                `<div>
+                     Sydney, AU (Starting Point)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_fc23cb8ac99b6ca1939be58fc93cf001 = L.marker(
+                [-33.8678, 151.2073],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            marker_fc23cb8ac99b6ca1939be58fc93cf001.bindTooltip(
+                `<div>
+                     Sydney, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_488c6c8bdf318ef71feedd07080a4792 = L.marker(
+                [-33.8678, 151.2073],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            marker_488c6c8bdf318ef71feedd07080a4792.bindTooltip(
+                `<div>
+                     Sydney, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_46c91ca75a53b522b70e541621659af6 = L.marker(
+                [-33.8678, 151.2073],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            marker_46c91ca75a53b522b70e541621659af6.bindTooltip(
+                `<div>
+                     Sydney, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_95a30450657281c8ed430b742b7e8cc1 = L.marker(
+                [-33.8678, 151.2073],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            marker_95a30450657281c8ed430b742b7e8cc1.bindTooltip(
+                `<div>
+                     Sydney, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_3034b86d59ff3867e71f2d34d90e7641 = L.marker(
+                [-33.8678, 151.2073],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            marker_3034b86d59ff3867e71f2d34d90e7641.bindTooltip(
+                `<div>
+                     Sydney, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_a0d19597bcd2f11a5ef0365046b937ab = L.marker(
+                [-33.8678, 151.2073],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            marker_a0d19597bcd2f11a5ef0365046b937ab.bindTooltip(
+                `<div>
+                     Sydney, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_0412e9ac32c2e4f3e5569df30d99a6d8 = L.marker(
+                [-33.866800000000005, 151.2083],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            var icon_6efcb7361665a08d502b958eb2f0a614 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "black", "prefix": "fa"}
+            );
+            marker_0412e9ac32c2e4f3e5569df30d99a6d8.setIcon(icon_6efcb7361665a08d502b958eb2f0a614);
+        
+    
+            marker_0412e9ac32c2e4f3e5569df30d99a6d8.bindTooltip(
+                `<div>
+                     Sydney, AU (Destination)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            ant_path_e5aada425a470a863f964946bf5e0724 = L.polyline.antPath(
+              [[-33.9023, 151.1974], [-33.8678, 151.2073], [-33.8678, 151.2073], [-33.8678, 151.2073], [-33.8678, 151.2073], [-33.8678, 151.2073], [-33.8678, 151.2073], [-33.8678, 151.2073]],
+              {"bubblingMouseEvents": true, "color": "#14F0FF", "dashArray": [5, 15], "dashOffset": null, "delay": 2000, "fill": false, "fillColor": "#14F0FF", "fillOpacity": 0.2, "fillRule": "evenodd", "hardwareAcceleration": false, "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "paused": false, "pulseColor": "white", "reverse": false, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+        ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            var marker_a9c75703c6c934df204c3d108a695a50 = L.marker(
+                [-33.9013, 151.1984],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            var icon_e29ae0870646f3f70e0ec6be2b8d720b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "play", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_a9c75703c6c934df204c3d108a695a50.setIcon(icon_e29ae0870646f3f70e0ec6be2b8d720b);
+        
+    
+            marker_a9c75703c6c934df204c3d108a695a50.bindTooltip(
+                `<div>
+                     Sydney, AU (Starting Point)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_6ce85db779966a5cd3e306127adc13d7 = L.marker(
+                [-33.8678, 151.2073],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            marker_6ce85db779966a5cd3e306127adc13d7.bindTooltip(
+                `<div>
+                     Sydney, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_f90697b98ae53e90b04f3dfb3601e2d2 = L.marker(
+                [-33.8678, 151.2073],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            marker_f90697b98ae53e90b04f3dfb3601e2d2.bindTooltip(
+                `<div>
+                     Sydney, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_0a74d081dcc159095effe8c9951d1d24 = L.marker(
+                [-33.8678, 151.2073],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            marker_0a74d081dcc159095effe8c9951d1d24.bindTooltip(
+                `<div>
+                     Sydney, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_966d7dfbcbb6a4fc734c4c96626f22cd = L.marker(
+                [-33.8678, 151.2073],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            marker_966d7dfbcbb6a4fc734c4c96626f22cd.bindTooltip(
+                `<div>
+                     Sydney, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_3c1918c9f9a533f6d21ff7a94b083bb4 = L.marker(
+                [-33.8678, 151.2073],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            marker_3c1918c9f9a533f6d21ff7a94b083bb4.bindTooltip(
+                `<div>
+                     Sydney, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_cb51e5d9a02a434afc3adb2fc3bfb3c8 = L.marker(
+                [34.6851, 33.0389],
+                {}
+            ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+    
+            var icon_90ca650f63627146ec7df3ec86333116 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "black", "prefix": "fa"}
+            );
+            marker_cb51e5d9a02a434afc3adb2fc3bfb3c8.setIcon(icon_90ca650f63627146ec7df3ec86333116);
+        
+    
+            marker_cb51e5d9a02a434afc3adb2fc3bfb3c8.bindTooltip(
+                `<div>
+                     Limassol, CY (Destination)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            ant_path_43f2fbb006b642ffcdce3ee10a4bca19 = L.polyline.antPath(
+              [[-33.9023, 151.1974], [-33.8678, 151.2073], [-33.8678, 151.2073], [-33.8678, 151.2073], [-33.8678, 151.2073], [-33.8678, 151.2073], [34.6841, 33.0379]],
+              {"bubblingMouseEvents": true, "color": "#FF00FF", "dashArray": [5, 15], "dashOffset": null, "delay": 2000, "fill": false, "fillColor": "#FF00FF", "fillOpacity": 0.2, "fillRule": "evenodd", "hardwareAcceleration": false, "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "paused": false, "pulseColor": "white", "reverse": false, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+        ).addTo(map_5267884084497f71fb9ca292a742b8db);
+        
+</script>
+</html>
