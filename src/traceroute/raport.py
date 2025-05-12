@@ -62,7 +62,7 @@ def get_locations():
 
 def draw_map():
     locations = []
-    with open("raport.md", "r") as file:
+    with open("raport.md", "r", encoding="UTF-8") as file:
         for line in file:
             if '#' not in line:  # verificam daca linia contine datele necesare
                 data = line.strip().split(",")
@@ -92,7 +92,7 @@ def draw_map():
     )
 
     # salvam harta ca fisier HTML
-    fig.write_html("raport_harta.html", auto_open=True)
+    fig.write_html("raport_harta.html")
 
 
 if __name__ == "__main__":
