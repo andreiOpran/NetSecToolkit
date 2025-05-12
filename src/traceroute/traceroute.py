@@ -141,7 +141,7 @@ def traceroute(ip, port, file_output):
 if __name__ == "__main__":
     dest = "64.226.94.247"  # IP-ul de test
     port = 33434
-    traceroute(dest, port, 'reports/report.md')
+    traceroute(dest, port, 'report.md')
 
 
 '''

@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_0a3701f2c2fbc72fada3e9a7b5b21b62 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_0a3701f2c2fbc72fada3e9a7b5b21b62" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_0a3701f2c2fbc72fada3e9a7b5b21b62 = L.map(
+                "map_0a3701f2c2fbc72fada3e9a7b5b21b62",
+                {
+                    center: [36.8969, 30.7133],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 3,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_39cf918c8c1e182e37a66b0d22a82b80 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_39cf918c8c1e182e37a66b0d22a82b80.addTo(map_0a3701f2c2fbc72fada3e9a7b5b21b62);
+        
+    
+            var marker_fc674ea76ba6bfc041d3cf20506e3fb5 = L.marker(
+                [44.4323, 26.1063],
+                {}
+            ).addTo(map_0a3701f2c2fbc72fada3e9a7b5b21b62);
+        
+    
+            marker_fc674ea76ba6bfc041d3cf20506e3fb5.bindTooltip(
+                `<div>
+                     Bucharest, RO
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_07f4e818812a66d94c960914d5bc7d8a = L.marker(
+                [50.1155, 8.6842],
+                {}
+            ).addTo(map_0a3701f2c2fbc72fada3e9a7b5b21b62);
+        
+    
+            marker_07f4e818812a66d94c960914d5bc7d8a.bindTooltip(
+                `<div>
+                     Frankfurt am Main, DE
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_dba84a3fec20bf41ae22c8ba2bfd7a68 = L.marker(
+                [34.0522, -118.2437],
+                {}
+            ).addTo(map_0a3701f2c2fbc72fada3e9a7b5b21b62);
+        
+    
+            marker_dba84a3fec20bf41ae22c8ba2bfd7a68.bindTooltip(
+                `<div>
+                     Los Angeles, US
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_ef046bb454dfe51b8aad842485ea57a2 = L.marker(
+                [34.6938, 135.5011],
+                {}
+            ).addTo(map_0a3701f2c2fbc72fada3e9a7b5b21b62);
+        
+    
+            marker_ef046bb454dfe51b8aad842485ea57a2.bindTooltip(
+                `<div>
+                     Osaka, JP
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_3402631de7765e8e0a8109c123434842 = L.marker(
+                [34.6938, 135.5011],
+                {}
+            ).addTo(map_0a3701f2c2fbc72fada3e9a7b5b21b62);
+        
+    
+            marker_3402631de7765e8e0a8109c123434842.bindTooltip(
+                `<div>
+                     Osaka, JP
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_9c85550d60ffa37cd37b48ce8cbb1c4c = L.marker(
+                [34.6913, 135.183],
+                {}
+            ).addTo(map_0a3701f2c2fbc72fada3e9a7b5b21b62);
+        
+    
+            marker_9c85550d60ffa37cd37b48ce8cbb1c4c.bindTooltip(
+                `<div>
+                     Kobe, JP
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_d10bd506ef67f4966f1c423665972850 = L.marker(
+                [44.4323, 26.1063],
+                {}
+            ).addTo(map_0a3701f2c2fbc72fada3e9a7b5b21b62);
+        
+    
+            marker_d10bd506ef67f4966f1c423665972850.bindTooltip(
+                `<div>
+                     Bucharest, RO
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_1921975456dec14c8f622b5a22fba9fa = L.marker(
+                [44.4323, 26.1063],
+                {}
+            ).addTo(map_0a3701f2c2fbc72fada3e9a7b5b21b62);
+        
+    
+            marker_1921975456dec14c8f622b5a22fba9fa.bindTooltip(
+                `<div>
+                     Bucharest, RO
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_ee41c75b1cf00484390e8c02f74e11a3 = L.marker(
+                [48.8534, 2.3488],
+                {}
+            ).addTo(map_0a3701f2c2fbc72fada3e9a7b5b21b62);
+        
+    
+            marker_ee41c75b1cf00484390e8c02f74e11a3.bindTooltip(
+                `<div>
+                     Paris, FR
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_91eb5aa808e881ad601905388898ef83 = L.marker(
+                [48.8534, 2.3488],
+                {}
+            ).addTo(map_0a3701f2c2fbc72fada3e9a7b5b21b62);
+        
+    
+            marker_91eb5aa808e881ad601905388898ef83.bindTooltip(
+                `<div>
+                     Paris, FR
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_39c9bb052d70f68c8cf6b3dedb99b0c9 = L.marker(
+                [48.8534, 2.3488],
+                {}
+            ).addTo(map_0a3701f2c2fbc72fada3e9a7b5b21b62);
+        
+    
+            marker_39c9bb052d70f68c8cf6b3dedb99b0c9.bindTooltip(
+                `<div>
+                     Paris, FR
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_40b1edcc4525077e4ae8fcc84df57659 = L.marker(
+                [48.8534, 2.3488],
+                {}
+            ).addTo(map_0a3701f2c2fbc72fada3e9a7b5b21b62);
+        
+    
+            marker_40b1edcc4525077e4ae8fcc84df57659.bindTooltip(
+                `<div>
+                     Paris, FR
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_1054b16e8bc94fc61e71cd9aeea0eea9 = L.marker(
+                [44.4323, 26.1063],
+                {}
+            ).addTo(map_0a3701f2c2fbc72fada3e9a7b5b21b62);
+        
+    
+            marker_1054b16e8bc94fc61e71cd9aeea0eea9.bindTooltip(
+                `<div>
+                     Bucharest, RO
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_df663462c86d54ee159bd4993a2012b0 = L.marker(
+                [44.4323, 26.1063],
+                {}
+            ).addTo(map_0a3701f2c2fbc72fada3e9a7b5b21b62);
+        
+    
+            marker_df663462c86d54ee159bd4993a2012b0.bindTooltip(
+                `<div>
+                     Bucharest, RO
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_e33ed6704d0d1896191e98942708ab93 = L.marker(
+                [44.4323, 26.1063],
+                {}
+            ).addTo(map_0a3701f2c2fbc72fada3e9a7b5b21b62);
+        
+    
+            marker_e33ed6704d0d1896191e98942708ab93.bindTooltip(
+                `<div>
+                     Bucharest, RO
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_1a384395a1b28107cff0ae5a620dbcb6 = L.marker(
+                [37.7621, -122.3971],
+                {}
+            ).addTo(map_0a3701f2c2fbc72fada3e9a7b5b21b62);
+        
+    
+            marker_1a384395a1b28107cff0ae5a620dbcb6.bindTooltip(
+                `<div>
+                     San Francisco, US
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_7339284292aade0c2a92881ddda1f887 = L.marker(
+                [44.4323, 26.1063],
+                {}
+            ).addTo(map_0a3701f2c2fbc72fada3e9a7b5b21b62);
+        
+    
+            marker_7339284292aade0c2a92881ddda1f887.bindTooltip(
+                `<div>
+                     Bucharest, RO
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_22199d37e5a880f1ce17f45231352386 = L.marker(
+                [50.1155, 8.6842],
+                {}
+            ).addTo(map_0a3701f2c2fbc72fada3e9a7b5b21b62);
+        
+    
+            marker_22199d37e5a880f1ce17f45231352386.bindTooltip(
+                `<div>
+                     Frankfurt am Main, DE
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_7cd373b5467a76c89e7bac7a26092489 = L.marker(
+                [51.5085, -0.1257],
+                {}
+            ).addTo(map_0a3701f2c2fbc72fada3e9a7b5b21b62);
+        
+    
+            marker_7cd373b5467a76c89e7bac7a26092489.bindTooltip(
+                `<div>
+                     London, GB
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_36b256a49b610611c3dc89a8606d00d6 = L.marker(
+                [37.3394, -121.895],
+                {}
+            ).addTo(map_0a3701f2c2fbc72fada3e9a7b5b21b62);
+        
+    
+            marker_36b256a49b610611c3dc89a8606d00d6.bindTooltip(
+                `<div>
+                     San Jose, US
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_379dc82969cffa098b267f5ada3b16e8 = L.marker(
+                [-33.8678, 151.2073],
+                {}
+            ).addTo(map_0a3701f2c2fbc72fada3e9a7b5b21b62);
+        
+    
+            marker_379dc82969cffa098b267f5ada3b16e8.bindTooltip(
+                `<div>
+                     Sydney, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_4c3b411dbb95d64d5bab061ccc7d852d = L.marker(
+                [-33.8678, 151.2073],
+                {}
+            ).addTo(map_0a3701f2c2fbc72fada3e9a7b5b21b62);
+        
+    
+            marker_4c3b411dbb95d64d5bab061ccc7d852d.bindTooltip(
+                `<div>
+                     Sydney, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_43cb92ea8cea3998f24bd4cd57fea03d = L.marker(
+                [-33.8678, 151.2073],
+                {}
+            ).addTo(map_0a3701f2c2fbc72fada3e9a7b5b21b62);
+        
+    
+            marker_43cb92ea8cea3998f24bd4cd57fea03d.bindTooltip(
+                `<div>
+                     Sydney, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_72de4128e147e4572b9fbce630dd92b6 = L.marker(
+                [-37.814, 144.9633],
+                {}
+            ).addTo(map_0a3701f2c2fbc72fada3e9a7b5b21b62);
+        
+    
+            marker_72de4128e147e4572b9fbce630dd92b6.bindTooltip(
+                `<div>
+                     Melbourne, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_410b85b8d00a0eb23fd249b1008eb035 = L.marker(
+                [-37.814, 144.9633],
+                {}
+            ).addTo(map_0a3701f2c2fbc72fada3e9a7b5b21b62);
+        
+    
+            marker_410b85b8d00a0eb23fd249b1008eb035.bindTooltip(
+                `<div>
+                     Melbourne, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_2c0c0e17e064c392a82f5289d75aefab = L.marker(
+                [-37.814, 144.9633],
+                {}
+            ).addTo(map_0a3701f2c2fbc72fada3e9a7b5b21b62);
+        
+    
+            marker_2c0c0e17e064c392a82f5289d75aefab.bindTooltip(
+                `<div>
+                     Melbourne, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_cbda593a9a96559c17b739f0a625460d = L.marker(
+                [-37.814, 144.9633],
+                {}
+            ).addTo(map_0a3701f2c2fbc72fada3e9a7b5b21b62);
+        
+    
+            marker_cbda593a9a96559c17b739f0a625460d.bindTooltip(
+                `<div>
+                     Melbourne, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_ae2dfdc65d47a675dbe1f8784a9000a5 = L.marker(
+                [44.4323, 26.1063],
+                {}
+            ).addTo(map_0a3701f2c2fbc72fada3e9a7b5b21b62);
+        
+    
+            marker_ae2dfdc65d47a675dbe1f8784a9000a5.bindTooltip(
+                `<div>
+                     Bucharest, RO
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_6f9b21fcf94d43cb38bbd5cb2894b8e6 = L.marker(
+                [44.4323, 26.1063],
+                {}
+            ).addTo(map_0a3701f2c2fbc72fada3e9a7b5b21b62);
+        
+    
+            marker_6f9b21fcf94d43cb38bbd5cb2894b8e6.bindTooltip(
+                `<div>
+                     Bucharest, RO
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_b02f7413b4d87fe122560ac7d7d6e0a9 = L.marker(
+                [48.2085, 16.3721],
+                {}
+            ).addTo(map_0a3701f2c2fbc72fada3e9a7b5b21b62);
+        
+    
+            marker_b02f7413b4d87fe122560ac7d7d6e0a9.bindTooltip(
+                `<div>
+                     Vienna, AT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_6bfd26d12796f425934e2e4502bf5643 = L.marker(
+                [48.2085, 16.3721],
+                {}
+            ).addTo(map_0a3701f2c2fbc72fada3e9a7b5b21b62);
+        
+    
+            marker_6bfd26d12796f425934e2e4502bf5643.bindTooltip(
+                `<div>
+                     Vienna, AT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_fb382e1a572ff20f1b0ebd5bd4c952e3 = L.marker(
+                [48.8534, 2.3488],
+                {}
+            ).addTo(map_0a3701f2c2fbc72fada3e9a7b5b21b62);
+        
+    
+            marker_fb382e1a572ff20f1b0ebd5bd4c952e3.bindTooltip(
+                `<div>
+                     Paris, FR
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_9479e8b447a14201e36dc897fb9c1926 = L.marker(
+                [43.297, 5.3811],
+                {}
+            ).addTo(map_0a3701f2c2fbc72fada3e9a7b5b21b62);
+        
+    
+            marker_9479e8b447a14201e36dc897fb9c1926.bindTooltip(
+                `<div>
+                     Marseille, FR
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_c7447d7c025c9726dc5c22249de875b9 = L.marker(
+                [1.2897, 103.8501],
+                {}
+            ).addTo(map_0a3701f2c2fbc72fada3e9a7b5b21b62);
+        
+    
+            marker_c7447d7c025c9726dc5c22249de875b9.bindTooltip(
+                `<div>
+                     Singapore, SG
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_a49a6ca76d43c43b3f16fb3e833ba910 = L.marker(
+                [1.2897, 103.8501],
+                {}
+            ).addTo(map_0a3701f2c2fbc72fada3e9a7b5b21b62);
+        
+    
+            marker_a49a6ca76d43c43b3f16fb3e833ba910.bindTooltip(
+                `<div>
+                     Singapore, SG
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_cbf369c35b20540f0d06bdba40852e1a = L.marker(
+                [47.674, -122.1215],
+                {}
+            ).addTo(map_0a3701f2c2fbc72fada3e9a7b5b21b62);
+        
+    
+            marker_cbf369c35b20540f0d06bdba40852e1a.bindTooltip(
+                `<div>
+                     Redmond, US
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_3ecf5be56711f64ecabafed769063f55 = L.marker(
+                [-33.8678, 151.2073],
+                {}
+            ).addTo(map_0a3701f2c2fbc72fada3e9a7b5b21b62);
+        
+    
+            marker_3ecf5be56711f64ecabafed769063f55.bindTooltip(
+                `<div>
+                     Sydney, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_fbac6db3365c2c8ce943d37f02ba180a = L.marker(
+                [-33.8678, 151.2073],
+                {}
+            ).addTo(map_0a3701f2c2fbc72fada3e9a7b5b21b62);
+        
+    
+            marker_fbac6db3365c2c8ce943d37f02ba180a.bindTooltip(
+                `<div>
+                     Sydney, AU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_b5fa766854a1b44486cbfc4fa83a12ba = L.marker(
+                [44.4323, 26.1063],
+                {}
+            ).addTo(map_0a3701f2c2fbc72fada3e9a7b5b21b62);
+        
+    
+            marker_b5fa766854a1b44486cbfc4fa83a12ba.bindTooltip(
+                `<div>
+                     Bucharest, RO
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_e3653af819d745ec431ad8879d883e71 = L.marker(
+                [51.5085, -0.1257],
+                {}
+            ).addTo(map_0a3701f2c2fbc72fada3e9a7b5b21b62);
+        
+    
+            marker_e3653af819d745ec431ad8879d883e71.bindTooltip(
+                `<div>
+                     London, GB
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_ae083ca31b48eb69b9f3f878f41891be = L.marker(
+                [51.5085, -0.1257],
+                {}
+            ).addTo(map_0a3701f2c2fbc72fada3e9a7b5b21b62);
+        
+    
+            marker_ae083ca31b48eb69b9f3f878f41891be.bindTooltip(
+                `<div>
+                     London, GB
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_714befc3c4c79ebb3d3d065afeebe0ef = L.marker(
+                [-4.0547, 39.6636],
+                {}
+            ).addTo(map_0a3701f2c2fbc72fada3e9a7b5b21b62);
+        
+    
+            marker_714befc3c4c79ebb3d3d065afeebe0ef.bindTooltip(
+                `<div>
+                     Mombasa, KE
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_e7a21dc97e6410500583a55f88377c46 = L.marker(
+                [44.4323, 26.1063],
+                {}
+            ).addTo(map_0a3701f2c2fbc72fada3e9a7b5b21b62);
+        
+    
+            marker_e7a21dc97e6410500583a55f88377c46.bindTooltip(
+                `<div>
+                     Bucharest, RO
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_b33abbf1b44625bc4b4aa54d6dbb660f = L.marker(
+                [47.4984, 19.0404],
+                {}
+            ).addTo(map_0a3701f2c2fbc72fada3e9a7b5b21b62);
+        
+    
+            marker_b33abbf1b44625bc4b4aa54d6dbb660f.bindTooltip(
+                `<div>
+                     Budapest, HU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_309ce65a125d2d5595af7a25364b7d20 = L.marker(
+                [47.4984, 19.0404],
+                {}
+            ).addTo(map_0a3701f2c2fbc72fada3e9a7b5b21b62);
+        
+    
+            marker_309ce65a125d2d5595af7a25364b7d20.bindTooltip(
+                `<div>
+                     Budapest, HU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_d974b614d7ce21ee1bc83cfc1f5514d4 = L.marker(
+                [47.4984, 19.0404],
+                {}
+            ).addTo(map_0a3701f2c2fbc72fada3e9a7b5b21b62);
+        
+    
+            marker_d974b614d7ce21ee1bc83cfc1f5514d4.bindTooltip(
+                `<div>
+                     Budapest, HU
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_2da886a391c38cba7a7ea1d2b411f684 = L.marker(
+                [44.4323, 26.1063],
+                {}
+            ).addTo(map_0a3701f2c2fbc72fada3e9a7b5b21b62);
+        
+    
+            marker_2da886a391c38cba7a7ea1d2b411f684.bindTooltip(
+                `<div>
+                     Bucharest, RO
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_018f4f3453aa508a852c66e7692926bd = L.marker(
+                [50.1155, 8.6842],
+                {}
+            ).addTo(map_0a3701f2c2fbc72fada3e9a7b5b21b62);
+        
+    
+            marker_018f4f3453aa508a852c66e7692926bd.bindTooltip(
+                `<div>
+                     Frankfurt am Main, DE
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_2de46accb0653afa5fbd82db83c24e74 = L.marker(
+                [50.088, 14.4208],
+                {}
+            ).addTo(map_0a3701f2c2fbc72fada3e9a7b5b21b62);
+        
+    
+            marker_2de46accb0653afa5fbd82db83c24e74.bindTooltip(
+                `<div>
+                     Prague, CZ
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_6571837135e7f41cafddcc10bfb870f1 = L.marker(
+                [50.088, 14.4208],
+                {}
+            ).addTo(map_0a3701f2c2fbc72fada3e9a7b5b21b62);
+        
+    
+            marker_6571837135e7f41cafddcc10bfb870f1.bindTooltip(
+                `<div>
+                     Prague, CZ
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_118a728453770636dcccb3e5758cc221 = L.marker(
+                [34.6841, 33.0379],
+                {}
+            ).addTo(map_0a3701f2c2fbc72fada3e9a7b5b21b62);
+        
+    
+            marker_118a728453770636dcccb3e5758cc221.bindTooltip(
+                `<div>
+                     Limassol, CY
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_dc1789eb41bbb7836fd58018926d5577 = L.polyline(
+                [[44.4323, 26.1063], [50.1155, 8.6842], [34.0522, -118.2437], [34.6938, 135.5011], [34.6938, 135.5011], [34.6913, 135.183], [44.4323, 26.1063], [44.4323, 26.1063], [48.8534, 2.3488], [48.8534, 2.3488], [48.8534, 2.3488], [48.8534, 2.3488], [44.4323, 26.1063], [44.4323, 26.1063], [44.4323, 26.1063], [37.7621, -122.3971], [44.4323, 26.1063], [50.1155, 8.6842], [51.5085, -0.1257], [37.3394, -121.895], [-33.8678, 151.2073], [-33.8678, 151.2073], [-33.8678, 151.2073], [-37.814, 144.9633], [-37.814, 144.9633], [-37.814, 144.9633], [-37.814, 144.9633], [44.4323, 26.1063], [44.4323, 26.1063], [48.2085, 16.3721], [48.2085, 16.3721], [48.8534, 2.3488], [43.297, 5.3811], [1.2897, 103.8501], [1.2897, 103.8501], [47.674, -122.1215], [-33.8678, 151.2073], [-33.8678, 151.2073], [44.4323, 26.1063], [51.5085, -0.1257], [51.5085, -0.1257], [-4.0547, 39.6636], [44.4323, 26.1063], [47.4984, 19.0404], [47.4984, 19.0404], [47.4984, 19.0404], [44.4323, 26.1063], [50.1155, 8.6842], [50.088, 14.4208], [50.088, 14.4208], [34.6841, 33.0379]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(map_0a3701f2c2fbc72fada3e9a7b5b21b62);
+        
+</script>
+</html>
