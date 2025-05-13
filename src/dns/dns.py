@@ -188,7 +188,7 @@ class DNSServer:
         }
         return types.get(qtype, f"TYPE{qtype}")
     
-    def start(self, listen_ip = "0.0.0.0", listen_port = 53):
+    def start(self, listen_ip = "127.0.0.1", listen_port = 53):
         # Pornim serverul DNS
         try:
             self.socket.bind((listen_ip, listen_port)) # Setam adresa de ascultare
@@ -218,7 +218,7 @@ class DNSServer:
 if __name__ == "__main__":
     print("Pornire server DNS...")
     server = DNSServer()
-    server.start(listen_port = 8080)
+    server.start(listen_port = 5354) # 5353 este folosit de Multicast DNS
     
     
 '''
