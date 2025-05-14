@@ -136,6 +136,10 @@ class DNSServer:
             
             # Daca gasim inregistrarea, cream un raspuns
             if rdata is not None:
+                # Scriem in fisier requesturile blocate
+                with open("blocked_requests.md", "a") as file:
+                    if rdata == "0.0.0.0":
+                        file.write(query_name + "\n")
                 return self.create_response(packet, query_name, query_type, rdata)
             
             # Daca nu gasim inregistrarea, trimitem cererea catre serverul DNS de upstream
@@ -146,6 +150,8 @@ class DNSServer:
                 if upstream_packet and upstream_packet[DNS].qr == 1: # Raspuns
                     # Extragem IP-ul din raspuns
                     ip_address = self.extract_ip_from_response(upstream_packet)
+                    if ip_address == None:
+                        ip_address = "0.0.0.0"
                     # Salvam in JSON
                     self.save_record(query_name, query_type, ip_address)
                     return upstream_packet
@@ -172,7 +178,7 @@ class DNSServer:
     def extract_ip_from_response(self, response):
         # Extrage IP-ul din raspunsul DNS
         for answer in response[DNS].an:
-            if answer.type == 1:  # Tip A (IPv4)
+            if answer.type in [1, 28]:  # Tip A (IPv4) / Tip AAAA (IPv6)
                 return answer.rdata
         return None
     
@@ -180,10 +186,6 @@ class DNSServer:
         # Convertim tipul numeric in nume
         types = {
             1: "A",
-            2: "NS",
-            5: "CNAME",
-            15: "MX",
-            16: "TXT",
             28: "AAAA",
         }
         return types.get(qtype, f"TYPE{qtype}")
@@ -218,7 +220,7 @@ class DNSServer:
 if __name__ == "__main__":
     print("Pornire server DNS...")
     server = DNSServer()
-    server.start(listen_port = 5354) # 5353 este folosit de Multicast DNS
+    server.start() # 5353 este folosit de Multicast DNS
     
     
 '''
