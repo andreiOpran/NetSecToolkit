@@ -75,6 +75,7 @@ class DNSServer:
             )
             
         # Daca exista inregistrarea, cream un raspuns de tip A (IPv4)
+        print(query_name + " " + query_type)
         if query_type == "A":
             dns_answer = DNSRR(
                 rrname = query_name, # Numele domeniului
@@ -92,7 +93,29 @@ class DNSServer:
                 qd = request_packet.qd, # Intrebare originala
                 an = dns_answer # Raspunsul nostru DNS
             )
-        
+        elif query_type == "HTTPS":
+            print(query_name)
+            dns_answer = DNSRR(
+                    rrname = query_name,
+                    type = 65, # HTTPS
+                    rclass = 1, # IN (Internet),
+                    ttl = 300, # Time to live
+                    rdata = {
+                        "priority" : rdata["priority"],
+                        "target" : rdata["target"],
+                        "alpn" : rdata["alpn"],
+                        "ipv4hint" : rdata["ipv4hint"],
+                        "ipv6hint" : rdata["ipv6hint"]
+                    }
+                )
+            return DNS(
+                id = packet[DNS].id,
+                qr = 1, # Raspuns
+                aa = 1, # Autoritativ
+                qd = packet[DNS].qd,
+                an = dns_answer
+            )
+
     def send_upstream_query(self, query):
         # Trimite cererea DNS catre serverul DNS de upstream (8.8.8.8)
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -150,8 +173,6 @@ class DNSServer:
                 if upstream_packet and upstream_packet[DNS].qr == 1: # Raspuns
                     # Extragem IP-ul din raspuns
                     ip_address = self.extract_ip_from_response(upstream_packet)
-                    if ip_address == None:
-                        ip_address = "0.0.0.0"
                     # Salvam in JSON
                     self.save_record(query_name, query_type, ip_address)
                     return upstream_packet
@@ -187,6 +208,7 @@ class DNSServer:
         types = {
             1: "A",
             28: "AAAA",
+            65: "HTTPS",
         }
         return types.get(qtype, f"TYPE{qtype}")
     
