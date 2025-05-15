@@ -54,11 +54,11 @@ class DNSServer:
         # Ne asiguram ca domeniul sa se termine cu "."
         if not domain.endswith("."):
             domain += "."
-            
+
         # Verificam daca exista inregistrarea
         if record_type in self.records and domain in self.records[record_type]:
             return self.records[record_type][domain]
-        
+
         # Daca nu exista, returnam None
         return None
     
@@ -71,7 +71,7 @@ class DNSServer:
                 qr = 1, # Raspuns
                 aa = 0, # Non-Authoritative Answer
                 rcode = 3, # Cod specific de eroare NXDOMAIN
-                qd = request_packet.qd, # Intrebare originala
+                qd = request_packet.qd, # Intrebare originala # TODO de ce fara [DNS]?
             )
             
         # Daca exista inregistrarea, cream un raspuns de tip A (IPv4)
@@ -90,7 +90,7 @@ class DNSServer:
                 qr = 1, # Raspuns
                 aa = 1, # Authoritative Answer
                 rcode = 0, # Raspuns OK, fara erori
-                qd = request_packet.qd, # Intrebare originala
+                qd = request_packet.qd, # Intrebare originala # TODO de ce fara [DNS]?
                 an = dns_answer # Raspunsul nostru DNS
             )
         elif query_type == "HTTPS":
@@ -109,12 +109,13 @@ class DNSServer:
                     }
                 )
             return DNS(
-                id = packet[DNS].id,
+                id = packet[DNS].id, # TODO de ce packet in loc de request_packet?
                 qr = 1, # Raspuns
                 aa = 1, # Autoritativ
-                qd = packet[DNS].qd,
+                qd = packet[DNS].qd, # TODO de ce fara [DNS]?
                 an = dns_answer
             )
+        return None
 
     def send_upstream_query(self, query):
         # Trimite cererea DNS catre serverul DNS de upstream (8.8.8.8)
