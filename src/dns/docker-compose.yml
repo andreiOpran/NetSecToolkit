@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+    server:
+        build: . # construieste imaginea Docker folosind Dockerfile-ul din directorul curent
+        volumes:
+            - ./:/app # realizeaza maparea intre directorul dns si app
+        network_mode: "host" # foloseste retea host pentru acces la localhost
+        restart: unless-stopped # reporneste containerul in caz de esec
+        privileged: true # permite rularea containerului cu privilegii ridicate
