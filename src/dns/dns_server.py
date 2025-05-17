@@ -100,7 +100,7 @@ class DNSPiHole:
         )
 
 
-    def handle_dns_request(self, request_data):
+    def handle_dns_request(self, request_data, client_address):
         try:
             # convert payload to scapy packet
             dns_packet = DNS(request_data)
@@ -136,7 +136,8 @@ class DNSPiHole:
             if rdata is not None:
                 with open("blocked_domains.md", "a") as file:
                     now = datetime.now() + timedelta(hours=3)  # add 3 hours to adapt to Bucharest timezone
-                    file.write(f"{domain_name[:-1]} has been blocked at {now.strftime("%Y-%m-%d %H:%M:%S")}\n")
+                    prefix = f"{domain_name[:-1]} has been blocked at {now.strftime('%Y-%m-%d %H:%M:%S')}."  # prefix is to output client_address from col 90
+                    file.write(f"{prefix:<89}Requested by {client_address}\n")
                 return self.create_response(dns_packet, domain_name, record_type, rdata)
 
             # if the record does not exist, send a request to the upstream DNS server
@@ -159,7 +160,7 @@ class DNSPiHole:
             while True:
                 try:
                     data, client_address = self.sock.recvfrom(65535)  # buffer size 65535 bytes
-                    response = self.handle_dns_request(data)
+                    response = self.handle_dns_request(data, client_address)
                     if response is not None:
                         self.sock.sendto(bytes(response), client_address)
                 except Exception as e:
