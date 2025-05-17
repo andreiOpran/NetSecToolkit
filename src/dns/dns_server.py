@@ -1,6 +1,6 @@
 import json
 import socket
-from datetime import datetime
+from datetime import datetime, timedelta
 
 from scapy.layers.dns import DNS, DNSRR
 
@@ -135,7 +135,7 @@ class DNSPiHole:
             # if the record exists, respond with it
             if rdata is not None:
                 with open("blocked_domains.md", "a") as file:
-                    now = datetime.now()
+                    now = datetime.now() + timedelta(hours=3)  # add 3 hours to adapt to Bucharest timezone
                     file.write(f"{domain_name[:-1]} has been blocked at {now.strftime("%Y-%m-%d %H:%M:%S")}\n")
                 return self.create_response(dns_packet, domain_name, record_type, rdata)
 
