@@ -136,8 +136,8 @@ class DNSPiHole:
             if rdata is not None:
                 with open("blocked_domains.md", "a") as file:
                     now = datetime.now() + timedelta(hours=3)  # add 3 hours to adapt to Bucharest timezone
-                    prefix = f"{domain_name[:-1]} has been blocked at {now.strftime('%Y-%m-%d %H:%M:%S')}."  # prefix is to output client_address from col 90
-                    file.write(f"{prefix:<89}Requested by {client_address}\n")
+                    domain_output = f"{domain_name[:-1]}" 
+                    file.write(f"{domain_output:<49} has been blocked at {now.strftime('%Y-%m-%d %H:%M:%S')}. Requested by {client_address}\n")
                 return self.create_response(dns_packet, domain_name, record_type, rdata)
 
             # if the record does not exist, send a request to the upstream DNS server
