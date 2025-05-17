@@ -174,4 +174,4 @@ class DNSPiHole:
 
 if __name__ == "__main__":
     server = DNSPiHole()
-    server.start()
+    server.start(host='64.226.94.247')
