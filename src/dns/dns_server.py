@@ -1,28 +1,34 @@
 import json
 import socket
+import os
+import sys
 from datetime import datetime, timedelta
 
 from scapy.layers.dns import DNS, DNSRR
 
 
 class DNSPiHole:
+    def __init__(self, records_file_path="dns_records.json", pid_file_path="dns_server.pid"):
+        self.sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, proto=socket.IPPROTO_UDP)  # simple udp sock
+        self.records_file_path = records_file_path
+        self.records = self.load_records(records_file_path)
+        self.ttl = 300
+        self.upstream_dns = "8.8.8.8"  # google dns
+        self.pid_file_path = pid_file_path
 
-    # Instanta singleton
-    instance = None
+    def __enter__(self):
+        if os.path.exists(self.pid_file_path):
+            print(f"PID file {self.pid_file_path} already exists. Another instance may be running.")
+            sys.exit(1)
+        with open(self.pid_file_path, 'w') as file:
+            file.write(str(os.getpid()))
+        return self
 
-    def __init__(self, records_file_path="dns_records.json"):
-        if not hasattr(self, 'initialized'):
-            self.sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, proto=socket.IPPROTO_UDP)  # simple udp sock
-            self.records_file_path = records_file_path
-            self.records = self.load_records(records_file_path)
-            self.ttl = 300
-            self.upstream_dns = "8.8.8.8"  # google dns
-            self.initialized = True
-
-    def __new__(cls):
-        if cls.instance is None:
-            cls.instance = super(DNSPiHole, cls).__new__(cls)
-        return cls.instance
+    def __exit__(self, exc_type, exc_value, traceback):
+        if os.path.exists(self.pid_file_path):
+            os.remove(self.pid_file_path)
+        self.sock.close()
+        print("Server stopped.")
 
     '''
     loads the records from disk. returns a default record if the file path is not found
@@ -32,7 +38,7 @@ class DNSPiHole:
             with open(records_file_path, 'r') as file:
                 return json.load(file)
         except FileNotFoundError:
-            print(f"{records_file_path} not found. Loading default records.") # debug
+            print(f"{records_file_path} not found. Loading default records.")  # debug
             default_records = {
                 "example.com." : "23.192.228.80"    
             }
@@ -41,7 +47,7 @@ class DNSPiHole:
             return default_records
 
     '''
-    checks if a given domain with a given record type exists in the records, and returns its ip address
+    checks if a given domain exists in the records, and returns its ip address
     '''
     def get_record(self, domain):
         # check if the domain has the default character at the end
@@ -99,7 +105,6 @@ class DNSPiHole:
             )
         )
 
-
     def handle_dns_request(self, request_data, client_address):
         try:
             # convert payload to scapy packet
@@ -107,16 +112,22 @@ class DNSPiHole:
             dns_layer = dns_packet.getlayer(DNS)
             query_section = dns_layer.qd
 
-            if dns_layer is None or dns_layer.opcode != 0: # opcode 0 means standard query
+            if dns_layer is None or dns_layer.opcode != 0 or query_section is None: # opcode 0 means standard query
                 print("Invalid DNS request")
-                return None
-
-            if query_section is None:
-                print("No DNS query found")
                 return None
 
             # get the domain name from the query
             domain_name = query_section.qname.decode() if hasattr(query_section.qname, 'decode') else str(query_section.qname)
+
+            # if we dig without an explicit domain name
+            if domain_name == '.':
+                return DNS(
+                    id=dns_packet.id,
+                    qr=1,  # 1 for response
+                    aa=0,  # non-authoritative answer for root
+                    rcode=0,  # no error
+                    qd=dns_packet.qd
+                )
 
             # get the record type from the query
             record_types = {
@@ -126,14 +137,12 @@ class DNSPiHole:
             }
             record_type = record_types[query_section.qtype] 
 
-            '''
-            try to get the resulting_ip_address from the local records or from the upstream DNS server
-            '''
             # get the record from the local records if it exists
             rdata = self.get_record(domain_name)
 
             # if the record exists, respond with it
             if rdata is not None:
+                # log the blocked domain
                 with open("blocked_domains.md", "a") as file:
                     now = datetime.now() + timedelta(hours=3)  # add 3 hours to adapt to Bucharest timezone
                     domain_output = f"{domain_name[:-1]}" 
@@ -168,11 +177,10 @@ class DNSPiHole:
 
         except Exception as e:
             print(f"Error starting server: {e}")
-        finally:
-            self.sock.close()
-            print("Server stopped.")
+        except KeyboardInterrupt:
+            print("Server stopped by KeyboardInterrupt")
 
 
 if __name__ == "__main__":
-    server = DNSPiHole()
-    server.start(host='64.226.94.247')
+    with DNSPiHole() as server:
+        server.start(host='64.226.94.247') # address of vps
