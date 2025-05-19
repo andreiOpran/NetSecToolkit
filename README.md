@@ -52,36 +52,36 @@ O alternativă la VPS este să aveți un calculator (poate fi si raspberry Pi) �
 Accesul public la un calculator din rețeaua de acasă poate reprezinta o breșă majoră de securitate. Nu lăsați servicii pornite decât dacă v-ați asigurat că sunt bine securizate.
 
 <a name="trace"></a> 
-## Traceroute 
+## Traceroute `REZOLVAT`
 Traceroute este o metodă prin care putem urmări prin ce routere trece un pachet pentru a ajunge la destinație.
 În funcție de IP-urile acestor noduri, putem afla țările sau regiunile prin care trec pachetele.
 Înainte de a implementa tema, citiți explicația felului în care funcționează [traceroute prin UDP](https://www.slashroot.in/how-does-traceroute-work-and-examples-using-traceroute-command). Pe scurt, pentru fiecare mesaj UDP care este în tranzit către destinație, atunci când TTL (Time to Live) expiră, senderul primește de la router un mesaj [ICMP](https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol#Header) de tipul [Time Exceeded TTL expired in transit](https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol#Time_exceeded).
 
-REZOLVAT 1. (0.5p) Modificați fișierul `src/traceroute.py` și implementați o aplicație traceroute complet funcțională.
-REZOLVAT 1. (0.5p) Folosiți un API sau o bază de date care oferă informații despre locația IP-urilor (de ex. [ip-api](https://ip-api.com), [ip2loc](https://ip2loc.com), [ipinfo](https://ipinfo.io) etc.) și apelați-l pentru fiecare IP public pe care îl obțineți.
+1. (0.5p) Modificați fișierul `src/traceroute.py` și implementați o aplicație traceroute complet funcțională. `REZOLVAT`
+2. (0.5p) Folosiți un API sau o bază de date care oferă informații despre locația IP-urilor (de ex. [ip-api](https://ip-api.com), [ip2loc](https://ip2loc.com), [ipinfo](https://ipinfo.io) etc.) și apelați-l pentru fiecare IP public pe care îl obțineți. `REZOLVAT`
 
 Creați un raport text /markdown în repository în care:
 
-REZOLVAT 1. (0.25p) afișați locațiile din lume pentru rutele către mai multe site-uri din regiuni diferite: din Asia, Africa și Australia căutând site-uri cu extensia .cn, .za, .au. Folositi IP-urile acestora.
-REZOLVAT 1. (0.25p) Afișați: Orașul, Regiunea și Țara (acolo unde sunt disponibile) prin care trece mesajul vostru pentru a ajunge la destinație.
-1. (0.25p) Executați codul din mai multe locații: **VPS** creat la preambul, de la facultate, de acasă, de pe o rețea publică și salvați toate rutele obținute într-un fișier pe care îl veți prezenta
-REZOLVAT 1. (0.25p) Afișați rutele prin diverse țări pe o hartă folosind orice bibliotecă de plotare (plotly, matplotlib, etc)
+3. (0.25p) afișați locațiile din lume pentru rutele către mai multe site-uri din regiuni diferite: din Asia, Africa și Australia căutând site-uri cu extensia .cn, .za, .au. Folositi IP-urile acestora. `REZOLVAT`
+4. (0.25p) Afișați: Orașul, Regiunea și Țara (acolo unde sunt disponibile) prin care trece mesajul vostru pentru a ajunge la destinație. `REZOLVAT`
+5. (0.25p) Executați codul din mai multe locații: **VPS** creat la preambul, de la facultate, de acasă, de pe o rețea publică și salvați toate rutele obținute într-un fișier pe care îl veți prezenta `REZOLVAT`
+6. (0.25p) Afișați rutele prin diverse țări pe o hartă folosind orice bibliotecă de plotare (plotly, matplotlib, etc) `REZOLVAT`
 
 
 <a name="dns1"></a> 
 ## Server DNS Ad Blocker
 În cadrul acestei teme, veți avea de implementat un blocker de reclame și tracking după modelul [pi-hole](https://pi-hole.net/).
 
-1. Citiți despre DNS în [secțiunea de curs](https://github.com/senisioi/computer-networks/tree/2023/capitolul2#dns).
-1. Scrieți codul unei aplicații de tip DNS server. Puteți urmări un tutorial [în Rust aici](https://github.com/EmilHernvall/dnsguide/tree/master) și puteți folosi ca punct de plecare [codul în python disponibil în capitolul 6](https://github.com/senisioi/computer-networks/tree/2023/capitolul6#scapy_dns).
-1. Utilizați o listă deja curatoriată de domenii asociate cu [reclame și tracking](https://github.com/anudeepND/blacklist) cu scopul de a bloca acele domenii. De fiecare dată când vine o cerere către serverul vostru pentru domenii din lista respectivă, serverul trebuie să [returneaze IP-ul](https://superuser.com/questions/1030329/better-to-block-a-host-to-0-0-0-0-than-to-127-0-0-1) `0.0.0.0`.
-1. Creați o orchestrație docker compose (pe modelul `simple_flask.py` făcut la curs) care să pornească codul vostru în python și să pornească serverul DNS pe localhost (puteți pune chiar pe portul 53).
-1. Setați serverul să fie DNS-ul principal pentru calculatorul vostru:
+1. Citiți despre DNS în [secțiunea de curs](https://github.com/senisioi/computer-networks/tree/2023/capitolul2#dns). `REZOLVAT`
+2. Scrieți codul unei aplicații de tip DNS server. Puteți urmări un tutorial [în Rust aici](https://github.com/EmilHernvall/dnsguide/tree/master) și puteți folosi ca punct de plecare [codul în python disponibil în capitolul 6](https://github.com/senisioi/computer-networks/tree/2023/capitolul6#scapy_dns). `REZOLVAT`
+3. Utilizați o listă deja curatoriată de domenii asociate cu [reclame și tracking](https://github.com/anudeepND/blacklist) cu scopul de a bloca acele domenii. De fiecare dată când vine o cerere către serverul vostru pentru domenii din lista respectivă, serverul trebuie să [returneaze IP-ul](https://superuser.com/questions/1030329/better-to-block-a-host-to-0-0-0-0-than-to-127-0-0-1) `0.0.0.0`. `REZOLVAT`
+4. Creați o orchestrație docker compose (pe modelul `simple_flask.py` făcut la curs) care să pornească codul vostru în python și să pornească serverul DNS pe localhost (puteți pune chiar pe portul 53).
+5. Setați serverul să fie DNS-ul principal pentru calculatorul vostru: `REZOLVAT`
     - [Linux](https://www.linuxfordevices.com/tutorials/linux/change-dns-on-linux)
     - [Windows & MacOS](https://www.hellotech.com/guide/for/how-to-change-dns-server-windows-mac)
-1. Dacă accesați un site cu multe reclame (ex. https://www.accuweather.com/) ar trebui să apară curat în browser.
-1. Salvați într-un fișier toate cererile pe care le blocați pe parcursul unei zile de navigat pe internet. Încercați să adunați minim 100 de nume blocate.
-1. Obțineți niște statistici pentru a verifica câte din numele blocate aparțin unor companii precum google, facebook etc. și care sunt cele mai frecvente companii pe care le blocați. Pentru obținerea statisticilor aveți mai multe variante a) verificați dacă un domeniu conține cuvinte precum `google`, `facebook`, etc. b) verificați dacă name serverul pentru acel domeniu conține numele unor companii c) verificați dacă IP-ul pentru acele domenii sau pentru name server sunt parte dintr-o rețea a vreunei companii. Pentru a afla mai multe informații despre un IP și cine îl deține, puteți folosi reverse DNS (e.g., `dig -x 80.96.21.88 +trace`) sau `whois 80.96.21.209` sau un API precum https://ipinfo.io/
+6. Dacă accesați un site cu multe reclame (ex. https://www.accuweather.com/) ar trebui să apară curat în browser. `REZOLVAT`
+7. Salvați într-un fișier toate cererile pe care le blocați pe parcursul unei zile de navigat pe internet. Încercați să adunați minim 100 de nume blocate. `REZOLVAT`
+8. Obțineți niște statistici pentru a verifica câte din numele blocate aparțin unor companii precum google, facebook etc. și care sunt cele mai frecvente companii pe care le blocați. Pentru obținerea statisticilor aveți mai multe variante a) verificați dacă un domeniu conține cuvinte precum `google`, `facebook`, etc. b) verificați dacă name serverul pentru acel domeniu conține numele unor companii c) verificați dacă IP-ul pentru acele domenii sau pentru name server sunt parte dintr-o rețea a vreunei companii. Pentru a afla mai multe informații despre un IP și cine îl deține, puteți folosi reverse DNS (e.g., `dig -x 80.96.21.88 +trace`) sau `whois 80.96.21.209` sau un API precum https://ipinfo.io/
 
 
 
@@ -96,12 +96,12 @@ Ca model, puteți să vă inspirați din aplicații care fac deja asta, cum ar f
 În cele ce urmează vom presupune că lucrăm cu VPS de la Oracle Cloud. Principiile sunt aceleași și dacă alegeți alt tip de cloud sau chiar self-hosting.
 
 1. Citiți despre tuneluri DNS pe pagina https://dnstunnel.de și pe pagina despre [mitigare](https://www.prosec-networks.com/en/blog/dns-tunneling-erkennen/)
-1. Deschideți portul UDP 53 pentru conexiuni din exterior, pe OCI trebuie deschis și din [iptables](https://judexzhu.github.io/Iptables-Basic-Knowledge/) și din [rețeaua virtuală VCN](https://stackoverflow.com/a/63648081): `sudo sudo iptables -I INPUT 6 -p udp -m udp --dport 53 -j ACCEPT && sudo iptables -I INPUT 6 -m state --state NEW -p tcp --dport 8080 -j ACCEPT && sudo netfilter-persistent save` mai multe despre [iptables si aici](https://www.digitalocean.com/community/tutorials/iptables-essentials-common-firewall-rules-and-commands)
-1. Pentru a verifica că merge conexiunea, porniți serverul DNS de la punctul anterior și testați-l cu dig, dar opriți resolverul existent `systemctl start systemd-resolved`
-1. Configurați intrări NS și A ca în exemplul de pe https://dnstunnel.de și testați cu dig că se face rezolvarea numelor în mod corect 
-1. Modificați codul de DNS server de la punctul anterior pentru a putea cere și transfera un fișier de la server la client folosind pachete malformate DNS, modificând query si response packet, [exemplu aici](https://dnstunnel.de/#communication); clientul poate trimite cerere pentru un nume_fisier.domeniu.tunel.live iar serverul răspunde cu pachete TXT care contin fisierul pe bucăți codificat binar
-1. Atenție că datele transmise prin protocolul UDP se pot pierde, **trebuie să aveți un stop and wait sau fereastră glisantă prin care să vă asigurați că tot fișierul ajunge la destinație**; la demo veți prezenați [md5 checksum](https://www.tecmint.com/generate-verify-check-files-md5-checksum-linux/) pentru fișier; programul trebuie să își continue starea și dacă pierdeți conexiunea de rețea în timp ce faceți transferul
-1. În cazul în care nu puteți rezolva punctul anterior, primiți 1p pe exercițiul acesta dacă copiați fișierul cu secury copy (scp) folosind o unealtă de DNS tunnelling existentă (iodine, dnstt, ozymandns etc).
+2. Deschideți portul UDP 53 pentru conexiuni din exterior, pe OCI trebuie deschis și din [iptables](https://judexzhu.github.io/Iptables-Basic-Knowledge/) și din [rețeaua virtuală VCN](https://stackoverflow.com/a/63648081): `sudo sudo iptables -I INPUT 6 -p udp -m udp --dport 53 -j ACCEPT && sudo iptables -I INPUT 6 -m state --state NEW -p tcp --dport 8080 -j ACCEPT && sudo netfilter-persistent save` mai multe despre [iptables si aici](https://www.digitalocean.com/community/tutorials/iptables-essentials-common-firewall-rules-and-commands)
+3. Pentru a verifica că merge conexiunea, porniți serverul DNS de la punctul anterior și testați-l cu dig, dar opriți resolverul existent `systemctl start systemd-resolved`
+4. Configurați intrări NS și A ca în exemplul de pe https://dnstunnel.de și testați cu dig că se face rezolvarea numelor în mod corect 
+5. Modificați codul de DNS server de la punctul anterior pentru a putea cere și transfera un fișier de la server la client folosind pachete malformate DNS, modificând query si response packet, [exemplu aici](https://dnstunnel.de/#communication); clientul poate trimite cerere pentru un nume_fisier.domeniu.tunel.live iar serverul răspunde cu pachete TXT care contin fisierul pe bucăți codificat binar
+6. Atenție că datele transmise prin protocolul UDP se pot pierde, **trebuie să aveți un stop and wait sau fereastră glisantă prin care să vă asigurați că tot fișierul ajunge la destinație**; la demo veți prezenați [md5 checksum](https://www.tecmint.com/generate-verify-check-files-md5-checksum-linux/) pentru fișier; programul trebuie să își continue starea și dacă pierdeți conexiunea de rețea în timp ce faceți transferul
+7. În cazul în care nu puteți rezolva punctul anterior, primiți 1p pe exercițiul acesta dacă copiați fișierul cu secury copy (scp) folosind o unealtă de DNS tunnelling existentă (iodine, dnstt, ozymandns etc).
 
 
 <a name="dns3"></a> 
