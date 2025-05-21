@@ -83,25 +83,39 @@ class DNSPiHole:
     def create_response(self, query_packet, domain_name, record_type, rdata):
         if rdata is None:  # return non existent domain
             return DNS(
-                id=query_packet[DNS].id,  # dns replies must have the same id as the request
-                qr=1,  # 1 for response
-                aa=0,  # non-authoritative answer
-                rcode=3,  # error code 3 means non existent domain
-                qd=query_packet[DNS].qd  # original request
+                id=query_packet[DNS].id,
+                qr=1,
+                aa=0,
+                rcode=3,
+                qd=query_packet[DNS].qd
             )
 
+        # Maps record types to their numeric codes
+        record_type_codes = {
+            'A': 1,
+            'NS': 2,
+            'CNAME': 5,
+            'SOA': 6,
+            'PTR': 12,
+            'MX': 15,
+            'TXT': 16,
+            'AAAA': 28,
+            'HTTPS': 65
+        }
+        
         return DNS(
-            id=query_packet[DNS].id,  # dns replies must have the same id as the request
-            qr=1,  # 1 for response
-            aa=1,  # authoritative answer
-            rcode=0,  # no error
-            qd=query_packet[DNS].qd,  # original request
-            an=DNSRR(  # dns resource record
-                rrname=domain_name,  # domain name
+            id=query_packet[DNS].id,
+            qr=1,
+            aa=1,
+            rcode=0,
+            qd=query_packet[DNS].qd,
+            an=DNSRR(
+                rrname=domain_name,
                 ttl=self.ttl,
-                type=1 if record_type == 'A' else 28,  # type of record
-                rclass="IN",  # internet class
-                rdata= "0.0.0.0" if record_type == "A" else "::",  # ip address - resource data
+                type=record_type_codes.get(record_type, 1),  # Get correct type code
+                rclass="IN",
+                # Handle different record types correctly
+                rdata=rdata  # For NS and other records, use the value as is
             )
         )
 
@@ -118,7 +132,6 @@ class DNSPiHole:
 
             # get the domain name from the query
             domain_name = query_section.qname.decode() if hasattr(query_section.qname, 'decode') else str(query_section.qname)
-
             # if we dig without an explicit domain name
             if domain_name == '.':
                 return DNS(
@@ -132,6 +145,12 @@ class DNSPiHole:
             # get the record type from the query
             record_types = {
                 1: 'A',
+                2: 'NS',
+                5: 'CNAME',
+                6: 'SOA',
+                12: 'PTR',
+                15: 'MX',
+                16: 'TXT',
                 28: 'AAAA',
                 65: 'HTTPS'
             }
@@ -139,7 +158,6 @@ class DNSPiHole:
 
             # get the record from the local records if it exists
             rdata = self.get_record(domain_name)
-
             # if the record exists, respond with it
             if rdata is not None:
                 # log the blocked domain
@@ -148,13 +166,11 @@ class DNSPiHole:
                     domain_output = f"{domain_name[:-1]}" 
                     file.write(f"{domain_output:<49} has been blocked at {now.strftime('%Y-%m-%d %H:%M:%S')}. Requested by {client_address}\n")
                 return self.create_response(dns_packet, domain_name, record_type, rdata)
-
             # if the record does not exist, send a request to the upstream DNS server
             upstream_response = self.dns_upstream_request(bytes(dns_packet))
             if upstream_response is None:
                 print("No response from upstream DNS server")
                 return None
-
             return DNS(upstream_response)
             
         except Exception as e:
