@@ -83,14 +83,14 @@ class DNSPiHole:
     def create_response(self, query_packet, domain_name, record_type, rdata):
         if rdata is None:  # return non existent domain
             return DNS(
-                id=query_packet[DNS].id,
-                qr=1,
-                aa=0,
-                rcode=3,
-                qd=query_packet[DNS].qd
+                id=query_packet[DNS].id,  # dns replies must have the same id as the request
+                qr=1,  # 1 for response
+                aa=0,  # non-authoritative answer
+                rcode=3,  # error code 3 means non existent domain
+                qd=query_packet[DNS].qd  # original request
             )
 
-        # Maps record types to their numeric codes
+        # to convert back to numeric type for the scapy constructor
         record_type_codes = {
             'A': 1,
             'NS': 2,
@@ -104,18 +104,17 @@ class DNSPiHole:
         }
         
         return DNS(
-            id=query_packet[DNS].id,
-            qr=1,
-            aa=1,
-            rcode=0,
-            qd=query_packet[DNS].qd,
-            an=DNSRR(
-                rrname=domain_name,
+            id=query_packet[DNS].id,  # dns replies must have the same id as the request
+            qr=1,  # 1 for response
+            aa=1,  # authoritative answer
+            rcode=0,  # no error
+            qd=query_packet[DNS].qd,  # original request
+            an=DNSRR(  # dns resource record
+                rrname=domain_name,  # domain name
                 ttl=self.ttl,
-                type=record_type_codes.get(record_type, 1),  # Get correct type code
-                rclass="IN",
-                # Handle different record types correctly
-                rdata=rdata  # For NS and other records, use the value as is
+                type=record_type_codes.get(record_type, 1),  # type of record
+                rclass="IN",  # internet class
+                rdata=rdata  # use value as is
             )
         )
 
@@ -142,7 +141,7 @@ class DNSPiHole:
                     qd=dns_packet.qd
                 )
 
-            # get the record type from the query
+            # to get the name (string) of the record type
             record_types = {
                 1: 'A',
                 2: 'NS',
