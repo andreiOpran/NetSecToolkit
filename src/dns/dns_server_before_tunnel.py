@@ -141,10 +141,6 @@ class DNSPiHole:
                     qd=dns_packet.qd
                 )
 
-            if domain_name.endswith('tunnel.broski.software.'):
-                print(f"DNS tunneling request for {domain_name} from {client_address}.")
-                return self.create_response(dns_packet, domain_name, 'TXT', 'Hello from Broski Software\'s DNS tunnel!')
-
             # to get the name (string) of the record type
             record_types = {
                 1: 'A',
