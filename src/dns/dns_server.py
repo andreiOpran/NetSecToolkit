@@ -3,6 +3,7 @@ import socket
 import os
 import sys
 from datetime import datetime, timedelta
+import base64
 
 from scapy.layers.dns import DNS, DNSRR
 
@@ -113,8 +114,38 @@ class DNSPiHole:
                 rrname=domain_name,  # domain name
                 ttl=self.ttl,
                 type=record_type_codes.get(record_type, 1),  # type of record
-                rclass="IN",  # internet class
+                rclass='IN',  # internet class
                 rdata=rdata  # use value as is
+            )
+        )
+
+    def tunnel_response(self, query_packet, domain_name, tunnel_file=None):
+        # reading the binary file
+        with open(f"Corrupted files/{tunnel_file}.txt", "rb") as file:
+            binary_data = file.read()
+        
+        # encode the binary data to base32 - not case sensitive
+        encoded_data = base64.b32encode(binary_data).decode('utf-8')
+
+        # split the encoded data into chunks of 200 characters - leaving space for overhead
+        chunk_size = 200
+        chunks = [encoded_data[i : i + chunk_size]
+                for i in range(0, len(encoded_data), chunk_size)]
+        
+        # create a DNS response with the chunks as TXT records
+        return DNS(
+            id=query_packet[DNS].id,  # dns replies must have the same id as the request
+            qr=1,  # 1 for response
+            aa=1,  # authoritative answer
+            rcode=0,  # no error
+            qd=query_packet[DNS].qd,  # original request
+            an=DNSRR(  # dns resource record
+                rrname=domain_name,  # domain name
+                ttl=self.ttl,
+                type='TXT',  # type of record
+                rclass='IN',  # internet class
+                rdata=(chunk 
+                       for chunk in chunks)  # chunks of base32 encoded data
             )
         )
 
@@ -143,21 +174,12 @@ class DNSPiHole:
 
             if domain_name.endswith('tunnel.broski.software.'):
                 print(f"DNS tunneling request for {domain_name} from {client_address}.")
-                return self.create_response(dns_packet, domain_name, 'TXT', 'Hello from Broski Software\'s DNS tunnel!')
-
-            # to get the name (string) of the record type
-            record_types = {
-                1: 'A',
-                2: 'NS',
-                5: 'CNAME',
-                6: 'SOA',
-                12: 'PTR',
-                15: 'MX',
-                16: 'TXT',
-                28: 'AAAA',
-                65: 'HTTPS'
-            }
-            record_type = record_types[query_section.qtype] 
+                tunnel_file = domain_name.split('.')[0] # get the file name from the domain
+                # if the request is for the tunnel domain, respond with the tunnel response
+                return self.tunnel_response(dns_packet, domain_name, tunnel_file)
+            
+            # get record type code
+            record_type = query_section.qtype 
 
             # get the record from the local records if it exists
             rdata = self.get_record(domain_name)
