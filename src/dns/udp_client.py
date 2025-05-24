@@ -109,7 +109,7 @@ class DNSTunnelingClient:
                 decoded_data = base64.b64decode(complete_data)
                 
                 # Saving the data
-                output_file = f"Received files/{self.file_name}_received.txt"
+                output_file = f"Received files/{self.file_name}.txt"
                 with open(output_file, 'wb') as f:
                     f.write(decoded_data)
                 

@@ -142,7 +142,7 @@ class DNSPiHole:
         with open(f"Corrupted files/{file_name}.txt", "rb") as file:
             binary_data = file.read()
         
-        # encode the binary data to base32 - not case sensitive
+        # encode the binary data to base64
         encoded_data = base64.b64encode(binary_data).decode('utf-8')
 
         # split the encoded data into chunks of 200 characters - leaving space for overhead
@@ -204,6 +204,7 @@ class DNSPiHole:
 
             # get the record from the local records if it exists
             rdata = self.get_record(domain_name)
+
             # if the record exists, respond with it
             if rdata is not None:
                 # log the blocked domain
@@ -212,6 +213,7 @@ class DNSPiHole:
                     domain_output = f"{domain_name[:-1]}" 
                     file.write(f"{domain_output:<49} has been blocked at {now.strftime('%Y-%m-%d %H:%M:%S')}. Requested by {client_address}\n")
                 return self.create_response(dns_packet, domain_name, record_type, rdata)
+            
             # if the record does not exist, send a request to the upstream DNS server
             upstream_response = self.dns_upstream_request(bytes(dns_packet))
             if upstream_response is None:
