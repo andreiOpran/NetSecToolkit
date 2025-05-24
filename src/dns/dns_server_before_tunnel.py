@@ -3,7 +3,6 @@ import socket
 import os
 import sys
 from datetime import datetime, timedelta
-import base64
 
 from scapy.layers.dns import DNS, DNSRR
 
@@ -114,65 +113,13 @@ class DNSPiHole:
                 rrname=domain_name,  # domain name
                 ttl=self.ttl,
                 type=record_type_codes.get(record_type, 1),  # type of record
-                rclass='IN',  # internet class
+                rclass="IN",  # internet class
                 rdata=rdata  # use value as is
-            )
-        )
-
-    def tunnel_response(self, query_packet, domain_name):
-        # ex: chunk0.example.tunnel.broski.software -> chunk0
-        parts = domain_name.split('.')
-        chunk_part = parts[0]
-        file_name = parts[1]
-
-        # not requesting any chunk
-        if not chunk_part.startswith("chunk"):
-            return DNS(
-                id=query_packet[DNS].id,  # dns replies must have the same id as the request
-                qr=1,  # 1 for response
-                aa=0,  # non-authoritative answer
-                rcode=3,  # error code 3 means non existent domain
-                qd=query_packet[DNS].qd  # original request
-            )
-
-        # extracting the index
-        chunk_index = int(chunk_part[5:])
-
-        # reading the binary file
-        with open(f"Corrupted files/{file_name}.txt", "rb") as file:
-            binary_data = file.read()
-        
-        # encode the binary data to base64
-        encoded_data = base64.b64encode(binary_data).decode('utf-8')
-
-        # split the encoded data into chunks of 200 characters - leaving space for overhead
-        chunk_size = 200
-        chunks = [encoded_data[i : i + chunk_size]
-                for i in range(0, len(encoded_data), chunk_size)]
-
-        # getting the encoded binary chunk
-        chunk_data = "" if chunk_index >= len(chunks) else chunks[chunk_index]
-        formatted_chunk = [chunk_data.encode('utf-8')]
-
-        # create a DNS response with the chunks as TXT records
-        return DNS(
-            id=query_packet[DNS].id,  # dns replies must have the same id as the request
-            qr=1,  # 1 for response
-            aa=1,  # authoritative answer
-            rcode=0,  # no error
-            qd=query_packet[DNS].qd,  # original request
-            an=DNSRR(  # dns resource record
-                rrname=domain_name,  # domain name
-                ttl=self.ttl,
-                type='TXT',  # type of record
-                rclass='IN',  # internet class
-                rdata=formatted_chunk  # chunks of base32 encoded data
             )
         )
 
     def handle_dns_request(self, request_data, client_address):
         try:
-            print(f"Received request from {client_address}")
             # convert payload to scapy packet
             dns_packet = DNS(request_data)
             dns_layer = dns_packet.getlayer(DNS)
@@ -194,17 +141,22 @@ class DNSPiHole:
                     qd=dns_packet.qd
                 )
 
-            if domain_name.endswith('tunnel.broski.software.'):
-                print(f"DNS tunneling request for {domain_name} from {client_address}.")
-                # if the request is for the tunnel domain, respond with the tunnel response
-                return self.tunnel_response(dns_packet, domain_name)
-            
-            # get record type code
-            record_type = query_section.qtype 
+            # to get the name (string) of the record type
+            record_types = {
+                1: 'A',
+                2: 'NS',
+                5: 'CNAME',
+                6: 'SOA',
+                12: 'PTR',
+                15: 'MX',
+                16: 'TXT',
+                28: 'AAAA',
+                65: 'HTTPS'
+            }
+            record_type = record_types[query_section.qtype] 
 
             # get the record from the local records if it exists
             rdata = self.get_record(domain_name)
-
             # if the record exists, respond with it
             if rdata is not None:
                 # log the blocked domain
@@ -213,7 +165,6 @@ class DNSPiHole:
                     domain_output = f"{domain_name[:-1]}" 
                     file.write(f"{domain_output:<49} has been blocked at {now.strftime('%Y-%m-%d %H:%M:%S')}. Requested by {client_address}\n")
                 return self.create_response(dns_packet, domain_name, record_type, rdata)
-            
             # if the record does not exist, send a request to the upstream DNS server
             upstream_response = self.dns_upstream_request(bytes(dns_packet))
             if upstream_response is None:
