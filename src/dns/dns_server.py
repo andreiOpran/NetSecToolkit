@@ -125,7 +125,7 @@ class DNSPiHole:
             binary_data = file.read()
         
         # encode the binary data to base32 - not case sensitive
-        encoded_data = base64.b32encode(binary_data).decode('utf-8')
+        encoded_data = base64.b64encode(binary_data).decode('utf-8')
 
         # split the encoded data into chunks of 200 characters - leaving space for overhead
         chunk_size = 200
@@ -144,8 +144,7 @@ class DNSPiHole:
                 ttl=self.ttl,
                 type='TXT',  # type of record
                 rclass='IN',  # internet class
-                rdata=(chunk 
-                       for chunk in chunks)  # chunks of base32 encoded data
+                rdata=chunks  # chunks of base32 encoded data
             )
         )
 
