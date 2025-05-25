@@ -82,7 +82,7 @@ class DNSTunnelingClient:
                 
                 # If we get an empty chunk(end of the file)
                 if not chunk_data:
-                    print(f"Download done.")
+                    print(f"Downloaded file at \"received_files/{self.file_name}_received.txt\".")
                     break
                 
                 # Adding chunk to chunks list
@@ -132,3 +132,4 @@ if __name__ == "__main__":
     
     client = DNSTunnelingClient(file_name=file_name)
     client.download_file()
+    
