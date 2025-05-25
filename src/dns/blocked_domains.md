@@ -9402,3 +9402,5 @@ api2.amplitude.com                                has been blocked at 2025-05-25
 api2.amplitude.com                                has been blocked at 2025-05-25 01:02:42. Requested by ('82.76.74.147', 33673)
 api2.amplitude.com                                has been blocked at 2025-05-25 01:04:42. Requested by ('82.76.74.147', 32499)
 api2.amplitude.com                                has been blocked at 2025-05-25 01:04:42. Requested by ('82.76.74.147', 43746)
+instagram.fbeg10-1.fna.fbcdn.net                  has been blocked at 2025-05-25 13:46:18. Requested by ('89.35.250.99', 50692)
+instagram.fbeg10-1.fna.fbcdn.net                  has been blocked at 2025-05-25 13:46:18. Requested by ('89.35.250.99', 50692)

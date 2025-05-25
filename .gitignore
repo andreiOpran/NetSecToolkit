@@ -175,3 +175,6 @@ cython_debug/
 
 # vps-ssh
 /vps-ssh/rc
+
+# blocked_domains.md
+/src/dns/blocked_domains.md
