@@ -26,8 +26,8 @@ def compare_files(file1, file2):
 if __name__ == "__main__":
     if len(sys.argv) == 2:
         filename = sys.argv[1]
-        compare_files(f'Corrupted files/{filename}.txt', f'Received files/{filename}_received.txt')
+        compare_files(f'tunnel_files/{filename}.txt', f'received_files/{filename}_received.txt')
     else:
         print("Usage: python md5check.py <filename>")
         print("Example: python md5check.py example")
-        print("This will compare 'Corrupted files/example.txt' with 'Received files/example_received.txt'")
+        print("This will compare 'tunnel_files/example.txt' with 'received_files/example_received.txt'")

@@ -91,6 +91,10 @@ class DNSTunnelingClient:
                 # Next chunk
                 chunk_index += 1
                 timeout = 0  # Timeout reset
+
+                # Printing received chunk for debugging
+                decoded_chunk = base64.b64decode(chunk_data)
+                print(f"Received chunk {chunk_index}: {decoded_chunk[:25]}...")
                 
             except socket.timeout:
                 timeout += 1
@@ -109,7 +113,7 @@ class DNSTunnelingClient:
                 decoded_data = base64.b64decode(complete_data)
                 
                 # Saving the data
-                output_file = f"Received files/{self.file_name}.txt"
+                output_file = f"received_files/{self.file_name}_received.txt"
                 with open(output_file, 'wb') as f:
                     f.write(decoded_data)
                 

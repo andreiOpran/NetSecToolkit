@@ -139,7 +139,7 @@ class DNSPiHole:
         chunk_index = int(chunk_part[5:])
 
         # reading the binary file
-        with open(f"Corrupted files/{file_name}.txt", "rb") as file:
+        with open(f"tunnel_files/{file_name}.txt", "rb") as file:
             binary_data = file.read()
         
         # encode the binary data to base64
@@ -172,7 +172,6 @@ class DNSPiHole:
 
     def handle_dns_request(self, request_data, client_address):
         try:
-            print(f"Received request from {client_address}")
             # convert payload to scapy packet
             dns_packet = DNS(request_data)
             dns_layer = dns_packet.getlayer(DNS)
@@ -196,7 +195,6 @@ class DNSPiHole:
 
             if domain_name.endswith('tunnel.broski.software.'):
                 print(f"DNS tunneling request for {domain_name} from {client_address}.")
-                # if the request is for the tunnel domain, respond with the tunnel response
                 return self.tunnel_response(dns_packet, domain_name)
             
             # get record type code
