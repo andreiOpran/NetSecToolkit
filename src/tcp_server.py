@@ -6,7 +6,7 @@ import threading
 import random
 import string
 
-# Configure logging to show only INFO level and above for cleaner output
+# configure logging to show only INFO level and above for cleaner output
 logging.basicConfig(format = u'[LINE:%(lineno)d]# %(levelname)-8s [%(asctime)s]  %(message)s', level = logging.INFO)
 
 # generating random messages
@@ -39,7 +39,7 @@ def send_messages():
             # logging.info('Reply from client: "%s"', response.decode('utf-8'))
 
             client_sock.close()
-            time.sleep(5)  # sending each 5 seconds
+            time.sleep(2)  # sending each 5 seconds
 
         except Exception as e:
             pass  # Silent error handling
@@ -50,7 +50,7 @@ sending_thread.start()
 
 # server config
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM, proto=socket.IPPROTO_TCP)
-# Add SO_REUSEADDR to avoid "Address already in use" error
+# add SO_REUSEADDR to avoid "Address already in use" error
 sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 
 port = 10000
@@ -64,7 +64,6 @@ while True:
     time.sleep(2)
     data = conexiune.recv(1024)
     
-    # ONLY show messages received from client
     print(f"CLIENT MESSAGE: {data.decode('utf-8')}")
     
     conexiune.send(b"Server received the message: " + data)

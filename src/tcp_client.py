@@ -7,7 +7,7 @@ import random
 import string
 import threading
 
-# Configure logging to show only INFO level and above for cleaner output
+# configure logging to show only INFO level and above for cleaner output
 logging.basicConfig(format = u'[LINE:%(lineno)d]# %(levelname)-8s [%(asctime)s]  %(message)s', level = logging.INFO)
 
 # generating random messages
@@ -71,19 +71,17 @@ try:
             time.sleep(3)
             sock.send(message.encode('utf-8'))
             data = sock.recv(1024)
-            # Remove this logging to keep output clean
-            # logging.info('Content received: "%s"', data.decode('utf-8'))
             
         except Exception as e:
-            pass  # Silent error handling
+            pass  # silent error handling
         finally:
             sock.close()
             
-        time.sleep(5)  # 5 seconds between messages
+        time.sleep(2)  # 5 seconds between messages
         
 except KeyboardInterrupt:
     print("\nClient stopped by user")
 except Exception as e:
-    pass  # Silent error handling
+    pass  # silent error handling
 finally:
     print("Client closed")
