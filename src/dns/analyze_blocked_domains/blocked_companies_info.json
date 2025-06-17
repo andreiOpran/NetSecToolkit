@@ -1,56 +1,60 @@
 {
-    "total_blocked_domains": 9559,
+    "total_blocked_domains": 26542,
     "block_counts_for_each_company": {
-        "Facebook, Inc.": 2347,
-        "Amazon.com, Inc.": 1671,
-        "Reflected Networks, Inc.": 30,
-        "Google LLC": 2981,
-        "DIGI ROMANIA S.A.": 188,
-        "LivePerson, Inc.": 8,
-        "Microsoft Corporation": 193,
-        "Apple Inc.": 73,
-        "Akamai International B.V.": 17,
-        "OVH SAS": 75,
-        "Xandr Inc.": 164,
-        "Criteo Technology SAS": 172,
-        "Cloudflare, Inc.": 289,
-        "Fastly, Inc.": 129,
-        "PubMatic, Inc.": 68,
-        "Magnite, Inc.": 69,
-        "Akamai Technologies, Inc.": 310,
-        "NEXXEN GROUP LTD": 65,
-        "Outbrain, Inc.": 36,
-        "Bidtellect Inc.": 29,
-        "Steadfast": 40,
-        "Adform A/S": 107,
-        "DataWeb Global Group B.V.": 5,
-        "24 SHELLS": 5,
-        "LeaseWeb Netherlands B.V.": 96,
-        "NTT America, Inc.": 14,
-        "Hetzner Online GmbH": 17,
-        "NatCoWeb Corp.": 26,
-        "Automattic, Inc": 9,
-        "Yahoo-UK Limited": 67,
-        "Oracle Corporation": 23,
-        "Datacamp Limited": 8,
-        "XFERNET": 4,
+        "Facebook, Inc.": 7691,
+        "Amazon.com, Inc.": 3896,
+        "Reflected Networks, Inc.": 73,
+        "Google LLC": 9045,
+        "DIGI ROMANIA S.A.": 499,
+        "LivePerson, Inc.": 16,
+        "Microsoft Corporation": 573,
+        "Apple Inc.": 103,
+        "Akamai International B.V.": 51,
+        "OVH SAS": 150,
+        "Xandr Inc.": 401,
+        "Criteo Technology SAS": 352,
+        "Cloudflare, Inc.": 638,
+        "Fastly, Inc.": 280,
+        "PubMatic, Inc.": 163,
+        "Magnite, Inc.": 214,
+        "Akamai Technologies, Inc.": 681,
+        "NEXXEN GROUP LTD": 163,
+        "Outbrain, Inc.": 73,
+        "Bidtellect Inc.": 66,
+        "Steadfast": 83,
+        "Adform A/S": 237,
+        "DataWeb Global Group B.V.": 10,
+        "24 SHELLS": 14,
+        "LeaseWeb Netherlands B.V.": 225,
+        "Cogent Communications": 34,
+        "Hetzner Online GmbH": 49,
+        "NatCoWeb Corp.": 54,
+        "Automattic, Inc": 16,
+        "Yahoo-UK Limited": 129,
+        "Oracle Corporation": 47,
+        "Datacamp Limited": 15,
+        "XFERNET": 12,
         "Servers.com, Inc.": 3,
-        "WebMD, LLC": 4,
+        "WebMD, LLC": 13,
         "Adobe Inc.": 2,
         "JSC Kazakhtelecom": 1,
-        "MOJOHOST": 5,
-        "YANDEX LLC": 22,
-        "adjust": 2,
+        "MOJOHOST": 11,
+        "YANDEX LLC": 67,
+        "adjust": 12,
         "VS Media Inc.": 2,
-        "Conversant LLC": 5,
-        "DigitalOcean, LLC": 35,
-        "Netic A/S": 1,
-        "DEFT.COM": 7,
-        "PaeDae, Inc.": 1,
+        "Conversant LLC": 18,
+        "DigitalOcean, LLC": 39,
+        "Netic A/S": 4,
+        "DEFT.COM": 10,
+        "PaeDae, Inc.": 7,
         "ThreatMetrix Inc.": 1,
-        "Akamai Connected Cloud": 2,
-        "VENTE-PRIVEE.COM SA": 2,
-        "e-planning": 1
+        "Akamai Connected Cloud": 5,
+        "Adjust GmbH": 3,
+        "VENTE-PRIVEE.COM SA": 19,
+        "e-planning": 3,
+        "EDINAYA SET LIMITED LIABILITY COMPANY": 5,
+        "RETN Limited": 2,
+        "Index Exchange Inc.": 9
     },
     "company_of_origin_for_domain": {
         "Facebook, Inc.": [
@@ -80,7 +84,12 @@
             "instagram.fbeg10-1.fna.fbcdn.net",
             "scontent.fbeg10-1.fna.fbcdn.net",
             "platform-lookaside.fbsbx.com",
-            "mobile.facebook.com"
+            "mobile.facebook.com",
+            "b-graph.facebook.com",
+            "external.fbeg10-1.fna.fbcdn.net",
+            "scontent-arn2-1.xx.fbcdn.net",
+            "video.xx.fbcdn.net",
+            "scontent-bru2-1.xx.fbcdn.net"
         ],
         "Amazon.com, Inc.": [
             "api2.amplitude.com",
@@ -201,7 +210,22 @@
             "api.apptentive.com",
             "d5p.de17a.com",
             "1f2e7.v.fwmrm.net",
-            "match.360yield.com"
+            "match.360yield.com",
+            "init.supersonicads.com",
+            "hb.360yield.com",
+            "aax-fe.amazon-adsystem.com",
+            "lnkd.demdex.net",
+            "aax-us-iad.amazon.com",
+            "ads.adthrive.com",
+            "tag.getdrip.com",
+            "cm.adgrx.com",
+            "rtb.adgrx.com",
+            "matchadsrvr.yieldmo.com",
+            "s.update.rubiconproject.com",
+            "data.adsrvr.org",
+            "vast.adsafeprotected.com",
+            "cti.w55c.net",
+            "api2.appsflyer.com"
         ],
         "Reflected Networks, Inc.": [
             "static.trafficjunky.com",
@@ -281,7 +305,26 @@
             "c.pub.network",
             "pixel.tapad.com",
             "tr.blismedia.com",
-            "adx.g.doubleclick.net"
+            "adx.g.doubleclick.net",
+            "wv.inner-active.mobi",
+            "sdk-events.inner-active.mobi",
+            "ms.applvn.com",
+            "d.applovin.com",
+            "d.applvn.com",
+            "telemetry.sdk.inmobi.com",
+            "unif-id.ssp.inmobi.com",
+            "config.inmobi.com",
+            "ookla-d.openx.net",
+            "odr.mookie1.com",
+            "img.applovin.com",
+            "res1.applovin.com",
+            "i.l.inmobicdn.net",
+            "sdk-cdn.optimove.net",
+            "rtb.mfadsrvr.com",
+            "ipac.ctnsnet.com",
+            "cdn.w55c.net",
+            "ssp.api.tappx.com",
+            "ads.avads.net"
         ],
         "DIGI ROMANIA S.A.": [
             "ads.pubmatic.com",
@@ -291,12 +334,11 @@
             "csync.smartadserver.com",
             "cdn.mookie1.com",
             "vpaid.pubmatic.com",
-            "cs.media.net",
             "cdn.static.zdbb.net",
             "s2s.singular.net",
-            "p.teads.tv",
             "t.teads.tv",
-            "s.go-mpulse.net"
+            "s.go-mpulse.net",
+            "cdn-lb.vungle.com"
         ],
         "LivePerson, Inc.": [
             "lptag.liveperson.net",
@@ -324,8 +366,7 @@
         ],
         "OVH SAS": [
             "onetag-sys.com",
-            "rtb-csync.smartadserver.com",
-            "www3.smartadserver.com"
+            "pixel.onaudience.com"
         ],
         "Xandr Inc.": [
             "ib.adnxs.com",
@@ -371,7 +412,16 @@
             "spl.zeotap.com",
             "my.rtmark.net",
             "cdn.quantummetric.com",
-            "sdk.iad-01.braze.com"
+            "sdk.iad-01.braze.com",
+            "api.picsart.com",
+            "analytics.picsart.com",
+            "siteintercept.qualtrics.com",
+            "sync.connectad.io",
+            "a.ad.gt",
+            "mwzeom.zeotap.com",
+            "dsum.casalemedia.com",
+            "cm.mgid.com",
+            "router.infolinks.com"
         ],
         "Fastly, Inc.": [
             "cdn.speedcurve.com",
@@ -379,6 +429,7 @@
             "alb.reddit.com",
             "js-agent.newrelic.com",
             "bam.nr-data.net",
+            "sync.teads.tv",
             "trc.taboola.com",
             "info.startappservice.com",
             "api.taboola.com",
@@ -390,11 +441,14 @@
             "imprammp.taboola.com",
             "wf.taboola.com",
             "static.ads-twitter.com",
+            "criteo-sync.teads.tv",
             "vidanalytics.taboola.com",
             "c2.taboola.com",
             "sync-tm.everesttech.net",
             "vidstatb.taboola.com",
-            "opps.taboola.com"
+            "opps.taboola.com",
+            "cdn2.inner-active.mobi",
+            "scripts.webcontentassessor.com"
         ],
         "PubMatic, Inc.": [
             "hbopenbid.pubmatic.com",
@@ -412,7 +466,8 @@
             "pixel.rubiconproject.com",
             "prebid-server.rubiconproject.com",
             "token.rubiconproject.com",
-            "pixel-eu.rubiconproject.com"
+            "pixel-eu.rubiconproject.com",
+            "pixel-us-east.rubiconproject.com"
         ],
         "Akamai Technologies, Inc.": [
             "eus.rubiconproject.com",
@@ -420,16 +475,17 @@
             "a.teads.tv",
             "scdn.cxense.com",
             "cdn.cxense.com",
-            "sync.teads.tv",
             "iadsdk.apple.com",
             "tr.iadsdk.apple.com",
+            "cs.media.net",
             "ca.iadsdk.apple.com",
             "cf.iadsdk.apple.com",
             "ads.rubiconproject.com",
             "contextual.media.net",
-            "criteo-sync.teads.tv",
+            "p.teads.tv",
             "s8t.teads.tv",
-            "studio-t.teads.tv"
+            "studio-t.teads.tv",
+            "c.go-mpulse.net"
         ],
         "NEXXEN GROUP LTD": [
             "sync.1rx.io",
@@ -462,12 +518,13 @@
         ],
         "LeaseWeb Netherlands B.V.": [
             "prg.smartadserver.com",
-            "sync.smartadserver.com",
             "rtb-csync.smartadserver.com",
+            "sync.smartadserver.com",
             "syndication.exosrv.com",
+            "www3.smartadserver.com",
             "ssp-csync.smartadserver.com"
         ],
-        "NTT America, Inc.": [
+        "Cogent Communications": [
             "rbp.mxptint.net"
         ],
         "Hetzner Online GmbH": [
@@ -491,14 +548,16 @@
         ],
         "Oracle Corporation": [
             "infoevent.startappservice.com",
-            "adsmetadata.startappservice.com"
+            "adsmetadata.startappservice.com",
+            "uat-net.technoratimedia.com"
         ],
         "Datacamp Limited": [
             "a.omappapi.com"
         ],
         "XFERNET": [
             "sync.go.sonobi.com",
-            "iad-2-sync.go.sonobi.com"
+            "iad-2-sync.go.sonobi.com",
+            "apex.go.sonobi.com"
         ],
         "Servers.com, Inc.": [
             "track1.aniview.com",
@@ -520,8 +579,7 @@
             "mc.yandex.ru"
         ],
         "adjust": [
-            "s2s.adjust.com",
-            "app.adjust.com"
+            "s2s.adjust.com"
         ],
         "VS Media Inc.": [
             "www.flirt4free.com"
@@ -529,11 +587,15 @@
         "Conversant LLC": [
             "web.hb.ad.cpe.dotomi.com",
             "openx2-match.dotomi.com",
-            "pubmatic-match.dotomi.com"
+            "pubmatic-match.dotomi.com",
+            "casale-match.dotomi.com",
+            "rubicon-match.dotomi.com",
+            "apnx-match.dotomi.com"
         ],
         "DigitalOcean, LLC": [
             "ns1.broski.software",
-            "match.adsby.bidtheatre.com"
+            "match.adsby.bidtheatre.com",
+            "e.serverbid.com"
         ],
         "Netic A/S": [
             "uipglob.semasio.net"
@@ -542,19 +604,35 @@
             "sync.outbrain.com"
         ],
         "PaeDae, Inc.": [
-            "pixel.mathtag.com"
+            "pixel.mathtag.com",
+            "sync.mathtag.com"
         ],
         "ThreatMetrix Inc.": [
             "h-signifyd.online-metrix.net"
         ],
         "Akamai Connected Cloud": [
-            "segment-data-us-east.zqtk.net"
+            "segment-data-us-east.zqtk.net",
+            "rcp.c.appier.net"
+        ],
+        "Adjust GmbH": [
+            "app.adjust.com"
         ],
         "VENTE-PRIVEE.COM SA": [
             "sync.adotmob.com"
         ],
         "e-planning": [
             "ads.us.e-planning.net"
+        ],
+        "EDINAYA SET LIMITED LIABILITY COMPANY": [
+            "counter.yadro.ru"
+        ],
+        "RETN Limited": [
+            "e2ertt.com"
+        ],
+        "Index Exchange Inc.": [
+            "a4430.casalemedia.com",
+            "a654.casalemedia.com",
+            "a1126.casalemedia.com"
         ]
     }
 }
