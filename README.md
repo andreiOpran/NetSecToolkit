@@ -1,185 +1,234 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/SzpbBlAe)
-# Proiect Rețele 2024-2025
+# NetSecToolkit
 
-## Sumar
+A collaborative networking security toolkit developed by a team of 3, featuring comprehensive network analysis, DNS tunneling, traceroute visualization, and security demonstration tools. This project includes real-world implementations of network protocols and security concepts.
 
-Pentru proiect trebuie să rezolvați următoarele probleme:
-- [Preambul (0p)](#vps)
-- [Traceroute (2p)](#trace)
-- [Server DNS Ad Blocker (2p)](#dns1)
-- [DNS Tunnel (2p)](#dns2)
-- [Exercițiu Extra (2.5p)](#dns3)
-- [ARP Spoofing (2p)](#arp)
-- [TCP Hijacking (2p)](#tcp)
+## Project Overview
 
-### Reguli:
-- echipe de maxim 3 persoane (muncă în echipă înseamnă că fiecare coleg poate explica munca celorlalți)
-- codul pe care nu îl puteți explica se punctează cu 0
-- codul copiat de la alți colegi din alte echipe sau scris cu LLM se punctează cu 0 sau se face raport; codul este verificat cu programe de similaritate și cu un clasificator de identificat cod scris cu LLM
-- echipele pot fi formate doar din colegi care sunt în aceeași serie
-- orice cod preluat de pe internet trebuie citat (menționat la început de fișier) și înțeles întru totul
-- veți fi punctați pe baza întrebărilor pe care le primiți
-- întrebările nu vor tine cont de partea la care ati lucrat cel mai mult
-- proiectul trebuie să ruleze în timpul prezentării
-- **termen limită:** 16 iunie
+NetSecToolkit is a comprehensive collection of networking tools and security implementations that demonstrate various network protocols and security concepts. As part of this project, we deployed DNS Pi-hole on our routers and successfully blocked over 40,000 advertisements, showcasing practical network security applications.
 
+## Features
 
-<a name="vps"></a> 
-## Preambul
+- **TCP Server**: Basic TCP server implementation with comprehensive logging
+- **DNS Tunneling**: Covert file transfer over DNS protocol with integrity verification
+- **Traceroute Analysis**: Global network path visualization with geographic mapping
+- **ARP Spoofing**: Network security demonstration and man-in-the-middle attack simulation
+- **Router Configuration**: Advanced iptables configuration for network routing and security
+- **DNS Ad Blocking**: Pi-hole implementation blocking 40k+ advertisements
 
-Atenție că exercițiile care necesită folosirea unor containere docker nu se pot rezolva pe Windows sau MacOS pentru că face figuri netfilterqueue și iptables.
-De asemenea, vă încurajez să obțineți un VPS și un domeniu gratuit cu care să faceți teste. Aceste exerciții nu se punctează dar vă poate ajuta pentru rezolvarea temei.
-
-### VPS
-Pentru a rezolva exercițiile de mai jos, ar fi bine să aveți acces la un server privat virtual (VPS) cu IP public. Acest lucru vă va ajuta să vă dezvoltați capacitatea de lucru din terminal pe un server la distanță.
-
-Un VPS implică diverse costuri, așa că cel mai important lucru aici este **să nu plătiți nimic**. Pentru asta aveți următoarele opțiuni:
-
-- Oracle Free Tier - 1OCPU/1GB RAM AMDx86_64 sau 4OCPU/24GB RAM ARM https://cloud.oracle.com/compute/instances?region=eu-frankfurt-1 - dacă mergeți pe varianta asta luați regiunea Frankfurt
-- DigitalOcean - 200$ credits prin github student pack, [link referal aici](https://m.do.co/c/421a5d7512d3), gratuit pe o perioadă limitată, ar fi bine să nu rămâneți cu restanță :)
-- mai sunt si altele aici, dar nu la fel de avantajoase: https://github.com/cloudcommunity/Cloud-Free-Tier-Comparison
-
-### Domeniu
-Prin github student pack si [name.com](https://www.name.com/partner/github-students) puteți obține un domeniu gratuit. Recomand să vă luați un domeniu pe care să puteți face orice fel de experimente doriți, inclusiv să obțineți un certificat TLS.
-Există și o alternativă complet gratuită, dar mai puțin flexibilă, anume să folosiți un subdomeniu gratuit de la [FreeDNS afraid.org](https://freedns.afraid.org/)
-
-### Self-hosting (opțional)
-O alternativă la VPS este să aveți un calculator (poate fi si raspberry Pi) în rețeaua de acasă pe care să îl accesați de la distanță. Ca să accesați de la distanță servicii din rețeaua locală de acasă, aveți două opțiuni:
-
-1. Port-forwarding și DNS dinamic - verificați la ISP ce fel de servicii oferă. De ex. [Digi oferă dynamic dns](https://s.digi.ro/gateway/g/ZmlsZVNvdXJjZT1odHRwJTNBJTJGJTJG/c3RvcmFnZWRpZ2lybzEucmNzLXJkcy5y/byUyRnN0b3JhZ2UlMkYyMDIxJTJGMDIl/MkYwNCUyRjEyODQwMzRfMTI4NDAzNF9U/UC1MaW5rLXBvcnQtZncucGRmJmhhc2g9/NGZmZDViNzUwYWY5NGUzMDkyZDg1MjhmOGFkMDAwZmU=.pdf), un serviciu prin care puteți să obțineți un domeniu `.go.ro` pentru IP-ul dinamic de acasă (acest domeniu poate deveni un CNAME pentru domeniul vostru obținut de pe [name.com](https://name.com)). Asignați unui calculator din rețeaua locală o adresă IP fixată (ex. `192.168.66.66`) în funcție de adresa sa fizică. Apoi, prin port forwarding, redirecționați mesajele care intră la router pe un port public (de ex. `80`) către serviciul care rulează pe o adresă locală (de ex. `192.168.66.66:8081`). Procedeul ar funcționa și fără DNS dinamic pentru că IP-ul public de la digi nu se schimbă foarte des.
-2. Mesh VPN prin [zero-tier](https://www.zerotier.com/) - o alternativă prin care mai multe noduri să facă parte din aceeași rețea locală virtuală.
-
-Accesul public la un calculator din rețeaua de acasă poate reprezinta o breșă majoră de securitate. Nu lăsați servicii pornite decât dacă v-ați asigurat că sunt bine securizate.
-
-<a name="trace"></a> 
-## Traceroute `REZOLVAT`
-Traceroute este o metodă prin care putem urmări prin ce routere trece un pachet pentru a ajunge la destinație.
-În funcție de IP-urile acestor noduri, putem afla țările sau regiunile prin care trec pachetele.
-Înainte de a implementa tema, citiți explicația felului în care funcționează [traceroute prin UDP](https://www.slashroot.in/how-does-traceroute-work-and-examples-using-traceroute-command). Pe scurt, pentru fiecare mesaj UDP care este în tranzit către destinație, atunci când TTL (Time to Live) expiră, senderul primește de la router un mesaj [ICMP](https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol#Header) de tipul [Time Exceeded TTL expired in transit](https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol#Time_exceeded).
-
-1. (0.5p) Modificați fișierul `src/traceroute.py` și implementați o aplicație traceroute complet funcțională. `REZOLVAT`
-2. (0.5p) Folosiți un API sau o bază de date care oferă informații despre locația IP-urilor (de ex. [ip-api](https://ip-api.com), [ip2loc](https://ip2loc.com), [ipinfo](https://ipinfo.io) etc.) și apelați-l pentru fiecare IP public pe care îl obțineți. `REZOLVAT`
-
-Creați un raport text /markdown în repository în care:
-
-3. (0.25p) afișați locațiile din lume pentru rutele către mai multe site-uri din regiuni diferite: din Asia, Africa și Australia căutând site-uri cu extensia .cn, .za, .au. Folositi IP-urile acestora. `REZOLVAT`
-4. (0.25p) Afișați: Orașul, Regiunea și Țara (acolo unde sunt disponibile) prin care trece mesajul vostru pentru a ajunge la destinație. `REZOLVAT`
-5. (0.25p) Executați codul din mai multe locații: **VPS** creat la preambul, de la facultate, de acasă, de pe o rețea publică și salvați toate rutele obținute într-un fișier pe care îl veți prezenta `REZOLVAT`
-6. (0.25p) Afișați rutele prin diverse țări pe o hartă folosind orice bibliotecă de plotare (plotly, matplotlib, etc) `REZOLVAT`
-
-
-<a name="dns1"></a> 
-## Server DNS Ad Blocker `REZOLVAT`
-În cadrul acestei teme, veți avea de implementat un blocker de reclame și tracking după modelul [pi-hole](https://pi-hole.net/).
-
-1. Citiți despre DNS în [secțiunea de curs](https://github.com/senisioi/computer-networks/tree/2023/capitolul2#dns). `REZOLVAT`
-2. Scrieți codul unei aplicații de tip DNS server. Puteți urmări un tutorial [în Rust aici](https://github.com/EmilHernvall/dnsguide/tree/master) și puteți folosi ca punct de plecare [codul în python disponibil în capitolul 6](https://github.com/senisioi/computer-networks/tree/2023/capitolul6#scapy_dns). `REZOLVAT`
-3. Utilizați o listă deja curatoriată de domenii asociate cu [reclame și tracking](https://github.com/anudeepND/blacklist) cu scopul de a bloca acele domenii. De fiecare dată când vine o cerere către serverul vostru pentru domenii din lista respectivă, serverul trebuie să [returneaze IP-ul](https://superuser.com/questions/1030329/better-to-block-a-host-to-0-0-0-0-than-to-127-0-0-1) `0.0.0.0`. `REZOLVAT`
-4. Creați o orchestrație docker compose (pe modelul `simple_flask.py` făcut la curs) care să pornească codul vostru în python și să pornească serverul DNS pe localhost (puteți pune chiar pe portul 53).
-5. Setați serverul să fie DNS-ul principal pentru calculatorul vostru: `REZOLVAT`
-    - [Linux](https://www.linuxfordevices.com/tutorials/linux/change-dns-on-linux)
-    - [Windows & MacOS](https://www.hellotech.com/guide/for/how-to-change-dns-server-windows-mac)
-6. Dacă accesați un site cu multe reclame (ex. https://www.accuweather.com/) ar trebui să apară curat în browser. `REZOLVAT`
-7. Salvați într-un fișier toate cererile pe care le blocați pe parcursul unei zile de navigat pe internet. Încercați să adunați minim 100 de nume blocate. `REZOLVAT`
-8. Obțineți niște statistici pentru a verifica câte din numele blocate aparțin unor companii precum google, facebook etc. și care sunt cele mai frecvente companii pe care le blocați. Pentru obținerea statisticilor aveți mai multe variante a) verificați dacă un domeniu conține cuvinte precum `google`, `facebook`, etc. b) verificați dacă name serverul pentru acel domeniu conține numele unor companii c) verificați dacă IP-ul pentru acele domenii sau pentru name server sunt parte dintr-o rețea a vreunei companii. Pentru a afla mai multe informații despre un IP și cine îl deține, puteți folosi reverse DNS (e.g., `dig -x 80.96.21.88 +trace`) sau `whois 80.96.21.209` sau un API precum https://ipinfo.io/ `REZOLVAT`
-
-
-
-<a name="dns2"></a> 
-## Tunel DNS
-În cadrul acestei teme veți avea de implementat un client și un server care vor utiliza pachete DNS malformate pentru a crea un tunel prin care se pot transmite informații arbitrare.
-Este un atac destul de [periculos](https://www.catchpoint.com/network-admin-guide/dns-tunneling) iar această temă are scopul de a vă familiariza cu principiile acestui atac cu scopul de a putea crea metode de protecție pe rețelele cu care veți lucra. Nu încercați să reproduceți metoda pe rețele publice, există [o groază de mijloace](https://www.prosec-networks.com/en/blog/dns-tunneling-erkennen/) prin care se poate descoperi tipul acesta de trafic pe rețea.
-
-Ca model, puteți să vă inspirați din aplicații care fac deja asta, cum ar fi [dnstt](https://www.bamsoftware.com/software/dnstt/), [iodine](https://github.com/yarrick/iodine) și multe altele.
-
-
-În cele ce urmează vom presupune că lucrăm cu VPS de la Oracle Cloud. Principiile sunt aceleași și dacă alegeți alt tip de cloud sau chiar self-hosting.
-
-1. Citiți despre tuneluri DNS pe pagina https://dnstunnel.de și pe pagina despre [mitigare](https://www.prosec-networks.com/en/blog/dns-tunneling-erkennen/)
-2. Deschideți portul UDP 53 pentru conexiuni din exterior, pe OCI trebuie deschis și din [iptables](https://judexzhu.github.io/Iptables-Basic-Knowledge/) și din [rețeaua virtuală VCN](https://stackoverflow.com/a/63648081): `sudo sudo iptables -I INPUT 6 -p udp -m udp --dport 53 -j ACCEPT && sudo iptables -I INPUT 6 -m state --state NEW -p tcp --dport 8080 -j ACCEPT && sudo netfilter-persistent save` mai multe despre [iptables si aici](https://www.digitalocean.com/community/tutorials/iptables-essentials-common-firewall-rules-and-commands)
-3. Pentru a verifica că merge conexiunea, porniți serverul DNS de la punctul anterior și testați-l cu dig, dar opriți resolverul existent `systemctl start systemd-resolved`
-4. Configurați intrări NS și A ca în exemplul de pe https://dnstunnel.de și testați cu dig că se face rezolvarea numelor în mod corect 
-5. Modificați codul de DNS server de la punctul anterior pentru a putea cere și transfera un fișier de la server la client folosind pachete malformate DNS, modificând query si response packet, [exemplu aici](https://dnstunnel.de/#communication); clientul poate trimite cerere pentru un nume_fisier.domeniu.tunel.live iar serverul răspunde cu pachete TXT care contin fisierul pe bucăți codificat binar
-6. Atenție că datele transmise prin protocolul UDP se pot pierde, **trebuie să aveți un stop and wait sau fereastră glisantă prin care să vă asigurați că tot fișierul ajunge la destinație**; la demo veți prezenați [md5 checksum](https://www.tecmint.com/generate-verify-check-files-md5-checksum-linux/) pentru fișier; programul trebuie să își continue starea și dacă pierdeți conexiunea de rețea în timp ce faceți transferul
-7. În cazul în care nu puteți rezolva punctul anterior, primiți 1p pe exercițiul acesta dacă copiați fișierul cu secury copy (scp) folosind o unealtă de DNS tunnelling existentă (iodine, dnstt, ozymandns etc).
-
-
-<a name="dns3"></a> 
-### Exercițiu Extra
-Dacă ați lipsit la laboratoare sau nu ați putut da un testul, puteți recupera nota făcând acest exercițiu.
-Faceți tunelul DNS de la exercițiul anterior să accepte trafic arbitrar prin care serverul DNS să devină SOCKS5 proxy și să direcționați trafic din browser după modelul [iodine](https://github.com/yarrick/iodine) și [aici](https://medium.com/@darxtrix/tunnel-your-way-to-free-internet-1a2e9120ddc)
-Acest exercițiu este valabil doar în sesiunea curentă și nu se poate recupera la restanță, mărire etc. La restanță sau mărire, va trebui să dați testul de laborator.
-
-<a name="arp"></a> 
-## ARP Spoofing și TCP Hijacking 
-
-
-## Structura containerelor
-Partea asta se rezolvă folosind aceeași structură de containere ca în capitolul3. Pentru a construi containerele, rulăm `docker compose up -d`.
-Imaginea este construită pe baza fișierul `docker/Dockerfile`, dacă facem modificări în fișier sau în scripturile shell, putem rula `docker-compose build --no-cache` pentru a reconstrui imaginile containerelor.
-
-
-### Observații
-1. E posibil ca tabelel ARP cache ale containerelor `router` și `server` să se updateze mai greu. Ca să nu dureze câteva ore până verificați că funcționează, puteți să le curățați în timp ce sau înainte de a declanșa atacul folosind [comenzi de aici](https://linux-audit.com/how-to-clear-the-arp-cache-on-linux/) `ip -s -s neigh flush all`
-2. Orice bucată de cod pe care o luați de pe net trebuie însoțită de comments în limba română, altfel nu vor fi punctate.
-3. Atacurile implementante aici au un scop didactic, nu încercați să folosiți aceste metode pentru a ataca alte persoane de pe o rețea locală.
-
-
-
-## ARP Spoofing 
-[ARP spoofing](https://samsclass.info/124/proj11/P13xN-arpspoof.html) presupune trimiterea unui pachet ARP de tip reply către o țintă pentru a o informa greșit cu privire la adresa MAC pereche pentru un IP. [Aici](https://medium.com/@ismailakkila/black-hat-python-arp-cache-poisoning-with-scapy-7cb1d8b9d242) și [aici](https://www.youtube.com/watch?v=hI9J_tnNDCc) puteți urmări cum se execută un atac de otrăvire a tabelei cache ARP stocată pe diferite mașini.
-
-Arhitectura containerelor este definită aici, împreună cu schema prin care `middle` îi informează pe `server` și pe `router` cu privire la locația fizică (adresa MAC) unde se găsesc IP-urile celorlalți. 
-
+## Project Structure
 
 ```
-            MIDDLE------------\
-        subnet2: 198.7.0.3     \
-        MAC: 02:42:c6:0a:00:02  \
-               forwarding        \ 
-              /                   \
-             /                     \
-Poison ARP 198.7.0.1 is-at         Poison ARP 198.7.0.2 is-at 
-           02:42:c6:0a:00:02         |         02:42:c6:0a:00:02
-           /                         |
-          /                          |
-         /                           |
-        /                            |
-    SERVER <---------------------> ROUTER <---------------------> CLIENT
-net2: 198.7.0.2                      |                           net1: 172.7.0.2
-MAC: 02:42:c6:0a:00:03               |                            MAC eth0: 02:42:ac:0a:00:02
-                           subnet1:  172.7.0.1
-                           MAC eth0: 02:42:ac:0a:00:01
-                           subnet2:  198.7.0.1
-                           MAC eth1: 02:42:c6:0a:00:01
-                           subnet1 <------> subnet2
-                                 forwarding
+src/
+├── tcp_server.py           # Basic TCP server implementation
+├── router.sh              # Network routing and security configuration
+├── dns/                   # DNS tunneling and analysis tools
+│   ├── udp_client.py      # DNS tunneling client implementation
+│   ├── md5check.py        # File integrity verification tool
+│   └── tunnel_files/      # Sample files for tunneling demonstrations
+├── traceroute/            # Network path analysis toolkit
+│   ├── traceroute.py      # Custom traceroute implementation
+│   ├── report.py          # Automated report generation
+│   ├── ai_report_selection_ui.py  # Interactive route visualization
+│   └── reports/           # Generated global traceroute reports
+└── arp_spoofing/          # ARP spoofing security demonstration
+    ├── arp_spoofing.py    # ARP spoofing implementation
+    └── instructions.md    # Detailed usage instructions
 ```
 
-Fiecare container execută la secțiunea command în `docker-compose.yml` un shell script prin care se configurează rutele. [Cient](https://github.com/retele-2023/proiect/blob/main/src/client.sh) și [server](https://github.com/retele-2023/proiect/blob/main/src/server.sh) setează ca default gateway pe router (anulând default gateway din docker). 
+## Installation
 
-În plus, adaugă ca nameserver 8.8.8.8, dacă vreți să testați [DNS spoofing](https://networks.hypha.ro/capitolul6/#scapy_dns_spoofing). 
+### Prerequisites
+- Python 3.7+
+- Scapy library for packet manipulation
+- Docker (for ARP spoofing demonstrations)
+- Root privileges (required for raw socket operations)
+- Linux environment (recommended for full functionality)
 
-[Middle](https://github.com/retele-2023/proiect/blob/main/src/middle.sh) setează `ip_forwarding=1` și regula: `iptables -t nat -A POSTROUTING -j MASQUERADE` pentru a permite mesajelor care sunt [forwardate de el să iasă din rețeaua locală](https://askubuntu.com/questions/466445/what-is-masquerade-in-the-context-of-iptables). 
+### Setup
+```bash
+git clone https://github.com/andreiOpran/NetSecToolkit.git
+cd NetSecToolkit
+pip install scapy netfilterqueue requests folium
+```
 
+## Usage Guide
 
-Rulati procesul de otrăvire a tabelei ARP din diagrama de mai sus pentru containerele `server` și `router` în mod constant, cu un time.sleep de câteva secunde pentru a nu face flood de pachete. (Hint: puteți folosi două [thread-uri](https://realpython.com/intro-to-python-threading/#starting-a-thread) pentru otrăvirea routerului și a serverului).
+### TCP Server
+Simple TCP server demonstrating basic network communication:
 
+```bash
+cd src
+python tcp_server.py
+```
 
-Pe lângă print-urile și mesajele de logging din programele voastre, rulați în containerul middle: `tcpdump -SntvXX -i any` iar pe `server` faceți un `wget http://old.fmi.unibuc.ro`. Dacă middle este capabil să vadă conținutul HTML din request-ul server-ului, înseamnă că atacul a reușit. Altfel încercați să curățați cache-ul ARP al serverului.
+The server operates on `localhost:10000` and provides detailed logging of all connections and message exchanges.
 
-<a name="tcp"></a> 
-## TCP Hijacking 
+### DNS Tunneling System
 
-Modificați `tcp_server.py` și `tcp_client.py` din repository `src` și rulați-le pe containerul `server`, respectiv `client` ca să-și trimită în continuu unul altuia mesaje random (generați text sau numere, ce vreți voi). Puteți folosi time.sleep de o secundă/două să nu facă flood. Folosiți soluția de la exercițiul anterior pentru a vă interpune în conversația dintre `client` și `server`.
-După ce ați reușit atacul cu ARP spoofing și interceptați toate mesajele, modificați conținutul mesajelor trimise de către client și de către server și inserați voi un mesaj adițional în payload-ul de TCP. Dacă atacul a funcționat atât clientul cât și serverul afișează mesajul pe care l-ați inserat. Atacul acesta se numeșete [TCP hijacking](https://www.geeksforgeeks.org/session-hijacking/) pentru că atacatorul devine un [proxy](https://en.wikipedia.org/wiki/Proxy_server) pentru conexiunea TCP dintre client și server.
+#### Client Operation
+Perform covert file transfer through DNS protocol:
 
+```bash
+cd src/dns
+python udp_client.py
+```
 
-### Indicații de rezolvare
+Key features:
+- Base64 encoding for binary data transmission
+- Stop-and-wait protocol for reliability
+- Automatic file reconstruction and validation
+- Configurable DNS server endpoints and timeout handling
 
-1. Puteți urmări exemplul din curs despre [Netfilter Queue](https://networks.hypha.ro/capitolul6/#scapy_nfqueue) pentru a pune mesajele care circulă pe rețeaua voastră într-o coadă ca să le procesați cu scapy. Atenție! netfilterqueu nu va funcționa cu windows sau mac.
-2. Urmăriți exemplul [DNS Spoofing](https://networks.hypha.ro/capitolul6/#scapy_dns_spoofing) pentru a vedea cum puteți altera mesajele care urmează a fi redirecționate într-o coadă și pentru a le modifica payload-ul înainte de a le trimite (adică să modificați payload-ul înainte de a apela `packet.accept()`).
-4. Verificați dacă pachetele trimise/primite au flag-ul PUSH setat. Are sens să alterați `SYN` sau `FIN`?
-5. Țineți cont de lungimea mesajului pe care îl introduceți pentru ajusta `Sequence Number` (sau `Acknowledgement Number`?), dacă e necesar.
-6. Încercați întâi să captați și să modificați mesajele de pe containerul router pentru a testa TCP hijacking apoi puteți combina exercițiul 1 cu metoda de hijacking.
-7. Scrieți pe teams orice întrebări aveți, indiferent de cât de simple sau complicate vi se par.
+#### File Integrity Verification
+Verify the integrity of transferred files:
+
+```bash
+python md5check.py example
+```
+
+This tool compares `tunnel_files/example.txt` with `received_files/example_received.txt` using MD5 hashing.
+
+### Traceroute Analysis System
+
+#### Basic Network Path Analysis
+```bash
+cd src/traceroute
+python traceroute.py
+```
+
+#### Comprehensive Geographic Reporting
+```bash
+python report.py
+```
+
+#### Interactive Route Visualization
+```bash
+python ai_report_selection_ui.py
+```
+
+Features include:
+- Real-time geographic IP location mapping
+- Multi-destination network analysis
+- Interactive route visualization with Folium
+- Global network infrastructure analysis
+
+### ARP Spoofing Security Demonstration
+
+**Warning**: This tool is designed for educational purposes and controlled security testing environments only.
+
+#### Environment Setup
+```bash
+cd src/arp_spoofing
+# Follow detailed instructions in instructions.md
+```
+
+#### Demonstration Workflow
+1. **Terminal 1**: Execute ARP spoofing script for network interception
+2. **Terminal 2**: Monitor network traffic using tcpdump
+3. **Terminal 3**: Generate target network traffic for analysis
+
+## Global Network Analysis
+
+Our comprehensive traceroute analysis includes data from multiple international locations:
+
+- **Romania**: Constanța, Bucharest
+- **India**: Doddaballapura
+- **Australia**: Sydney
+- **United States**: Santa Clara, San Francisco
+- **Germany**: Frankfurt am Main
+
+Each analysis provides:
+- Complete network path with detailed hop-by-hop analysis
+- Geographic coordinates and location data for each network hop
+- Comprehensive city, region, and country information
+- Interactive map visualization of global network routes
+
+## Technical Implementation Details
+
+### DNS Tunneling Protocol Specification
+- **Data Encoding**: Base64 encoding for reliable binary data transmission
+- **Transport Protocol**: DNS TXT record queries and responses
+- **Domain Naming Convention**: `chunk{index}.{filename}.tunnel.broski.software`
+- **Reliability Mechanism**: Stop-and-wait protocol with comprehensive timeout handling
+
+### Traceroute Implementation Architecture
+- **Methodology**: UDP packet transmission with incremental TTL values
+- **ICMP Response Handling**: Time Exceeded and Destination Unreachable message processing
+- **Geolocation Integration**: IPinfo.io API for real-time location data
+- **Visualization Framework**: Folium-based interactive mapping with route plotting
+
+### ARP Spoofing Security Mechanism
+- **Target Strategy**: Gateway impersonation through ARP table manipulation
+- **Attack Vector**: Gratuitous ARP reply injection
+- **Traffic Interception**: NetfilterQueue integration for packet capture
+- **Network Restoration**: Automated network healing procedures on termination
+
+## DNS Ad Blocking Implementation
+
+As part of our comprehensive network security approach, we implemented Pi-hole DNS filtering on our routers, achieving:
+- **40,000+ blocked advertisements** across multiple devices
+- Improved network performance through reduced bandwidth usage
+- Enhanced privacy protection through tracking domain blocking
+- Custom blocklist management and whitelist configuration
+
+## Network Security Configuration
+
+### Advanced Router Setup
+```bash
+sudo ./src/router.sh
+```
+
+This configuration script implements:
+- TCP RST packet filtering for custom connection handling
+- IP masquerading and NAT configuration
+- Advanced iptables rules for traffic redirection and security
+
+## Sample Outputs and Results
+
+### Traceroute Analysis Example
+```
+Hop 1: 192.168.1.1 (Local Gateway) - 2.34 ms
+Hop 2: 10.0.0.1 (ISP Regional Router) - 15.67 ms
+Hop 3: 203.0.113.1 (International Hub) - 45.23 ms
+Destination reached: Target Server - 120.45 ms
+```
+
+### DNS Tunneling Transfer Example
+```
+Received chunk 1: This is an example file...
+Received chunk 2: for DNS tunneling demonst...
+Received chunk 3: ration purposes only...
+Downloaded file at "received_files/example_received.txt".
+MD5 verification: Files are identical.
+Transfer completed successfully.
+```
+
+## Security Considerations and Best Practices
+
+- **ARP Spoofing Tools**: Strictly for controlled educational environments and authorized security testing
+- **DNS Tunneling**: Ensure compliance with DNS provider terms of service and local regulations
+- **Administrative Privileges**: Raw socket operations require root access for proper functionality
+- **Network Performance**: Monitor network impact during testing and analysis operations
+- **Legal Compliance**: Ensure all testing is conducted within legal boundaries and with proper authorization
+
+## Collaborative Development
+
+This project was developed collaboratively by a team of 3 students, combining expertise in:
+- Network protocol analysis and implementation
+- Security research and ethical hacking techniques
+- Geographic data visualization and network mapping
+- DNS infrastructure and traffic analysis
+
+## Educational Resources and References
+
+- [Scapy Documentation and Tutorials](https://scapy.net/)
+- [RFC 1035 - Domain Name System Protocol](https://tools.ietf.org/html/rfc1035)
+- [RFC 826 - Address Resolution Protocol](https://tools.ietf.org/html/rfc826)
+- [IPinfo.io Geolocation API Documentation](https://ipinfo.io/)
+- [Pi-hole Network-wide Ad Blocking](https://pi-hole.net/)
+
+## Project Team
+
+Developed collaboratively by [@andreiOpran](https://github.com/andreiOpran), [@alex6damian](https://github.com/alex6damian) and [@AlexHornet76](https://github.com/AlexHornet76).
+
+This project serves educational and research purposes in network security and protocol analysis. Always ensure proper authorization and ethical guidelines when using these tools in any network environment.
